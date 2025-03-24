@@ -54,5 +54,6 @@ Future<bool> backgroundLocationPermission() async {
   print(output);
   return output;
 }
+
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!
