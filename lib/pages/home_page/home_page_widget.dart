@@ -39,14 +39,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setDarkModeSetting(context, ThemeMode.light);
       if (FFAppState().isLogin) {
-        if (!FFAppState().fromPinPage) {
-          context.goNamed(PinLoginPageWidget.routeName);
+        if (!FFAppState().fromSetPin) {
+          context.goNamed(SetPinPageWidget.routeName);
 
           return;
         }
       } else {
-        if (!FFAppState().fromSetPin) {
-          context.goNamed(SetPinPageWidget.routeName);
+        if (!FFAppState().fromPinPage) {
+          context.goNamed(PinLoginPageWidget.routeName);
 
           return;
         }
