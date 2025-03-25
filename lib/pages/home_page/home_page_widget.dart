@@ -52,6 +52,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         }
       }
 
+      FFAppState().isLoginNew = true;
+      safeSetState(() {});
       await actions.getBackgroundLocation(
         FFAppState().employeeId,
         FFAppState().profilePhone,
