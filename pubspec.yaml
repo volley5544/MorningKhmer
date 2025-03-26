@@ -65,6 +65,7 @@ dependencies:
   google_sign_in_ios: 5.7.7
   google_sign_in_platform_interface: 2.4.5
   google_sign_in_web: 0.12.4+2
+  internet_connection_checker_plus: 2.7.1
   intl: 0.19.0
   json_path: 0.7.2
   package_info_plus: ^8.0.2
@@ -101,7 +102,7 @@ dependencies:
   sqflite_common: 2.5.4+3
   stream_transform: 2.1.0
   timeago: 3.6.1
-  unique_identifier: 0.3.0
+  unique_identifier: 0.4.0
   url_launcher: 6.3.0
   url_launcher_android: 6.3.10
   url_launcher_ios: 6.3.1
