@@ -54,12 +54,12 @@ dependencies:
   equatable: 2.0.7
   expandable: 5.0.1
   file_picker: 10.1.9
-  firebase_auth: ^5.6.0
+  firebase_auth: 5.6.0
   firebase_auth_platform_interface: 7.7.0
   firebase_auth_web: 5.15.0
-  firebase_core: ^3.14.0
-  firebase_core_platform_interface: ^5.4.0
-  firebase_core_web: ^2.23.0
+  firebase_core: 3.14.0
+  firebase_core_platform_interface: 5.4.0
+  firebase_core_web: 2.23.0
   firebase_performance: 0.10.1+7
   firebase_performance_platform_interface: 0.1.5+7
   firebase_performance_web: 0.1.7+13
