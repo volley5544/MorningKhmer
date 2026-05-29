@@ -3,9 +3,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:flutter/services.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'set_pin_page_model.dart';
 export 'set_pin_page_model.dart';
 
@@ -30,6 +31,8 @@ class _SetPinPageWidgetState extends State<SetPinPageWidget> {
     _model = createModel(context, () => SetPinPageModel());
 
     _model.pinCodeFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -61,22 +64,52 @@ class _SetPinPageWidgetState extends State<SetPinPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'កំណត់ម្ជុលរបស់អ្នក។',
+                      FFLocalizations.of(context).getText(
+                        'whuc4k7q' /* កំណត់ម្ជុលរបស់អ្នក។ */,
+                      ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
-                                fontFamily: 'Inter Tight',
+                                font: GoogleFonts.interTight(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .fontStyle,
                               ),
                     ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(44.0, 8.0, 44.0, 0.0),
                       child: Text(
-                        'ម្ជុលនេះនឹងប្រើដើម្បីបញ្ចូលកម្មវិធីនៅពេលបន្ទាប់',
+                        FFLocalizations.of(context).getText(
+                          'dsthx89z' /* ម្ជុលនេះនឹងប្រើដើម្បីបញ្ចូលកម្... */,
+                        ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodySmall.override(
-                              fontFamily: 'Inter',
+                              font: GoogleFonts.inter(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontStyle,
+                              ),
                               letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontStyle,
                             ),
                       ),
                     ),
@@ -89,9 +122,22 @@ class _SetPinPageWidgetState extends State<SetPinPageWidget> {
                         length: 6,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Inter Tight',
+                                  font: GoogleFonts.interTight(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
                                   color: FlutterFlowTheme.of(context).primary,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
                                 ),
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         enableActiveFill: false,
@@ -104,6 +150,9 @@ class _SetPinPageWidgetState extends State<SetPinPageWidget> {
                         obscureText: false,
                         hintCharacter: '-',
                         keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
                         pinTheme: PinTheme(
                           fieldHeight: 55.0,
                           fieldWidth: 50.0,
@@ -174,9 +223,11 @@ class _SetPinPageWidgetState extends State<SetPinPageWidget> {
                     FFAppState().pinCode = _model.pinCodeController!.text;
                     FFAppState().update(() {});
 
-                    context.goNamed(HomePageWidget.routeName);
+                    context.goNamed(SuperAppPageWidget.routeName);
                   },
-                  text: 'Confirm',
+                  text: FFLocalizations.of(context).getText(
+                    'sfwe1e1n' /* Confirm */,
+                  ),
                   options: FFButtonOptions(
                     width: 270.0,
                     height: 50.0,
@@ -185,9 +236,21 @@ class _SetPinPageWidgetState extends State<SetPinPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryText,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Inter Tight',
+                          font: GoogleFonts.interTight(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
                         ),
                     elevation: 2.0,
                     borderSide: BorderSide(

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "323525059078",
-    "project_id": "arunsawad-khmer",
-    "storage_bucket": "arunsawad-khmer.firebasestorage.app"
+    "project_number": "30564555989",
+    "project_id": "arunsawad-khmer-uat",
+    "storage_bucket": "arunsawad-khmer-uat.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:323525059078:android:8bd8a52e8ec2a24e165987",
+        "mobilesdk_app_id": "1:30564555989:android:961d20e5f89b2f10cf565c",
         "android_client_info": {
           "package_name": "com.srisawad.morningkhmer"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCBWChyj0QKETXaReH1rhpNkD5tN6mXSTk"
+          "current_key": "AIzaSyAPu9sl3DoUjfH_9LndKwNRIbSFJu_uooU"
         }
       ],
       "services": {

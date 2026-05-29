@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -110,6 +109,45 @@ class FFAppState extends ChangeNotifier {
   set deviceId(String value) {
     _deviceId = value;
     prefs.setString('ff_deviceId', value);
+  }
+
+  DocumentReference? _urlStorageDocRef =
+      FirebaseFirestore.instance.doc('/AppConfig/Djewnrk92oQa4g3EK76s');
+  DocumentReference? get urlStorageDocRef => _urlStorageDocRef;
+  set urlStorageDocRef(DocumentReference? value) {
+    _urlStorageDocRef = value;
+  }
+
+  UrlStorageDataModelStruct _urlStorageData = UrlStorageDataModelStruct();
+  UrlStorageDataModelStruct get urlStorageData => _urlStorageData;
+  set urlStorageData(UrlStorageDataModelStruct value) {
+    _urlStorageData = value;
+  }
+
+  void updateUrlStorageDataStruct(
+      Function(UrlStorageDataModelStruct) updateFn) {
+    updateFn(_urlStorageData);
+  }
+
+  ProfileDataModelStruct _profileAppState = ProfileDataModelStruct();
+  ProfileDataModelStruct get profileAppState => _profileAppState;
+  set profileAppState(ProfileDataModelStruct value) {
+    _profileAppState = value;
+  }
+
+  void updateProfileAppStateStruct(Function(ProfileDataModelStruct) updateFn) {
+    updateFn(_profileAppState);
+  }
+
+  AppVersionDataModelStruct _appVersionData = AppVersionDataModelStruct();
+  AppVersionDataModelStruct get appVersionData => _appVersionData;
+  set appVersionData(AppVersionDataModelStruct value) {
+    _appVersionData = value;
+  }
+
+  void updateAppVersionDataStruct(
+      Function(AppVersionDataModelStruct) updateFn) {
+    updateFn(_appVersionData);
   }
 }
 

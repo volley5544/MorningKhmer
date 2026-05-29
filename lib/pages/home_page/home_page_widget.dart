@@ -1,4 +1,4 @@
-import '/auth/firebase_auth/auth_util.dart';
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/loading_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -12,6 +12,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
@@ -92,6 +93,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       );
       Navigator.pop(context);
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -144,12 +147,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               },
             ),
             title: Text(
-              'Home Page',
+              FFLocalizations.of(context).getText(
+                'msu2mycr' /* Home Page */,
+              ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Inter Tight',
+                    font: GoogleFonts.interTight(
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
             ),
             actions: [],
@@ -198,14 +213,26 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      'ការផ្សព្វផ្សាយ',
+                                      FFLocalizations.of(context).getText(
+                                        'yzgvhu8z' /* ការផ្សព្វផ្សាយ */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            font: GoogleFonts.inter(
+                                              fontWeight: FontWeight.bold,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                             fontSize: 23.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                     ),
                                   ],
@@ -331,14 +358,25 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {},
                                 child: Text(
-                                  'សេចក្តីប្រកាស',
+                                  FFLocalizations.of(context).getText(
+                                    'xvdqcbt7' /* សេចក្តីប្រកាស */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        font: GoogleFonts.inter(
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         fontSize: 23.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),

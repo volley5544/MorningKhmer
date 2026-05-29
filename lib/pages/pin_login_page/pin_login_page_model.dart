@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'pin_login_page_widget.dart' show PinLoginPageWidget;
@@ -20,6 +21,10 @@ class PinLoginPageModel extends FlutterFlowModel<PinLoginPageWidget> {
   bool? checkGpsEnable;
   // Stores action output result for [Custom Action - checkGpsServiceEnable] action in PinCode widget.
   bool? checkGpsEnable2;
+  // Stores action output result for [Backend Call - API (profile)] action in PinCode widget.
+  ApiCallResponse? getprofileAPI;
+  // Stores action output result for [Action Block - CheckStatusAPI] action in PinCode widget.
+  String? checkStatusProfile;
 
   @override
   void initState(BuildContext context) {

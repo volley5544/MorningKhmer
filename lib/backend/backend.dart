@@ -7,6 +7,7 @@ import 'schema/key_storage1_record.dart';
 import 'schema/application_config_record.dart';
 import 'schema/user_location_log_record.dart';
 import 'schema/user_custom_record.dart';
+import 'schema/app_config_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -20,6 +21,7 @@ export 'schema/key_storage1_record.dart';
 export 'schema/application_config_record.dart';
 export 'schema/user_location_log_record.dart';
 export 'schema/user_custom_record.dart';
+export 'schema/app_config_record.dart';
 
 /// Functions to query ImageLinkStorageRecords (as a Stream and as a Future).
 Future<int> queryImageLinkStorageRecordCount({
@@ -201,6 +203,43 @@ Future<List<UserCustomRecord>> queryUserCustomRecordOnce({
     queryCollectionOnce(
       UserCustomRecord.collection,
       UserCustomRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query AppConfigRecords (as a Stream and as a Future).
+Future<int> queryAppConfigRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      AppConfigRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<AppConfigRecord>> queryAppConfigRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      AppConfigRecord.collection,
+      AppConfigRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<AppConfigRecord>> queryAppConfigRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      AppConfigRecord.collection,
+      AppConfigRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

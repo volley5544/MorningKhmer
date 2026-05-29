@@ -1,0 +1,222 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'checkin_success_page_model.dart';
+export 'checkin_success_page_model.dart';
+
+class CheckinSuccessPageWidget extends StatefulWidget {
+  const CheckinSuccessPageWidget({super.key});
+
+  static String routeName = 'CheckinSuccessPage';
+  static String routePath = '/checkinSuccessPage';
+
+  @override
+  State<CheckinSuccessPageWidget> createState() =>
+      _CheckinSuccessPageWidgetState();
+}
+
+class _CheckinSuccessPageWidgetState extends State<CheckinSuccessPageWidget> {
+  late CheckinSuccessPageModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => CheckinSuccessPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondary,
+        body: SafeArea(
+          top: true,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Lottie.network(
+                      'https://assets10.lottiefiles.com/packages/lf20_xlkxtmul.json',
+                      width: 200.0,
+                      height: 200.0,
+                      fit: BoxFit.cover,
+                      frameRate: FrameRate(60.0),
+                      repeat: false,
+                      animate: true,
+                    ),
+                  ],
+                ),
+              ),
+              Text(
+                FFLocalizations.of(context).getText(
+                  '4h065n2k' /* Success! */,
+                ),
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      font: GoogleFonts.outfit(
+                        fontWeight: FontWeight.w500,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
+                      ),
+                      color: Colors.white,
+                      fontSize: 32.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.w500,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    '6t48v7i9' /* Checkin Successful */,
+                  ),
+                  style: FlutterFlowTheme.of(context).titleSmall.override(
+                        font: GoogleFonts.outfit(
+                          fontWeight: FontWeight.w300,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                        ),
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w300,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                      ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 44.0, 24.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            context
+                                .goNamed(DashboardCheckinPageWidget.routeName);
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'avymu6f4' /* Return to Dashboard */,
+                          ),
+                          options: FFButtonOptions(
+                            width: 130.0,
+                            height: 50.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: Colors.white,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.outfit(
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                                  color: Color(0xFF39D2C0),
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            context.goNamed(CheckinStatusPageWidget.routeName);
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'hdz2a7oq' /* Check Statue */,
+                          ),
+                          options: FFButtonOptions(
+                            width: 130.0,
+                            height: 50.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: Colors.white,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.outfit(
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                                  color: Color(0xFFF0CE00),
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

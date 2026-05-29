@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
@@ -18,6 +19,7 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;
+  late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
   // Stores action output result for [Custom Action - backgroundLocationCheck] action in Button widget.
   bool? backgroundLocationCheck;
@@ -27,6 +29,14 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   bool? checkGpsEnable;
   // Stores action output result for [Custom Action - checkGpsServiceEnable] action in Button widget.
   bool? checkGpsEnable2;
+  // Stores action output result for [Backend Call - API (login)] action in Button widget.
+  ApiCallResponse? authLoginAPI;
+  // Stores action output result for [Action Block - CheckStatusAPI] action in Button widget.
+  String? checkStatusLogin;
+  // Stores action output result for [Backend Call - API (profile)] action in Button widget.
+  ApiCallResponse? getProfileAPI;
+  // Stores action output result for [Action Block - CheckStatusAPI] action in Button widget.
+  String? checkStatusProfile;
   // Stores action output result for [Custom Action - checkFirebase] action in Button widget.
   String? customFirebaseAuthen;
   // Stores action output result for [Custom Action - checkUserFirebase] action in Button widget.
@@ -35,7 +45,9 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   UserCustomRecord? createdUserCustom;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    passwordVisibility = false;
+  }
 
   @override
   void dispose() {

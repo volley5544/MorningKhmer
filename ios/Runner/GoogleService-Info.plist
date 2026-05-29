@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyCWpkuiUYJK2H36LmjsrGGM3hNgfy6a50k</string>
+	<string>AIzaSyDV-cIqYkhdc3l5fj4ujHGBpEoxzZ8TFsE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>323525059078</string>
+	<string>30564555989</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.srisawad.morningkhmer</string>
 	<key>PROJECT_ID</key>
-	<string>arunsawad-khmer</string>
+	<string>arunsawad-khmer-uat</string>
 	<key>STORAGE_BUCKET</key>
-	<string>arunsawad-khmer.firebasestorage.app</string>
+	<string>arunsawad-khmer-uat.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:323525059078:ios:edcdf64d0e092c4c165987</string>
+	<string>1:30564555989:ios:bf8c0c36376b583ccf565c</string>
 </dict>
 </plist>

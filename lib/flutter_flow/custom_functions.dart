@@ -10,7 +10,8 @@ import 'place.dart';
 import 'uploaded_file.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '/auth/firebase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
+import '/auth/custom_auth/auth_util.dart';
 
 bool? checkPin(String? input) {
   if (input!.length != 6) {
@@ -39,4 +40,37 @@ String? getBuildNumber(String? buildVersion) {
   print(numberString); // Output: 21
 
   return numberString;
+}
+
+double? getLatitude(LatLng? location) {
+  if (location == null) return null;
+
+  return location.latitude;
+}
+
+double? getLongitude(LatLng? location) {
+  if (location == null) return null;
+
+  return location.longitude;
+}
+
+bool? isContainString(
+  String? input,
+  String? containText,
+) {
+  return containText!.contains(input!);
+}
+
+int? getIndexOfSomethingList(
+  List<String>? list,
+  String? input,
+) {
+  return list!.indexOf(input!);
+}
+
+LatLng? combineLatLng(
+  String? lat,
+  String? lng,
+) {
+  return LatLng(double.parse(lat!), double.parse(lng!));
 }

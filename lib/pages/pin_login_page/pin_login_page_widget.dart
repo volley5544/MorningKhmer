@@ -1,17 +1,21 @@
-import '/auth/firebase_auth/auth_util.dart';
+import '/auth/custom_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/actions/actions.dart' as action_blocks;
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
+import 'package:flutter/services.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pin_login_page_model.dart';
 export 'pin_login_page_model.dart';
@@ -74,6 +78,8 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -174,13 +180,28 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
                               ),
                               SelectionArea(
                                   child: Text(
-                                'Logout',
+                                FFLocalizations.of(context).getText(
+                                  'z2i5fddm' /* Logout */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               )),
                             ],
@@ -213,13 +234,32 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
                                       0.0, 0.0, 20.0, 0.0),
                                   child: SelectionArea(
                                       child: Text(
-                                    'Clear Cache',
+                                    FFLocalizations.of(context).getText(
+                                      '8xgh3dxe' /* Clear Cache */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   )),
                                 ),
@@ -250,15 +290,30 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 10.0, 0.0),
                           child: Text(
-                            'សូមស្វាគមន៍មកកាន់ Morning Khmer',
+                            FFLocalizations.of(context).getText(
+                              'tz2mjpkn' /* សូមស្វាគមន៍មកកាន់ Morning Khme... */,
+                            ),
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: Colors.black,
                                   fontSize: 28.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -271,13 +326,28 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'បញ្ចូល Pin ដើម្បីប្រើកម្មវិធី',
+                            FFLocalizations.of(context).getText(
+                              'enk1y9d4' /* បញ្ចូល Pin ដើម្បីប្រើកម្មវិធី */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  fontFamily: 'Inter Tight',
+                                  font: GoogleFonts.interTight(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .fontStyle,
+                                  ),
                                   color: Colors.black,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontStyle,
                                 ),
                           ),
                           Container(
@@ -297,10 +367,27 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          font: GoogleFonts.interTight(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .fontStyle,
                                         ),
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -316,6 +403,9 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
                                     obscuringCharacter: '●',
                                     hintCharacter: '*',
                                     keyboardType: TextInputType.number,
+                                    inputFormatters: [
+                                      FilteringTextInputFormatter.digitsOnly
+                                    ],
                                     pinTheme: PinTheme(
                                       fieldHeight: 55.0,
                                       fieldWidth: 50.0,
@@ -525,10 +615,59 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
                                           return;
                                         }
                                       }
+                                      _model.getprofileAPI =
+                                          await AuthGroup.profileCall.call(
+                                        token: currentAuthenticationToken,
+                                        url:
+                                            FFAppState().urlStorageData.baseUrl,
+                                        language: FFLocalizations.of(context)
+                                            .languageCode,
+                                      );
+
+                                      _shouldSetState = true;
+                                      _model.checkStatusProfile =
+                                          await action_blocks.checkStatusAPI(
+                                        context,
+                                        statusCode:
+                                            (_model.getprofileAPI?.statusCode ??
+                                                200),
+                                        responseBody:
+                                            (_model.getprofileAPI?.jsonBody ??
+                                                ''),
+                                      );
+                                      _shouldSetState = true;
+                                      if (_model.checkStatusProfile != null &&
+                                          _model.checkStatusProfile != '') {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return AlertDialog(
+                                              content: Text(
+                                                  _model.checkStatusProfile!),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
                                       FFAppState().fromPinPage = true;
+                                      FFAppState().profileAppState =
+                                          AuthGroup.profileCall.results(
+                                        (_model.getprofileAPI?.jsonBody ?? ''),
+                                      )!;
                                       safeSetState(() {});
 
-                                      context.goNamed(HomePageWidget.routeName);
+                                      context.goNamed(
+                                          SuperAppPageWidget.routeName);
 
                                       if (_shouldSetState) safeSetState(() {});
                                     },

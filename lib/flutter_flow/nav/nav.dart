@@ -2,10 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 
-import '/auth/base_auth_user_provider.dart';
+import '/auth/custom_auth/custom_auth_user_provider.dart';
 
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
@@ -23,8 +24,8 @@ class AppStateNotifier extends ChangeNotifier {
   static AppStateNotifier? _instance;
   static AppStateNotifier get instance => _instance ??= AppStateNotifier._();
 
-  BaseAuthUser? initialUser;
-  BaseAuthUser? user;
+  MorningKhmerAuthUser? initialUser;
+  MorningKhmerAuthUser? user;
   bool showSplashImage = true;
   String? _redirectLocation;
 
@@ -49,7 +50,7 @@ class AppStateNotifier extends ChangeNotifier {
   /// to perform subsequent actions (such as navigation) afterwards.
   void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
 
-  void update(BaseAuthUser newUser) {
+  void update(MorningKhmerAuthUser newUser) {
     final shouldUpdate =
         user?.uid == null || newUser.uid == null || user?.uid != newUser.uid;
     initialUser ??= newUser;
@@ -76,13 +77,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : LoginPageWidget(),
+          appStateNotifier.loggedIn ? SuperAppPageWidget() : LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : LoginPageWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? SuperAppPageWidget()
+              : LoginPageWidget(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
@@ -103,6 +105,41 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: PinLoginPageWidget.routeName,
           path: PinLoginPageWidget.routePath,
           builder: (context, params) => PinLoginPageWidget(),
+        ),
+        FFRoute(
+          name: DashboardCheckinPageWidget.routeName,
+          path: DashboardCheckinPageWidget.routePath,
+          builder: (context, params) => DashboardCheckinPageWidget(),
+        ),
+        FFRoute(
+          name: EmployeeCheckinPageWidget.routeName,
+          path: EmployeeCheckinPageWidget.routePath,
+          builder: (context, params) => EmployeeCheckinPageWidget(),
+        ),
+        FFRoute(
+          name: CheckinStatusPageWidget.routeName,
+          path: CheckinStatusPageWidget.routePath,
+          builder: (context, params) => CheckinStatusPageWidget(),
+        ),
+        FFRoute(
+          name: CheckinSuccessPageWidget.routeName,
+          path: CheckinSuccessPageWidget.routePath,
+          builder: (context, params) => CheckinSuccessPageWidget(),
+        ),
+        FFRoute(
+          name: ProfilePageWidget.routeName,
+          path: ProfilePageWidget.routePath,
+          builder: (context, params) => ProfilePageWidget(),
+        ),
+        FFRoute(
+          name: SuperAppPageWidget.routeName,
+          path: SuperAppPageWidget.routePath,
+          builder: (context, params) => SuperAppPageWidget(),
+        ),
+        FFRoute(
+          name: BlankPageWidget.routeName,
+          path: BlankPageWidget.routePath,
+          builder: (context, params) => BlankPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -222,6 +259,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -240,6 +278,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }
@@ -287,15 +326,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
+              ? Container(
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    'assets/images/__600x600px.png',
+                    fit: BoxFit.contain,
                   ),
                 )
               : page;
@@ -304,6 +339,7 @@ class FFRoute {
           return transitionInfo.hasTransition
               ? CustomTransitionPage(
                   key: state.pageKey,
+                  name: state.name,
                   child: child,
                   transitionDuration: transitionInfo.duration,
                   transitionsBuilder:
@@ -321,7 +357,8 @@ class FFRoute {
                     child,
                   ),
                 )
-              : MaterialPage(key: state.pageKey, child: child);
+              : MaterialPage(
+                  key: state.pageKey, name: state.name, child: child);
         },
         routes: routes,
       );
