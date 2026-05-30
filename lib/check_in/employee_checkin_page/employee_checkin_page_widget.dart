@@ -1198,27 +1198,25 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                       ),
                     ),
                   ),
-                  Expanded(
+                  Container(
+                    width: double.infinity,
+                    height: 285.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
                     child: Container(
                       width: double.infinity,
-                      height: 285.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child: Container(
+                      height: MediaQuery.sizeOf(context).height * 0.25,
+                      child: custom_widgets.DrawCircleMap(
                         width: double.infinity,
-                        height: MediaQuery.sizeOf(context).height * 0.25,
-                        child: custom_widgets.DrawCircleMap(
-                          width: double.infinity,
-                          height: double.infinity,
-                          latitude: 13.8055358,
-                          longitude: 100.3462335,
-                          radiusLo: 50.0,
-                          currentLoLat:
-                              functions.getLatitude(currentUserLocationValue),
-                          currentLoLng:
-                              functions.getLongitude(currentUserLocationValue),
-                        ),
+                        height: double.infinity,
+                        latitude: 13.8055358,
+                        longitude: 100.3462335,
+                        radiusLo: 50.0,
+                        currentLoLat:
+                            functions.getLatitude(currentUserLocationValue),
+                        currentLoLng:
+                            functions.getLongitude(currentUserLocationValue),
                       ),
                     ),
                   ),
