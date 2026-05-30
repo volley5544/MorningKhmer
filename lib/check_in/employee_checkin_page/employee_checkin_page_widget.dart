@@ -304,6 +304,7 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                 children: [
                   Container(
                     width: double.infinity,
+                    height: 125.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
@@ -480,262 +481,59 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                         ),
                       ),
                     ),
-                  Expanded(
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 0.0, 12.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 12.0, 12.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'cco8jndc' /* Select:  */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
+                  Container(
+                    width: double.infinity,
+                    height: 160.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 12.0, 12.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'cco8jndc' /* Select:  */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.inter(
                                               fontWeight: FontWeight.w600,
                                               fontStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
-                                      ),
-                                    ],
-                                  ),
-                                  Expanded(
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {},
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child:
-                                                    FlutterFlowDropDown<String>(
-                                                  controller: _model
-                                                          .dropDownBranchValueController ??=
-                                                      FormFieldController<
-                                                          String>(null),
-                                                  options: _model
-                                                      .locationListData!
-                                                      .listLocation
-                                                      .map((e) => e.branchName)
-                                                      .toList(),
-                                                  onChanged: (val) async {
-                                                    safeSetState(() => _model
-                                                            .dropDownBranchValue =
-                                                        val);
-                                                    _model.locationSelected = _model
-                                                        .locationListData
-                                                        ?.listLocation
-                                                        .elementAtOrNull(functions
-                                                            .getIndexOfSomethingList(
-                                                                _model
-                                                                    .locationListData
-                                                                    ?.listLocation
-                                                                    .map((e) => e
-                                                                        .branchName)
-                                                                    .toList()
-                                                                    .toList(),
-                                                                _model
-                                                                    .dropDownBranchValue)!);
-                                                    safeSetState(() {});
-                                                  },
-                                                  width: 200.0,
-                                                  height: 40.0,
-                                                  searchHintTextStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .inter(
-                                                              fontWeight:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .fontWeight,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                  searchTextStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .inter(
-                                                              fontWeight:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        font: GoogleFonts.inter(
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                  hintText: FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    '331wm3rp' /* Check-in location... */,
-                                                  ),
-                                                  searchHintText:
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                    'grm5nu76' /* search */,
-                                                  ),
-                                                  icon: Icon(
-                                                    Icons
-                                                        .keyboard_arrow_down_rounded,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 24.0,
-                                                  ),
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  elevation: 2.0,
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderWidth: 0.0,
-                                                  borderRadius: 8.0,
-                                                  margin: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 12.0, 0.0),
-                                                  hidesUnderline: true,
-                                                  isOverButton: false,
-                                                  isSearchable: true,
-                                                  isMultiSelect: false,
-                                                ),
-                                              ),
-                                            ],
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
-                                        ],
-                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          's9635h0e' /* Reason: */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                  Expanded(
+                                  ],
+                                ),
+                                Expanded(
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {},
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -743,19 +541,41 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Expanded(
-                                              child: Container(
+                                              child:
+                                                  FlutterFlowDropDown<String>(
+                                                controller: _model
+                                                        .dropDownBranchValueController ??=
+                                                    FormFieldController<String>(
+                                                        null),
+                                                options: _model
+                                                    .locationListData!
+                                                    .listLocation
+                                                    .map((e) => e.branchName)
+                                                    .toList(),
+                                                onChanged: (val) async {
+                                                  safeSetState(() => _model
+                                                          .dropDownBranchValue =
+                                                      val);
+                                                  _model.locationSelected = _model
+                                                      .locationListData
+                                                      ?.listLocation
+                                                      .elementAtOrNull(functions
+                                                          .getIndexOfSomethingList(
+                                                              _model
+                                                                  .locationListData
+                                                                  ?.listLocation
+                                                                  .map((e) => e
+                                                                      .branchName)
+                                                                  .toList()
+                                                                  .toList(),
+                                                              _model
+                                                                  .dropDownBranchValue)!);
+                                                  safeSetState(() {});
+                                                },
                                                 width: 200.0,
-                                                child: TextFormField(
-                                                  controller:
-                                                      _model.textController,
-                                                  focusNode:
-                                                      _model.textFieldFocusNode,
-                                                  autofocus: false,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    isDense: true,
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
+                                                height: 40.0,
+                                                searchHintTextStyle:
+                                                    FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
                                                           font:
@@ -771,9 +591,6 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                                                     .labelMedium
                                                                     .fontStyle,
                                                           ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
@@ -786,15 +603,38 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                                                   .labelMedium
                                                                   .fontStyle,
                                                         ),
-                                                    hintText:
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                      'zird1tx0' /* Please provide a reason. */,
-                                                    ),
-                                                    hintStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
+                                                searchTextStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font:
+                                                              GoogleFonts.inter(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
                                                         .override(
                                                           font:
                                                               GoogleFonts.inter(
@@ -803,7 +643,7 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                                             fontStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium
+                                                                    .bodyMedium
                                                                     .fontStyle,
                                                           ),
                                                           letterSpacing: 0.0,
@@ -812,65 +652,145 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                                           fontStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  '331wm3rp' /* Check-in location... */,
+                                                ),
+                                                searchHintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'grm5nu76' /* search */,
+                                                ),
+                                                icon: Icon(
+                                                  Icons
+                                                      .keyboard_arrow_down_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 24.0,
+                                                ),
+                                                fillColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                elevation: 2.0,
+                                                borderColor: Colors.transparent,
+                                                borderWidth: 0.0,
+                                                borderRadius: 8.0,
+                                                margin: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 12.0, 0.0),
+                                                hidesUnderline: true,
+                                                isOverButton: false,
+                                                isSearchable: true,
+                                                isMultiSelect: false,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        's9635h0e' /* Reason: */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.inter(
+                                              fontWeight: FontWeight.w600,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Container(
+                                              width: 200.0,
+                                              child: TextFormField(
+                                                controller:
+                                                    _model.textController,
+                                                focusNode:
+                                                    _model.textFieldFocusNode,
+                                                autofocus: false,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  isDense: true,
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
                                                                   .labelMedium
                                                                   .fontStyle,
                                                         ),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    errorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .error,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
+                                                                .primaryText,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .error,
-                                                        width: 1.0,
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    filled: true,
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
+                                                  hintText: FFLocalizations.of(
                                                           context)
-                                                      .bodyMedium
+                                                      .getText(
+                                                    'zird1tx0' /* Please provide a reason. */,
+                                                  ),
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
                                                       .override(
                                                         font: GoogleFonts.inter(
                                                           fontWeight:
@@ -878,7 +798,7 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                                           fontStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyMedium
+                                                                  .labelMedium
                                                                   .fontStyle,
                                                         ),
                                                         letterSpacing: 0.0,
@@ -887,176 +807,184 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                                         fontStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium
+                                                                .labelMedium
                                                                 .fontStyle,
                                                       ),
-                                                  cursorColor:
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color: Color(0x00000000),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  errorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  focusedErrorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  filled: true,
+                                                  fillColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .primaryText,
-                                                  validator: _model
-                                                      .textControllerValidator
-                                                      .asValidator(context),
+                                                          .secondaryBackground,
                                                 ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          font:
+                                                              GoogleFonts.inter(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                cursorColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                validator: _model
+                                                    .textControllerValidator
+                                                    .asValidator(context),
                                               ),
                                             ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 10.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 8.0, 0.0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          currentUserLocationValue =
-                                              await getCurrentUserLocation(
-                                                  defaultLocation:
-                                                      LatLng(0.0, 0.0));
-                                          var _shouldSetState = false;
-                                          if (!(_model.checkinImageFile !=
-                                                  null &&
-                                              (_model.checkinImageFile?.bytes
-                                                      ?.isNotEmpty ??
-                                                  false))) {
-                                            final selectedMedia =
-                                                await selectMedia(
-                                              multiImage: false,
-                                            );
-                                            if (selectedMedia != null &&
-                                                selectedMedia.every((m) =>
-                                                    validateFileFormat(
-                                                        m.storagePath,
-                                                        context))) {
-                                              safeSetState(() => _model
-                                                      .isDataUploading_uploadDataOjl =
-                                                  true);
-                                              var selectedUploadedFiles =
-                                                  <FFUploadedFile>[];
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 10.0, 0.0, 10.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 8.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        currentUserLocationValue =
+                                            await getCurrentUserLocation(
+                                                defaultLocation:
+                                                    LatLng(0.0, 0.0));
+                                        var _shouldSetState = false;
+                                        if (!(_model.checkinImageFile != null &&
+                                            (_model.checkinImageFile?.bytes
+                                                    ?.isNotEmpty ??
+                                                false))) {
+                                          final selectedMedia =
+                                              await selectMedia(
+                                            multiImage: false,
+                                          );
+                                          if (selectedMedia != null &&
+                                              selectedMedia.every((m) =>
+                                                  validateFileFormat(
+                                                      m.storagePath,
+                                                      context))) {
+                                            safeSetState(() => _model
+                                                    .isDataUploading_uploadDataOjl =
+                                                true);
+                                            var selectedUploadedFiles =
+                                                <FFUploadedFile>[];
 
-                                              try {
-                                                selectedUploadedFiles =
-                                                    selectedMedia
-                                                        .map((m) =>
-                                                            FFUploadedFile(
-                                                              name: m
-                                                                  .storagePath
-                                                                  .split('/')
-                                                                  .last,
-                                                              bytes: m.bytes,
-                                                              height: m
-                                                                  .dimensions
-                                                                  ?.height,
-                                                              width: m
-                                                                  .dimensions
-                                                                  ?.width,
-                                                              blurHash:
-                                                                  m.blurHash,
-                                                              originalFilename:
-                                                                  m.originalFilename,
-                                                            ))
-                                                        .toList();
-                                              } finally {
-                                                _model.isDataUploading_uploadDataOjl =
-                                                    false;
-                                              }
-                                              if (selectedUploadedFiles
-                                                      .length ==
-                                                  selectedMedia.length) {
-                                                safeSetState(() {
-                                                  _model.uploadedLocalFile_uploadDataOjl =
-                                                      selectedUploadedFiles
-                                                          .first;
-                                                });
-                                              } else {
-                                                safeSetState(() {});
-                                                return;
-                                              }
+                                            try {
+                                              selectedUploadedFiles =
+                                                  selectedMedia
+                                                      .map(
+                                                          (m) => FFUploadedFile(
+                                                                name: m
+                                                                    .storagePath
+                                                                    .split('/')
+                                                                    .last,
+                                                                bytes: m.bytes,
+                                                                height: m
+                                                                    .dimensions
+                                                                    ?.height,
+                                                                width: m
+                                                                    .dimensions
+                                                                    ?.width,
+                                                                blurHash:
+                                                                    m.blurHash,
+                                                                originalFilename:
+                                                                    m.originalFilename,
+                                                              ))
+                                                      .toList();
+                                            } finally {
+                                              _model.isDataUploading_uploadDataOjl =
+                                                  false;
                                             }
-
-                                            if (!_model
-                                                .isDataUploading_uploadDataOjl) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    content: Text(
-                                                        'upload photo fail'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                safeSetState(() {});
+                                            if (selectedUploadedFiles.length ==
+                                                selectedMedia.length) {
+                                              safeSetState(() {
+                                                _model.uploadedLocalFile_uploadDataOjl =
+                                                    selectedUploadedFiles.first;
+                                              });
+                                            } else {
+                                              safeSetState(() {});
                                               return;
                                             }
-                                            _model.checkinImageFile = _model
-                                                .uploadedLocalFile_uploadDataOjl;
-                                            safeSetState(() {});
                                           }
-                                          if (!(_model.dropDownBranchValue !=
-                                                  null &&
-                                              _model.dropDownBranchValue !=
-                                                  '')) {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  content: Text(
-                                                      'please select location'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
-                                          }
-                                          _model.calLocation =
-                                              await actions.locationCalculate(
-                                            functions.combineLatLng(
-                                                _model
-                                                    .locationSelected?.latitude,
-                                                _model.locationSelected
-                                                    ?.longitude),
-                                            currentUserLocationValue,
-                                            double.parse(_model
-                                                .locationSelected!.radius),
-                                          );
-                                          _shouldSetState = true;
-                                          if (!_model.calLocation!) {
+
+                                          if (!_model
+                                              .isDataUploading_uploadDataOjl) {
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return AlertDialog(
                                                   content:
-                                                      Text('not in location'),
+                                                      Text('upload photo fail'),
                                                   actions: [
                                                     TextButton(
                                                       onPressed: () =>
@@ -1072,129 +1000,180 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                               safeSetState(() {});
                                             return;
                                           }
-                                          _model.checkinImageUrlOutput =
-                                              await actions
-                                                  .uploadFileFirebaseStorage(
-                                            'CheckinUpload',
-                                            _model.checkinImageFile,
+                                          _model.checkinImageFile = _model
+                                              .uploadedLocalFile_uploadDataOjl;
+                                          safeSetState(() {});
+                                        }
+                                        if (!(_model.dropDownBranchValue !=
+                                                null &&
+                                            _model.dropDownBranchValue != '')) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                content: Text(
+                                                    'please select location'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
                                           );
-                                          _shouldSetState = true;
-                                          _model.checkinAPI = await CheckInGroup
-                                              .workCheckCall
-                                              .call(
-                                            url: FFAppState()
-                                                .urlStorageData
-                                                .baseUrl,
-                                            token: currentAuthenticationToken,
-                                            latitude: _model
-                                                .locationSelected?.latitude,
-                                            longitude: _model
-                                                .locationSelected?.longitude,
-                                            branch: _model
-                                                .locationSelected?.branchName,
-                                            urlImg:
-                                                _model.checkinImageUrlOutput,
-                                            remark: _model.textController.text,
-                                            language:
-                                                FFLocalizations.of(context)
-                                                    .languageCode,
-                                          );
-
-                                          _shouldSetState = true;
-                                          _model.checkStatusCheckin =
-                                              await action_blocks
-                                                  .checkStatusAPI(
-                                            context,
-                                            statusCode: (_model
-                                                    .checkinAPI?.statusCode ??
-                                                200),
-                                            responseBody:
-                                                (_model.checkinAPI?.jsonBody ??
-                                                    ''),
-                                          );
-                                          _shouldSetState = true;
-                                          if (_model.checkStatusCheckin !=
-                                                  null &&
-                                              _model.checkStatusCheckin != '') {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  content: Text(_model
-                                                      .checkStatusCheckin!),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            );
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
-                                          }
-
-                                          context.goNamed(
-                                              CheckinSuccessPageWidget
-                                                  .routeName);
-
                                           if (_shouldSetState)
                                             safeSetState(() {});
-                                        },
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          'wcu5tpgh' /* Clock in-out */,
-                                        ),
-                                        options: FFButtonOptions(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.3,
-                                          height: 40.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 16.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: Color(0xFF08DC07),
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleSmall
-                                              .override(
-                                                font: GoogleFonts.interTight(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.white,
-                                                letterSpacing: 0.0,
+                                          return;
+                                        }
+                                        _model.calLocation =
+                                            await actions.locationCalculate(
+                                          functions.combineLatLng(
+                                              _model.locationSelected?.latitude,
+                                              _model
+                                                  .locationSelected?.longitude),
+                                          currentUserLocationValue,
+                                          double.parse(
+                                              _model.locationSelected!.radius),
+                                        );
+                                        _shouldSetState = true;
+                                        if (!_model.calLocation!) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                content:
+                                                    Text('not in location'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        _model.checkinImageUrlOutput =
+                                            await actions
+                                                .uploadFileFirebaseStorage(
+                                          'CheckinUpload',
+                                          _model.checkinImageFile,
+                                        );
+                                        _shouldSetState = true;
+                                        _model.checkinAPI = await CheckInGroup
+                                            .workCheckCall
+                                            .call(
+                                          url: FFAppState()
+                                              .urlStorageData
+                                              .baseUrl,
+                                          token: currentAuthenticationToken,
+                                          latitude:
+                                              _model.locationSelected?.latitude,
+                                          longitude: _model
+                                              .locationSelected?.longitude,
+                                          branch: _model
+                                              .locationSelected?.branchName,
+                                          urlImg: _model.checkinImageUrlOutput,
+                                          remark: _model.textController.text,
+                                          language: FFLocalizations.of(context)
+                                              .languageCode,
+                                        );
+
+                                        _shouldSetState = true;
+                                        _model.checkStatusCheckin =
+                                            await action_blocks.checkStatusAPI(
+                                          context,
+                                          statusCode:
+                                              (_model.checkinAPI?.statusCode ??
+                                                  200),
+                                          responseBody:
+                                              (_model.checkinAPI?.jsonBody ??
+                                                  ''),
+                                        );
+                                        _shouldSetState = true;
+                                        if (_model.checkStatusCheckin != null &&
+                                            _model.checkStatusCheckin != '') {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                content: Text(
+                                                    _model.checkStatusCheckin!),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+
+                                        context.goNamed(
+                                            CheckinSuccessPageWidget.routeName);
+
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'wcu5tpgh' /* Clock in-out */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.3,
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: Color(0xFF08DC07),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              font: GoogleFonts.interTight(
                                                 fontWeight: FontWeight.w600,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .fontStyle,
                                               ),
-                                          elevation: 8.0,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
+                                            ),
+                                        elevation: 8.0,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                     ),
                                   ),
-                                ]
-                                    .addToStart(SizedBox(width: 12.0))
-                                    .addToEnd(SizedBox(width: 12.0)),
-                              ),
+                                ),
+                              ]
+                                  .addToStart(SizedBox(width: 12.0))
+                                  .addToEnd(SizedBox(width: 12.0)),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
