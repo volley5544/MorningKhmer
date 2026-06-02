@@ -41,8 +41,8 @@ class EmployeeCheckinPageModel
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  bool isDataUploading_uploadDataOjl = false;
-  FFUploadedFile uploadedLocalFile_uploadDataOjl =
+  bool isDataUploading_uploadDataCheckinbutton = false;
+  FFUploadedFile uploadedLocalFile_uploadDataCheckinbutton =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // Stores action output result for [Custom Action - locationCalculate] action in Button widget.

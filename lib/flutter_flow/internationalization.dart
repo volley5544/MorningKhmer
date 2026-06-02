@@ -509,23 +509,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SuperAppPage
   {
-    'hrhmabv7': {
-      'th': '',
-      'en': '',
-      'km': '',
-    },
     'h0q2icc8': {
       'th': '1',
-      'en': '',
-      'km': '',
-    },
-    'okth0nj4': {
-      'th': 'Thẻ môi giới bảo hiểm sẽ hết hạn trong 30 ngày.',
-      'en': '',
-      'km': '',
-    },
-    '6hbf12s4': {
-      'th': 'Thẻ môi giới bảo hiểm phi nhân thọ sẽ hết hạn trong 30 ngày.',
       'en': '',
       'km': '',
     },
@@ -594,6 +579,31 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'km': '',
     },
+    'oznxz7a0': {
+      'th': 'version 1.0.0',
+      'en': 'version 1.0.0',
+      'km': 'កំណែ 1.0.0',
+    },
+    '6l8asw44': {
+      'th': 'Language Settings',
+      'en': 'Language Settings',
+      'km': 'ការកំណត់ភាសា',
+    },
+    'ei1svzkf': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'tafhmsdu': {
+      'th': 'Log Out',
+      'en': 'Log Out',
+      'km': 'ចាកចេញ',
+    },
+    'z85tog55': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
     'olt0zzt9': {
       'th': 'Home',
       'en': 'Home',
@@ -619,6 +629,44 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'th': 'Type Keyword',
       'en': '',
       'km': '',
+    },
+  },
+  // SelectLanguageComponent
+  {
+    'ua7uyxhz': {
+      'th': 'Select Language',
+      'en': 'Select Language',
+      'km': 'ជ្រើសរើសភាសា',
+    },
+    'k189s5dn': {
+      'th': 'Select...',
+      'en': 'Select...',
+      'km': 'ជ្រើសរើស...',
+    },
+    '2590amkq': {
+      'th': 'Search...',
+      'en': '',
+      'km': '',
+    },
+    'uk5aj70g': {
+      'th': 'English',
+      'en': 'English',
+      'km': 'English',
+    },
+    'p4cdkrl0': {
+      'th': 'កម្ពុជា',
+      'en': 'កម្ពុជា',
+      'km': 'កម្ពុជា',
+    },
+    '2xhlgi1g': {
+      'th': 'ไทย',
+      'en': 'ไทย',
+      'km': 'ไทย',
+    },
+    '7xf0177c': {
+      'th': 'Apply',
+      'en': 'Apply',
+      'km': 'ដាក់ពាក្យ',
     },
   },
   // Miscellaneous

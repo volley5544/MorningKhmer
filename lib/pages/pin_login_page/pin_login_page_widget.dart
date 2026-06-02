@@ -93,9 +93,8 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return FutureBuilder<ApplicationConfigRecord>(
-      future: ApplicationConfigRecord.getDocumentOnce(
-          FFAppState().applicationConfigDocRef!),
+    return FutureBuilder<AppConfigRecord>(
+      future: AppConfigRecord.getDocumentOnce(FFAppState().urlStorageDocRef!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -115,7 +114,7 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
           );
         }
 
-        final pinLoginPageApplicationConfigRecord = snapshot.data!;
+        final pinLoginPageAppConfigRecord = snapshot.data!;
 
         return GestureDetector(
           onTap: () {
@@ -432,8 +431,13 @@ class _PinLoginPageWidgetState extends State<PinLoginPageWidget>
                                       }(
                                           functions.getBuildNumber(
                                               _model.getBuildVersion)!,
-                                          pinLoginPageApplicationConfigRecord
-                                              .buildNumber))) {
+                                          (isAndroid
+                                              ? pinLoginPageAppConfigRecord
+                                                  .appVersion.buildNumberAndroid
+                                                  .toString()
+                                              : pinLoginPageAppConfigRecord
+                                                  .appVersion.buildNumberIos
+                                                  .toString())))) {
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {

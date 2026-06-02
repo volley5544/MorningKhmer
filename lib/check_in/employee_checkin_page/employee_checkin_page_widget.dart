@@ -926,6 +926,9 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                                 false))) {
                                           final selectedMedia =
                                               await selectMedia(
+                                            maxWidth: 1920.00,
+                                            maxHeight: 1920.00,
+                                            imageQuality: 50,
                                             multiImage: false,
                                           );
                                           if (selectedMedia != null &&
@@ -934,7 +937,7 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                                       m.storagePath,
                                                       context))) {
                                             safeSetState(() => _model
-                                                    .isDataUploading_uploadDataOjl =
+                                                    .isDataUploading_uploadDataCheckinbutton =
                                                 true);
                                             var selectedUploadedFiles =
                                                 <FFUploadedFile>[];
@@ -962,13 +965,13 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                                               ))
                                                       .toList();
                                             } finally {
-                                              _model.isDataUploading_uploadDataOjl =
+                                              _model.isDataUploading_uploadDataCheckinbutton =
                                                   false;
                                             }
                                             if (selectedUploadedFiles.length ==
                                                 selectedMedia.length) {
                                               safeSetState(() {
-                                                _model.uploadedLocalFile_uploadDataOjl =
+                                                _model.uploadedLocalFile_uploadDataCheckinbutton =
                                                     selectedUploadedFiles.first;
                                               });
                                             } else {
@@ -977,8 +980,9 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                             }
                                           }
 
-                                          if (!_model
-                                              .isDataUploading_uploadDataOjl) {
+                                          if (!((_model.uploadedLocalFile_uploadDataCheckinbutton
+                                                      .bytes?.isNotEmpty ??
+                                                  false))) {
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
@@ -1001,7 +1005,7 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                             return;
                                           }
                                           _model.checkinImageFile = _model
-                                              .uploadedLocalFile_uploadDataOjl;
+                                              .uploadedLocalFile_uploadDataCheckinbutton;
                                           safeSetState(() {});
                                         }
                                         if (!(_model.dropDownBranchValue !=
