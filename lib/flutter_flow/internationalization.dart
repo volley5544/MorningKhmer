@@ -489,6 +489,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SuperAppPage
   {
+    'pu6vzha4': {
+      'th': 'สวัสดีคุณ',
+      'en': 'hello',
+      'km': 'សួស្តី',
+    },
     'h0q2icc8': {
       'th': '1',
       'en': '',

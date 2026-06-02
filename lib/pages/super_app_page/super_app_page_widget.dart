@@ -4,7 +4,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'dart:math';
+import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
@@ -16,8 +19,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:octo_image/octo_image.dart';
 import 'package:provider/provider.dart';
 import 'super_app_page_model.dart';
 export 'super_app_page_model.dart';
@@ -206,21 +211,38 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                       ),
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 75.0,
-                    child: custom_widgets.ShowDateTime(
-                      width: double.infinity,
-                      height: 75.0,
-                      currentTime: getCurrentTimestamp,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                    child: Text(
+                      dateTimeFormat(
+                        "EEEE, dd MMMM y",
+                        getCurrentTimestamp,
+                        locale: FFLocalizations.of(context).languageCode,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            fontSize: 18.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                     ),
                   ),
                   Container(
                     width: double.infinity,
-                    height: 75.0,
-                    child: custom_widgets.ShowTime(
+                    height: 50.0,
+                    child: custom_widgets.ShowTimeHome(
                       width: double.infinity,
-                      height: 75.0,
+                      height: 50.0,
                     ),
                   ),
                   Divider(
@@ -439,6 +461,33 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'pu6vzha4' /* สวัสดีคุณ */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
                               Expanded(
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),

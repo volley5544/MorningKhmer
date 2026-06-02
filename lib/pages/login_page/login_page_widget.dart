@@ -72,6 +72,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       if (!isWeb) {
         _model.getDeviceIdOutput = await actions.getDeviceIdAction();
       }
+      setAppLanguage(context, 'km');
       Navigator.pop(context);
     });
 
