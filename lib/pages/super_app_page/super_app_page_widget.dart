@@ -53,20 +53,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
 
         return;
       }
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return AlertDialog(
-            content: Text(FFLocalizations.of(context).languageCode),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(alertDialogContext),
-                child: Text('Ok'),
-              ),
-            ],
-          );
-        },
-      );
     });
 
     animationsMap.addAll({
@@ -222,10 +208,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                   ),
                   Container(
                     width: double.infinity,
-                    height: 50.0,
+                    height: 75.0,
                     child: custom_widgets.ShowDateTime(
                       width: double.infinity,
-                      height: 50.0,
+                      height: 75.0,
                       currentTime: getCurrentTimestamp,
                     ),
                   ),

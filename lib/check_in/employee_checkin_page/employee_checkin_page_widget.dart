@@ -317,7 +317,7 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                           height: 30.0,
                           child: custom_widgets.ShowDateTime(
                             width: double.infinity,
-                            height: 50.0,
+                            height: 75.0,
                             currentTime: getCurrentTimestamp,
                           ),
                         ),

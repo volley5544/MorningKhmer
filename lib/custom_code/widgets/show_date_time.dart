@@ -32,7 +32,7 @@ class ShowDateTime extends StatefulWidget {
 class _ShowDateTimeState extends State<ShowDateTime> {
   @override
   Widget build(BuildContext context) {
-    double dateTimeTextSize = (widget.height! * 70) / 100;
+    double dateTimeTextSize = (widget.height! * 50) / 100;
     return Scaffold(
       body: Center(
           child: Text(

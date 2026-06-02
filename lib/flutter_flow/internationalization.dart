@@ -451,18 +451,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ProfilePage
   {
-    'r8oqiwu5': {
-      'th': '',
-      'en': '',
-      'km': '',
-    },
-    '9xgga4ut': {
-      'th': 'PHP Programmer',
-      'en': 'PHP Programmer',
-      'km': 'អ្នកសរសេរកម្មវិធី PHP',
-    },
     'bamscwtt': {
-      'th': '',
+      'th': 'รหัสพนักงาน',
+      'en': 'Employee ID',
+      'km': 'អត្តសញ្ញាណបុគ្គលិក',
+    },
+    'v8sbzo3x': {
+      'th': ' :',
       'en': '',
       'km': '',
     },
@@ -471,13 +466,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'km': '',
     },
+    'dewdxdgi': {
+      'th': ' :',
+      'en': '',
+      'km': '',
+    },
     'arqfmoj2': {
       'th': '',
       'en': '',
       'km': '',
     },
-    '2hqb34zy': {
-      'th': '',
+    'vezelw6g': {
+      'th': ' :',
       'en': '',
       'km': '',
     },
@@ -486,20 +486,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'km': '',
     },
-    '21nl4bxq': {
-      'th': '',
+    '0nesbn0f': {
+      'th': ' :',
       'en': '',
       'km': '',
-    },
-    'b601418m': {
-      'th': '',
-      'en': '',
-      'km': '',
-    },
-    't7hfymkt': {
-      'th': 'Employee Handbook',
-      'en': 'Employee Handbook',
-      'km': 'សៀវភៅណែនាំបុគ្គលិក',
     },
     '3uytyrks': {
       'th': 'Home',

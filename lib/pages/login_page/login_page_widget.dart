@@ -778,22 +778,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             }
                                           }
                                         }
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return AlertDialog(
-                                              content: Text('before login api'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        );
                                         _model.authLoginAPI =
                                             await AuthGroup.loginCall.call(
                                           username: _model
@@ -821,23 +805,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   ''),
                                         );
                                         _shouldSetState = true;
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return AlertDialog(
-                                              content:
-                                                  Text('after action block'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        );
                                         if ('${_model.checkStatusLogin}' !=
                                             '') {
                                           await showDialog(
@@ -861,23 +828,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             safeSetState(() {});
                                           return;
                                         }
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return AlertDialog(
-                                              content: Text(
-                                                  'before login flutterflow'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        );
                                         GoRouter.of(context).prepareAuthEvent();
                                         await authManager.signIn(
                                           authenticationToken: getJsonField(
