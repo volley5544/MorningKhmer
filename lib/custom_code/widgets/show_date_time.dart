@@ -36,7 +36,7 @@ class _ShowDateTimeState extends State<ShowDateTime> {
     return Scaffold(
       body: Center(
           child: Text(
-        DateFormat('EEEE, dd MMMM y', 'vi').format(widget.currentTime!),
+        DateFormat('EEEE, dd MMMM y', 'km').format(widget.currentTime!),
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: dateTimeTextSize,
