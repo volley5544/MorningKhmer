@@ -67,6 +67,7 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
         },
       );
 
+      setAppLanguage(context, 'km');
       _model.apiResultjii = await CheckInGroup.locationListCall.call(
         url: FFAppState().urlStorageData.baseUrl,
         token: currentAuthenticationToken,
@@ -312,14 +313,27 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          width: double.infinity,
-                          height: 30.0,
-                          child: custom_widgets.ShowDateTime(
-                            width: double.infinity,
-                            height: 75.0,
-                            currentTime: getCurrentTimestamp,
+                        Text(
+                          dateTimeFormat(
+                            "EEEE, dd MMMM y",
+                            getCurrentTimestamp,
+                            locale: FFLocalizations.of(context).languageCode,
                           ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                         ),
                         Container(
                           width: double.infinity,

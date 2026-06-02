@@ -943,7 +943,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             phoneNumber: _model
                                                 .passwordTextController.text,
                                             profileImage:
-                                                'https://firebasestorage.googleapis.com/v0/b/arunsawad-vn-application.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=6c3c82ce-a6ae-4b2e-b264-303820c6b65e',
+                                                'https://firebasestorage.googleapis.com/v0/b/arunsawad-khmer.firebasestorage.app/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=2d45762c-48b5-4202-96bb-fda357678086',
                                           ));
                                           _model.createdUserCustom =
                                               UserCustomRecord
@@ -961,7 +961,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                             .passwordTextController
                                                             .text,
                                                         profileImage:
-                                                            'https://firebasestorage.googleapis.com/v0/b/arunsawad-vn-application.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=6c3c82ce-a6ae-4b2e-b264-303820c6b65e',
+                                                            'https://firebasestorage.googleapis.com/v0/b/arunsawad-khmer.firebasestorage.app/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=2d45762c-48b5-4202-96bb-fda357678086',
                                                       ),
                                                       userCustomRecordReference);
                                           _shouldSetState = true;

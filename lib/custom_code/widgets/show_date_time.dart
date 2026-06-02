@@ -35,14 +35,19 @@ class _ShowDateTimeState extends State<ShowDateTime> {
     double dateTimeTextSize = (widget.height! * 50) / 100;
     return Scaffold(
       body: Center(
+        child: FittedBox(
+          fit: BoxFit.contain,
           child: Text(
-        DateFormat('EEEE, dd MMMM y', 'km').format(widget.currentTime!),
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: dateTimeTextSize,
-          color: Colors.black,
+            DateFormat('EEEE, dd MMMM y', 'km').format(widget.currentTime!),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: dateTimeTextSize,
+              color: Colors.black,
+              height: 1.8,
+            ),
+          ),
         ),
-      )),
+      ),
     );
   }
 }

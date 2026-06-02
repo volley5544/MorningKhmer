@@ -170,8 +170,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                                 type: PageTransitionType.fade,
                                                 child:
                                                     FlutterFlowExpandedImageView(
-                                                  image: Image.network(
-                                                    '',
+                                                  image: Image.asset(
+                                                    'assets/images/blank-profile-picture-gc19a78ed8_1280.png',
                                                     fit: BoxFit.contain,
                                                   ),
                                                   allowRotation: false,
@@ -245,8 +245,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                               decoration: BoxDecoration(
                                                 shape: BoxShape.circle,
                                               ),
-                                              child: Image.network(
-                                                '',
+                                              child: Image.asset(
+                                                'assets/images/blank-profile-picture-gc19a78ed8_1280.png',
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -255,116 +255,120 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                       ),
                                     ),
                                   ),
-                                  Align(
-                                    alignment: AlignmentDirectional(
-                                        valueOrDefault<double>(
-                                          () {
-                                            if (MediaQuery.sizeOf(context)
-                                                    .width <
-                                                kBreakpointSmall) {
-                                              return 0.25;
-                                            } else if (MediaQuery.sizeOf(
-                                                        context)
-                                                    .width <
-                                                kBreakpointMedium) {
-                                              return 0.18;
-                                            } else if (MediaQuery.sizeOf(
-                                                        context)
-                                                    .width <
-                                                kBreakpointLarge) {
-                                              return 0.18;
-                                            } else {
-                                              return 0.18;
-                                            }
-                                          }(),
-                                          0.0,
-                                        ),
-                                        1.0),
-                                    child: Container(
-                                      width: () {
-                                        if (MediaQuery.sizeOf(context).width <
-                                            kBreakpointSmall) {
-                                          return 50.0;
-                                        } else if (MediaQuery.sizeOf(context)
-                                                .width <
-                                            kBreakpointMedium) {
-                                          return 70.0;
-                                        } else if (MediaQuery.sizeOf(context)
-                                                .width <
-                                            kBreakpointLarge) {
-                                          return 70.0;
-                                        } else {
-                                          return 70.0;
-                                        }
-                                      }(),
-                                      height: () {
-                                        if (MediaQuery.sizeOf(context).width <
-                                            kBreakpointSmall) {
-                                          return 50.0;
-                                        } else if (MediaQuery.sizeOf(context)
-                                                .width <
-                                            kBreakpointMedium) {
-                                          return 70.0;
-                                        } else if (MediaQuery.sizeOf(context)
-                                                .width <
-                                            kBreakpointLarge) {
-                                          return 70.0;
-                                        } else {
-                                          return 70.0;
-                                        }
-                                      }(),
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: FlutterFlowIconButton(
-                                        borderRadius: 30.0,
-                                        buttonSize: () {
+                                  if (false)
+                                    Align(
+                                      alignment: AlignmentDirectional(
+                                          valueOrDefault<double>(
+                                            () {
+                                              if (MediaQuery.sizeOf(context)
+                                                      .width <
+                                                  kBreakpointSmall) {
+                                                return 0.25;
+                                              } else if (MediaQuery.sizeOf(
+                                                          context)
+                                                      .width <
+                                                  kBreakpointMedium) {
+                                                return 0.18;
+                                              } else if (MediaQuery.sizeOf(
+                                                          context)
+                                                      .width <
+                                                  kBreakpointLarge) {
+                                                return 0.18;
+                                              } else {
+                                                return 0.18;
+                                              }
+                                            }(),
+                                            0.0,
+                                          ),
+                                          1.0),
+                                      child: Container(
+                                        width: () {
                                           if (MediaQuery.sizeOf(context).width <
                                               kBreakpointSmall) {
-                                            return 60.0;
+                                            return 50.0;
                                           } else if (MediaQuery.sizeOf(context)
                                                   .width <
                                               kBreakpointMedium) {
-                                            return 80.0;
+                                            return 70.0;
                                           } else if (MediaQuery.sizeOf(context)
                                                   .width <
                                               kBreakpointLarge) {
-                                            return 80.0;
+                                            return 70.0;
                                           } else {
-                                            return 80.0;
+                                            return 70.0;
                                           }
                                         }(),
-                                        icon: Icon(
-                                          Icons.camera_alt,
-                                          color: Color(0xFF0039E3),
-                                          size: () {
+                                        height: () {
+                                          if (MediaQuery.sizeOf(context).width <
+                                              kBreakpointSmall) {
+                                            return 50.0;
+                                          } else if (MediaQuery.sizeOf(context)
+                                                  .width <
+                                              kBreakpointMedium) {
+                                            return 70.0;
+                                          } else if (MediaQuery.sizeOf(context)
+                                                  .width <
+                                              kBreakpointLarge) {
+                                            return 70.0;
+                                          } else {
+                                            return 70.0;
+                                          }
+                                        }(),
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: FlutterFlowIconButton(
+                                          borderRadius: 30.0,
+                                          buttonSize: () {
                                             if (MediaQuery.sizeOf(context)
                                                     .width <
                                                 kBreakpointSmall) {
-                                              return 30.0;
+                                              return 60.0;
                                             } else if (MediaQuery.sizeOf(
                                                         context)
                                                     .width <
                                                 kBreakpointMedium) {
-                                              return 50.0;
+                                              return 80.0;
                                             } else if (MediaQuery.sizeOf(
                                                         context)
                                                     .width <
                                                 kBreakpointLarge) {
-                                              return 50.0;
+                                              return 80.0;
                                             } else {
-                                              return 50.0;
+                                              return 80.0;
                                             }
                                           }(),
+                                          icon: Icon(
+                                            Icons.camera_alt,
+                                            color: Color(0xFF0039E3),
+                                            size: () {
+                                              if (MediaQuery.sizeOf(context)
+                                                      .width <
+                                                  kBreakpointSmall) {
+                                                return 30.0;
+                                              } else if (MediaQuery.sizeOf(
+                                                          context)
+                                                      .width <
+                                                  kBreakpointMedium) {
+                                                return 50.0;
+                                              } else if (MediaQuery.sizeOf(
+                                                          context)
+                                                      .width <
+                                                  kBreakpointLarge) {
+                                                return 50.0;
+                                              } else {
+                                                return 50.0;
+                                              }
+                                            }(),
+                                          ),
+                                          onPressed: () {
+                                            print('IconButton pressed ...');
+                                          },
                                         ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
-                                        },
                                       ),
                                     ),
-                                  ),
                                 ],
                               ),
                             ),
@@ -581,6 +585,36 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                             ),
                                       ),
                                     ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Text(
+                                        FFAppState().profileAppState.empCode,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -592,7 +626,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'j6m15xs2' /*  */,
+                                        'j6m15xs2' /* สาขา */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -644,6 +678,36 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                             ),
                                       ),
                                     ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Text(
+                                        '(${FFAppState().profileAppState.branchCode}) ${FFAppState().profileAppState.branchCode}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -655,7 +719,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'arqfmoj2' /*  */,
+                                        'arqfmoj2' /* วันเริ่มงาน */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -707,43 +771,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                             ),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 10.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'c9r9qhwh' /*  */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.inter(
-                                              fontWeight: FontWeight.w600,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                    ),
                                     Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '0nesbn0f' /*  : */,
-                                        ),
+                                        FFAppState().profileAppState.hiredDate,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

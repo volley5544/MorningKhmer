@@ -462,9 +462,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': '',
     },
     'j6m15xs2': {
-      'th': '',
-      'en': '',
-      'km': '',
+      'th': 'สาขา',
+      'en': 'branch',
+      'km': 'សាខា',
     },
     'dewdxdgi': {
       'th': ' :',
@@ -472,27 +472,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': '',
     },
     'arqfmoj2': {
-      'th': '',
-      'en': '',
-      'km': '',
+      'th': 'วันเริ่มงาน',
+      'en': 'Start day',
+      'km': 'ថ្ងៃចាប់ផ្តើម',
     },
     'vezelw6g': {
       'th': ' :',
       'en': '',
       'km': '',
     },
-    'c9r9qhwh': {
-      'th': '',
-      'en': '',
-      'km': '',
-    },
-    '0nesbn0f': {
-      'th': ' :',
-      'en': '',
-      'km': '',
-    },
     '3uytyrks': {
-      'th': 'Home',
+      'th': 'Profile',
       'en': 'Home',
       'km': 'ផ្ទះ',
     },
