@@ -13,8 +13,8 @@ import 'package:flutter/material.dart';
 
 import 'package:one_clock/one_clock.dart';
 
-class ShowTime extends StatefulWidget {
-  const ShowTime({
+class ShowTimeHome extends StatefulWidget {
+  const ShowTimeHome({
     Key? key,
     this.width,
     this.height,
@@ -24,10 +24,10 @@ class ShowTime extends StatefulWidget {
   final double? height;
 
   @override
-  _ShowTimeState createState() => _ShowTimeState();
+  _ShowTimeHomeState createState() => _ShowTimeHomeState();
 }
 
-class _ShowTimeState extends State<ShowTime> {
+class _ShowTimeHomeState extends State<ShowTimeHome> {
   @override
   Widget build(BuildContext context) {
     double clockTextSize = (widget.height! * 60) / 100;

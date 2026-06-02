@@ -1,14 +1,13 @@
 import '/auth/custom_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/select_language_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
-import 'dart:math';
-import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'package:badges/badges.dart' as badges;
@@ -651,62 +650,134 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
-                  child: Container(
-                    width: double.infinity,
-                    height: 300.0,
-                    child: Stack(
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 40.0),
-                          child: PageView(
-                            controller: _model.pageViewBannerController ??=
-                                PageController(initialPage: 0),
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              Image.network(
-                                '',
-                                width: 100.0,
-                                height: 100.0,
-                                fit: BoxFit.fitWidth,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 10.0),
-                            child: smooth_page_indicator.SmoothPageIndicator(
-                              controller: _model.pageViewBannerController ??=
-                                  PageController(initialPage: 0),
-                              count: 1,
-                              axisDirection: Axis.horizontal,
-                              onDotClicked: (i) async {
-                                await _model.pageViewBannerController!
-                                    .animateToPage(
-                                  i,
-                                  duration: Duration(milliseconds: 500),
-                                  curve: Curves.ease,
-                                );
-                                safeSetState(() {});
-                              },
-                              effect: smooth_page_indicator.ExpandingDotsEffect(
-                                expansionFactor: 2.0,
-                                spacing: 8.0,
-                                radius: 16.0,
-                                dotWidth: 16.0,
-                                dotHeight: 16.0,
-                                dotColor: Color(0xFF9E9E9E),
-                                activeDotColor: Color(0xFF3F51B5),
-                                paintStyle: PaintingStyle.fill,
+                  child: StreamBuilder<List<BannersRecord>>(
+                    stream: queryBannersRecord(
+                      queryBuilder: (bannersRecord) =>
+                          bannersRecord.orderBy('sort'),
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
                               ),
                             ),
                           ),
+                        );
+                      }
+                      List<BannersRecord> pageViewBannerBannersRecordList =
+                          snapshot.data!;
+
+                      return Container(
+                        width: double.infinity,
+                        height: 300.0,
+                        child: Stack(
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 40.0),
+                              child: PageView.builder(
+                                controller: _model.pageViewBannerController ??=
+                                    PageController(
+                                        initialPage: max(
+                                            0,
+                                            min(
+                                                0,
+                                                pageViewBannerBannersRecordList
+                                                        .length -
+                                                    1))),
+                                scrollDirection: Axis.horizontal,
+                                itemCount:
+                                    pageViewBannerBannersRecordList.length,
+                                itemBuilder: (context, pageViewBannerIndex) {
+                                  final pageViewBannerBannersRecord =
+                                      pageViewBannerBannersRecordList[
+                                          pageViewBannerIndex];
+                                  return InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      if ('${pageViewBannerBannersRecord.openType}' ==
+                                          'launch_url') {
+                                        await launchURL(
+                                            '${pageViewBannerBannersRecord.linkUrl}');
+                                      } else if ('${pageViewBannerBannersRecord.openType}' ==
+                                          'browser') {}
+                                    },
+                                    child: OctoImage(
+                                      placeholderBuilder: (_) =>
+                                          SizedBox.expand(
+                                        child: Image(
+                                          image: BlurHashImage(
+                                              '${pageViewBannerBannersRecord.blurHash}'),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      image: CachedNetworkImageProvider(
+                                        functions.stringToImagePath(
+                                            '${pageViewBannerBannersRecord.imageUrl}')!,
+                                      ),
+                                      width: 100.0,
+                                      height: 100.0,
+                                      fit: BoxFit.fitWidth,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 1.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
+                                child:
+                                    smooth_page_indicator.SmoothPageIndicator(
+                                  controller: _model
+                                          .pageViewBannerController ??=
+                                      PageController(
+                                          initialPage: max(
+                                              0,
+                                              min(
+                                                  0,
+                                                  pageViewBannerBannersRecordList
+                                                          .length -
+                                                      1))),
+                                  count: pageViewBannerBannersRecordList.length,
+                                  axisDirection: Axis.horizontal,
+                                  onDotClicked: (i) async {
+                                    await _model.pageViewBannerController!
+                                        .animateToPage(
+                                      i,
+                                      duration: Duration(milliseconds: 500),
+                                      curve: Curves.ease,
+                                    );
+                                    safeSetState(() {});
+                                  },
+                                  effect:
+                                      smooth_page_indicator.ExpandingDotsEffect(
+                                    expansionFactor: 2.0,
+                                    spacing: 8.0,
+                                    radius: 16.0,
+                                    dotWidth: 16.0,
+                                    dotHeight: 16.0,
+                                    dotColor: Color(0xFF9E9E9E),
+                                    activeDotColor: Color(0xFF3F51B5),
+                                    paintStyle: PaintingStyle.fill,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
                 ),
               if (responsiveVisibility(

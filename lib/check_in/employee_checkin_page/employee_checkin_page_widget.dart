@@ -311,7 +311,7 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -345,7 +345,7 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                           height: 60.0,
                           child: custom_widgets.ShowTime(
                             width: double.infinity,
-                            height: 75.0,
+                            height: 50.0,
                           ),
                         ),
                       ],

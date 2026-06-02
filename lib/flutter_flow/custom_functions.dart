@@ -74,3 +74,7 @@ LatLng? combineLatLng(
 ) {
   return LatLng(double.parse(lat!), double.parse(lng!));
 }
+
+String? stringToImagePath(String? input) {
+  return input!;
+}

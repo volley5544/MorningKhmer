@@ -8,6 +8,7 @@ import 'schema/application_config_record.dart';
 import 'schema/user_location_log_record.dart';
 import 'schema/user_custom_record.dart';
 import 'schema/app_config_record.dart';
+import 'schema/banners_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -22,6 +23,7 @@ export 'schema/application_config_record.dart';
 export 'schema/user_location_log_record.dart';
 export 'schema/user_custom_record.dart';
 export 'schema/app_config_record.dart';
+export 'schema/banners_record.dart';
 
 /// Functions to query ImageLinkStorageRecords (as a Stream and as a Future).
 Future<int> queryImageLinkStorageRecordCount({
@@ -240,6 +242,43 @@ Future<List<AppConfigRecord>> queryAppConfigRecordOnce({
     queryCollectionOnce(
       AppConfigRecord.collection,
       AppConfigRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query BannersRecords (as a Stream and as a Future).
+Future<int> queryBannersRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      BannersRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<BannersRecord>> queryBannersRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      BannersRecord.collection,
+      BannersRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<BannersRecord>> queryBannersRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      BannersRecord.collection,
+      BannersRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
