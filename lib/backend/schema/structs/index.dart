@@ -6,6 +6,7 @@ export 'location_data_model_struct.dart';
 export 'login_data_model_struct.dart';
 export 'profile_data_model_struct.dart';
 export 'url_storage_data_model_struct.dart';
+export 'user_firestore_data_model_struct.dart';
 export 'age_struct.dart';
 export 'list_location_struct.dart';
 export 'position_age_struct.dart';

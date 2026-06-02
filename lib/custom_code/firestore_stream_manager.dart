@@ -18,29 +18,43 @@ class FirestoreStreamManager {
 
   final StreamController<QuerySnapshot?> _userProfileController =
       StreamController<QuerySnapshot?>.broadcast();
+  final StreamController<QuerySnapshot?> _appConfigController =
+      StreamController<QuerySnapshot?>.broadcast();
 
   /// Public streams
 
   Stream<QuerySnapshot?> get userProfileStream => _userProfileController.stream;
+  Stream<QuerySnapshot?> get appConfigStream => _appConfigController.stream;
 
   /// ----------------------------
   /// Firestore subscriptions
   /// ----------------------------
 
   StreamSubscription<QuerySnapshot>? _userProfileSubscription;
+  StreamSubscription<QuerySnapshot>? _appConfigSubscription;
 
   /// ----------------------------
   /// Start listeners
   /// ----------------------------
 
-  void start() {
+  void startListenUserProfile() {
     print('start listenProfile :');
     _startUserProfileListener();
   }
 
-  void stop() {
+  void stopListenUserProfile() {
     print('stopped listenProfile :');
     _userProfileSubscription?.cancel();
+  }
+
+  void startListenVersion() {
+    print('start listen Version :');
+    _startAppConfigListener();
+  }
+
+  void stopListenVersion() {
+    print('stopped listen Version :');
+    _appConfigSubscription?.cancel();
   }
 
   /// ============================================================
@@ -71,13 +85,13 @@ class FirestoreStreamManager {
                 if ('${docSnapshot.docs.first.data()!['access_token']}' !=
                     '${FFAppState().accessToken}') {
                   print('Force Logout 5544');
-                  FFAppEventService.instance.triggerAppEvent(
-                    ForceLogoutEventEvent(
-                      timestamp: DateTime.now(),
-                      waitForCompletion: true,
-                      debugId: '3579',
-                    ),
-                  );
+                  // FFAppEventService.instance.triggerAppEvent(
+                  //   ForceLogoutEventEvent(
+                  //     timestamp: DateTime.now(),
+                  //     waitForCompletion: true,
+                  //     debugId: '3579',
+                  //   ),
+                  // );
                 }
               }
             }
@@ -96,6 +110,84 @@ class FirestoreStreamManager {
           }
         }
       }
+    });
+  }
+
+  void _startAppConfigListener() {
+    /// Prevent duplicate listener
+    _userProfileSubscription?.cancel();
+
+    _userProfileSubscription = _firestore
+        .collection('AppConfig')
+        .doc('Djewnrk92oQa4g3EK76s')
+        .snapshots()
+        .listen((docSnapshot) async {
+      print('queryVersion : ${docSnapshot.data()!}');
+      // FFAppState().firestoreAppVersion = Platform.isAndroid
+      //     ? docSnapshot.data()!['build_number_android']
+      //     : Platform.isIOS
+      //     ? docSnapshot.data()!['build_number_ios']
+      //     : 0;
+
+      // if (FFAppState().isProductionNew) {
+      //   if (FFAppState().isInApp) {
+      //     int appVersion = await getBuildNumber() ?? 0;
+      //     print('app version : ${appVersion}');
+      //     if (Platform.isAndroid) {
+      //       print(
+      //           'android build : ${docSnapshot.data()!['build_number_android']}');
+      //
+      //       docSnapshot.data()!['build_number_android'];
+      //       if (int.parse('${appVersion}') <
+      //           docSnapshot.data()!['build_number_android']) {
+      //         if (docSnapshot.data()!['force_update'] &&
+      //             '${FFAppState().employeeID}' != '31622' &&
+      //             '${FFAppState().employeeID}' != '33511') {
+      //           // FFAppEventService.instance.triggerAppEvent(
+      //           //   CheckAppVersionEvent(
+      //           //     timestamp: DateTime.now(),
+      //           //     waitForCompletion: true,
+      //           //     debugId: '5544',
+      //           //   ),
+      //           // );
+      //         } else {
+      //           // FFAppEventService.instance.triggerAppEvent(
+      //           //   AlertAppUpdateEventEvent(
+      //           //     timestamp: DateTime.now(),
+      //           //     waitForCompletion: true,
+      //           //     debugId: '5544',
+      //           //   ),
+      //           // );
+      //         }
+      //       }
+      //     } else if (Platform.isIOS) {
+      //       print('ios build : ${docSnapshot.data()!['build_number_ios']}');
+      //       docSnapshot.data()!['build_number_ios'];
+      //       if (int.parse('${appVersion}') <
+      //           docSnapshot.data()!['build_number_ios']) {
+      //         if (docSnapshot.data()!['force_update'] &&
+      //             '${FFAppState().employeeID}' != '31622' &&
+      //             '${FFAppState().employeeID}' != '33511') {
+      //           FFAppEventService.instance.triggerAppEvent(
+      //             CheckAppVersionEvent(
+      //               timestamp: DateTime.now(),
+      //               waitForCompletion: true,
+      //               debugId: '5544',
+      //             ),
+      //           );
+      //         } else {
+      //           FFAppEventService.instance.triggerAppEvent(
+      //             AlertAppUpdateEventEvent(
+      //               timestamp: DateTime.now(),
+      //               waitForCompletion: true,
+      //               debugId: '5544',
+      //             ),
+      //           );
+      //         }
+      //       }
+      //     } else {}
+      //   }
+      // }
     });
   }
 }

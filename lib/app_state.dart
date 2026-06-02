@@ -149,6 +149,18 @@ class FFAppState extends ChangeNotifier {
       Function(AppVersionDataModelStruct) updateFn) {
     updateFn(_appVersionData);
   }
+
+  UserFirestoreDataModelStruct _userFirestoreData =
+      UserFirestoreDataModelStruct();
+  UserFirestoreDataModelStruct get userFirestoreData => _userFirestoreData;
+  set userFirestoreData(UserFirestoreDataModelStruct value) {
+    _userFirestoreData = value;
+  }
+
+  void updateUserFirestoreDataStruct(
+      Function(UserFirestoreDataModelStruct) updateFn) {
+    updateFn(_userFirestoreData);
+  }
 }
 
 void _safeInit(Function() initializeField) {
