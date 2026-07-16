@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'blank_page_widget.dart' show BlankPageWidget;
@@ -9,12 +10,19 @@ class BlankPageModel extends FlutterFlowModel<BlankPageWidget> {
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
+  // State field(s) for Calendar widget.
+  DateTimeRange? calendarSelectedDay;
   bool isDataUploading_uploadDataIe6 = false;
   FFUploadedFile uploadedLocalFile_uploadDataIe6 =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    calendarSelectedDay = DateTimeRange(
+      start: DateTime.now().startOfDay,
+      end: DateTime.now().endOfDay,
+    );
+  }
 
   @override
   void dispose() {}
