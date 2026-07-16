@@ -14,7 +14,6 @@ import '/backend/schema/structs/index.dart';
 import '/auth/custom_auth/auth_util.dart';
 
 bool? checkPin(String? input) {
-//
   if (input!.length != 6) {
     return false;
   } else {

@@ -11,6 +11,10 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
+import 'package:table_calendar/table_calendar.dart';
+
 class LeaveCalendarWidget extends StatefulWidget {
   const LeaveCalendarWidget({
     super.key,
@@ -24,9 +28,9 @@ class LeaveCalendarWidget extends StatefulWidget {
     this.currentYear,
     this.nextYear,
     this.previousYear,
-    required this.currentYearSelectableDates,
-    required this.previousYearSelectableDates,
-    required this.nextYearSelectableDates,
+    this.currentYearSelectableDates = '0',
+    this.previousYearSelectableDates = '0',
+    this.nextYearSelectableDates = '0',
     this.startdate,
     this.enddate,
   });
@@ -39,8 +43,8 @@ class LeaveCalendarWidget extends StatefulWidget {
   final Color? selectedTextColor;
   final DateTime? currentDate;
   final String? currentYear;
-  final String? nextYear;
   final String? previousYear;
+  final String? nextYear;
   final String currentYearSelectableDates;
   final String previousYearSelectableDates;
   final String nextYearSelectableDates;
