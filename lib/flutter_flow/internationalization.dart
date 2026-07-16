@@ -1968,6 +1968,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': '',
     },
   },
+  // errorMessageComponent
+  {
+    'ypsxbfwx': {
+      'th': 'ตกลง',
+      'en': '',
+      'km': '',
+    },
+  },
   // Miscellaneous
   {
     'wtnstumt': {

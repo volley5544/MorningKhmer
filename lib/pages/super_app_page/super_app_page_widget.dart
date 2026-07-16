@@ -1308,8 +1308,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                  if (false)
-                                                    Container(
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                          DashboardLeavePageWidget
+                                                              .routeName);
+                                                    },
+                                                    child: Container(
                                                       width: 100.0,
                                                       height: 100.0,
                                                       decoration: BoxDecoration(
@@ -1507,6 +1520,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                         ],
                                                       ),
                                                     ),
+                                                  ),
                                                   if (false)
                                                     Container(
                                                       width: 100.0,
