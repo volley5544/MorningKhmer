@@ -161,6 +161,35 @@ class FFAppState extends ChangeNotifier {
       Function(UserFirestoreDataModelStruct) updateFn) {
     updateFn(_userFirestoreData);
   }
+
+  List<DateTime> _selectedDatesList = [];
+  List<DateTime> get selectedDatesList => _selectedDatesList;
+  set selectedDatesList(List<DateTime> value) {
+    _selectedDatesList = value;
+  }
+
+  void addToSelectedDatesList(DateTime value) {
+    selectedDatesList.add(value);
+  }
+
+  void removeFromSelectedDatesList(DateTime value) {
+    selectedDatesList.remove(value);
+  }
+
+  void removeAtIndexFromSelectedDatesList(int index) {
+    selectedDatesList.removeAt(index);
+  }
+
+  void updateSelectedDatesListAtIndex(
+    int index,
+    DateTime Function(DateTime) updateFn,
+  ) {
+    selectedDatesList[index] = updateFn(_selectedDatesList[index]);
+  }
+
+  void insertAtIndexInSelectedDatesList(int index, DateTime value) {
+    selectedDatesList.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {
