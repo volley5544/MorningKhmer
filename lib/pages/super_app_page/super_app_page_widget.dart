@@ -1007,7 +1007,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  '7wfh7wwu' /* Service */,
+                                                  '7wfh7wwu' /* บริการ */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1255,7 +1255,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              '7soacm6f' /* Check in-out */,
+                                                              '7soacm6f' /* เช็คอิน */,
                                                             ),
                                                             textAlign: TextAlign
                                                                 .center,
@@ -1468,7 +1468,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'gsbwzmz4' /* Leave Request */,
+                                                              'gsbwzmz4' /* อนุมัติลา */,
                                                             ),
                                                             textAlign: TextAlign
                                                                 .center,
@@ -1621,7 +1621,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                     context)
                                                                 .getText(
                                                               '4zeu6934' /* Location
-employee */
+พนักงาน */
                                                               ,
                                                             ),
                                                             textAlign: TextAlign
@@ -1735,7 +1735,7 @@ employee */
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'x9wr11l2' /* Tools */,
+                                                    'x9wr11l2' /* เครื่องมือ */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)

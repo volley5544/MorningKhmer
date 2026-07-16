@@ -63,8 +63,8 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget> {
                 color: Colors.white,
                 size: 30.0,
               ),
-              onPressed: () {
-                print('IconButton pressed ...');
+              onPressed: () async {
+                context.safePop();
               },
             ),
             title: Text(
