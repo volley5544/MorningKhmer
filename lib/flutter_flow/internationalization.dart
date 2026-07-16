@@ -608,6 +608,1274 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': 'ផ្ទះ',
     },
   },
+  // AddLeavePage
+  {
+    'ujwk988e': {
+      'th': 'Submit approval request',
+      'en': '',
+      'km': '',
+    },
+    'uftzsdn6': {
+      'th': 'Leave Type :',
+      'en': '',
+      'km': '',
+    },
+    'f8bq5dp5': {
+      'th': 'Time Period :',
+      'en': '',
+      'km': '',
+    },
+    'og9req83': {
+      'th': 'Please select...',
+      'en': '',
+      'km': '',
+    },
+    'vx13v0o3': {
+      'th': 'Search...',
+      'en': '',
+      'km': '',
+    },
+    '3el6hdfy': {
+      'th': 'full',
+      'en': '',
+      'km': '',
+    },
+    'qq6ohxgh': {
+      'th': 'Leave Date :',
+      'en': '',
+      'km': '',
+    },
+    'q51sk1b2': {
+      'th': 'Number of leave days :',
+      'en': '',
+      'km': '',
+    },
+    '1htd1ret': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'kpvsl577': {
+      'th': 'Number of leave days in other years :',
+      'en': '',
+      'km': '',
+    },
+    'lku4rtsw': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '1fmqvl7s': {
+      'th': 'Contact phone number :',
+      'en': '',
+      'km': '',
+    },
+    'mwb2wro4': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'k110ub8y': {
+      'th': 'Please enter your phone number.',
+      'en': '',
+      'km': '',
+    },
+    'j8vqlgrs': {
+      'th': 'กรุณากรอกเบอร์โทรศัพท์',
+      'en': '',
+      'km': '',
+    },
+    '7s76sd9z': {
+      'th': 'Please choose an option from the dropdown',
+      'en': '',
+      'km': '',
+    },
+    'pyfuqn3y': {
+      'th': 'Reason for leave :',
+      'en': '',
+      'km': '',
+    },
+    'jdlfbcl3': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'igutu2ha': {
+      'th': 'Please enter...',
+      'en': '',
+      'km': '',
+    },
+    'so3ualw3': {
+      'th': 'Attach leave file :',
+      'en': '',
+      'km': '',
+    },
+    'hqvi18au': {
+      'th': '[Attach image file]',
+      'en': '',
+      'km': '',
+    },
+    '2hj3ux8x': {
+      'th': 'Save',
+      'en': '',
+      'km': '',
+    },
+    'be2ft1ls': {
+      'th': 'จำนวนวันที่ปีปัจจุบันลา :',
+      'en': '',
+      'km': '',
+    },
+    'wrjvyg1m': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'jge42n89': {
+      'th': 'จำนวนวันที่ลาปีอื่น :',
+      'en': '',
+      'km': '',
+    },
+    'hw57c62d': {
+      'th': 'Hello World',
+      'en': '',
+      'km': '',
+    },
+    'jralnhbk': {
+      'th': 'Home',
+      'en': '',
+      'km': '',
+    },
+  },
+  // leaveShowPage
+  {
+    'fsp9g3j9': {
+      'th': 'Approval request list',
+      'en': '',
+      'km': '',
+    },
+    '6opwwzik': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'kcxlfllh': {
+      'th': 'Please select the month you want to search for',
+      'en': 'Please select the month you want to search for',
+      'km': 'សូមជ្រើសរើសខែដែលអ្នកចង់ស្វែងរក',
+    },
+    'jgysw1qo': {
+      'th': 'previous year',
+      'en': '',
+      'km': '',
+    },
+    'nxdyt0io': {
+      'th': 'current year',
+      'en': '',
+      'km': '',
+    },
+    'yrst9rn3': {
+      'th': 'next year',
+      'en': '',
+      'km': '',
+    },
+    'q8gbofl6': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'wxm753ko': {
+      'th': 'Please select the month you want to search for',
+      'en': '',
+      'km': '',
+    },
+    'cjk56qty': {
+      'th': 'January',
+      'en': '',
+      'km': '',
+    },
+    'zyhgfxxn': {
+      'th': 'February',
+      'en': '',
+      'km': '',
+    },
+    '1yxuzoy6': {
+      'th': 'March',
+      'en': '',
+      'km': '',
+    },
+    '1r223pyf': {
+      'th': 'April',
+      'en': '',
+      'km': '',
+    },
+    'j495iana': {
+      'th': 'May',
+      'en': '',
+      'km': '',
+    },
+    '8dzl2frc': {
+      'th': 'June',
+      'en': '',
+      'km': '',
+    },
+    '55siobqk': {
+      'th': 'July',
+      'en': '',
+      'km': '',
+    },
+    'ihjr388y': {
+      'th': 'August',
+      'en': '',
+      'km': '',
+    },
+    '0d7wk9z1': {
+      'th': 'September',
+      'en': '',
+      'km': '',
+    },
+    '1b3iyukf': {
+      'th': 'October',
+      'en': '',
+      'km': '',
+    },
+    'zcefwify': {
+      'th': 'November',
+      'en': '',
+      'km': '',
+    },
+    'ndgzf9y6': {
+      'th': 'December',
+      'en': '',
+      'km': '',
+    },
+    '1x6yyt6q': {
+      'th': 'Leave',
+      'en': '',
+      'km': '',
+    },
+    '0i66w6a2': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'efypo8mj': {
+      'th': 'ดูรายละเอียด',
+      'en': '',
+      'km': '',
+    },
+    'qzi7gp84': {
+      'th': 'Type of leave:',
+      'en': '',
+      'km': '',
+    },
+    '91fo0slx': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'zhnkz0ph': {
+      'th': 'Transaction date:',
+      'en': '',
+      'km': '',
+    },
+    'tm1f47em': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'x7ezrdub': {
+      'th': 'Leave date:',
+      'en': '',
+      'km': '',
+    },
+    'rne2p229': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'cl6qob0z': {
+      'th': 'Number of leave days:',
+      'en': '',
+      'km': '',
+    },
+    'sejicad5': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'wcw4izdt': {
+      'th': 'Period of time:',
+      'en': '',
+      'km': '',
+    },
+    'icun7jg4': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '2slr501i': {
+      'th': 'Reason for leave:',
+      'en': '',
+      'km': '',
+    },
+    '9ehkbsde': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'kx64bk1h': {
+      'th': 'Approver:',
+      'en': '',
+      'km': '',
+    },
+    'n0zirmxb': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '0w0tntkt': {
+      'th': 'Status:',
+      'en': '',
+      'km': '',
+    },
+    '12qldpvq': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'wcmnt8nv': {
+      'th': 'Attached file:',
+      'en': '',
+      'km': '',
+    },
+    'dfrcgliu': {
+      'th': 'Edit',
+      'en': '',
+      'km': '',
+    },
+    'twwkoxsu': {
+      'th': 'Cancel',
+      'en': '',
+      'km': '',
+    },
+    'lytjxb3q': {
+      'th': 'Home',
+      'en': '',
+      'km': '',
+    },
+  },
+  // AddResignPage
+  {
+    't9oiyl2z': {
+      'th': '[Some hint text...]',
+      'en': '',
+      'km': '',
+    },
+    'tkbab8yi': {
+      'th': 'ประเภทการลา: ลาออก',
+      'en': '',
+      'km': '',
+    },
+    '01e44qzn': {
+      'th': 'วันที่ทำงานวันสุดท้าย  :',
+      'en': '',
+      'km': '',
+    },
+    'jalrwahi': {
+      'th': 'ระบุวันที่',
+      'en': '',
+      'km': '',
+    },
+    'esy7gtzj': {
+      'th': 'เหตุผลที่ตัดสินใจลาออก (ระบุได้มากกว่า 1 ข้อ)  :',
+      'en': '',
+      'km': '',
+    },
+    'rlgflz8s': {
+      'th': 'Option 1',
+      'en': '',
+      'km': '',
+    },
+    's67ewl11': {
+      'th': 'อื่นๆ  :',
+      'en': '',
+      'km': '',
+    },
+    'u5zfrmko': {
+      'th': 'ระบุ...',
+      'en': '',
+      'km': '',
+    },
+    '8f2q914t': {
+      'th': 'อยากให้บริษัทปรับปรุงการทำงานด้านใดบ้าง  :',
+      'en': '',
+      'km': '',
+    },
+    '0mzl9pup': {
+      'th': 'กรุณากรอก...',
+      'en': '',
+      'km': '',
+    },
+    '7ma6frkg': {
+      'th': 'ในช่วงที่แจ้งลาออก สามารถติดต่อได้ที่ :',
+      'en': '',
+      'km': '',
+    },
+    'cpohqmrv': {
+      'th': 'กรุณาเลือกจังหวัด...',
+      'en': '',
+      'km': '',
+    },
+    '46e1gce7': {
+      'th': 'Option 1',
+      'en': '',
+      'km': '',
+    },
+    'pmvgcj9l': {
+      'th': 'กรุณาเลือกอำเภอ...',
+      'en': '',
+      'km': '',
+    },
+    'umion64m': {
+      'th': 'Option 1',
+      'en': '',
+      'km': '',
+    },
+    '2elzp6e1': {
+      'th': 'กรุณาเลือกตำบล...',
+      'en': '',
+      'km': '',
+    },
+    'dea4bnlo': {
+      'th': 'Option 1',
+      'en': '',
+      'km': '',
+    },
+    '4c9b5v4r': {
+      'th': 'กรุณาเลือกรหัสไปรษณีย์...',
+      'en': '',
+      'km': '',
+    },
+    'lh7zebwr': {
+      'th': 'Option 1',
+      'en': '',
+      'km': '',
+    },
+    'u587w1ov': {
+      'th': 'ระบุหมู่ที่/ถนน',
+      'en': '',
+      'km': '',
+    },
+    'h5veb4jl': {
+      'th': 'เบอร์ติดต่อ',
+      'en': '',
+      'km': '',
+    },
+    '2tyevilb': {
+      'th': 'หากมีโอกาสจะกลับมาร่วมงานกับบริษัทหรือไม่  :',
+      'en': '',
+      'km': '',
+    },
+    'xav2srd6': {
+      'th': 'กรุณาเลือก...',
+      'en': '',
+      'km': '',
+    },
+    'z66ho6vx': {
+      'th': 'ร่วมงาน',
+      'en': '',
+      'km': '',
+    },
+    'iygn6hu2': {
+      'th': 'ไม่ร่วมงาน',
+      'en': '',
+      'km': '',
+    },
+    '5op5j9pz': {
+      'th': 'ทรัพย์สินของบริษัทที่ต้องส่งคืน (ระบุได้มากกว่า 1 ข้อ)  :',
+      'en': '',
+      'km': '',
+    },
+    '9hw32fog': {
+      'th': 'Option 1',
+      'en': '',
+      'km': '',
+    },
+    '1wpw4thv': {
+      'th': 'อื่นๆ  :',
+      'en': '',
+      'km': '',
+    },
+    'mk2d3gj1': {
+      'th': 'ระบุ...',
+      'en': '',
+      'km': '',
+    },
+    'b98bsef7': {
+      'th': 'บันทึก',
+      'en': '',
+      'km': '',
+    },
+    'qmjyufc2': {
+      'th': 'ยื่นเรื่องขออนุมัติลาออก',
+      'en': '',
+      'km': '',
+    },
+    'gtp23i0u': {
+      'th': 'Home',
+      'en': '',
+      'km': '',
+    },
+  },
+  // LeavePage
+  {
+    'lols01n9': {
+      'th': 'Leave List',
+      'en': 'Leave List',
+      'km': 'បញ្ជីចាកចេញ',
+    },
+    '2m29jiq2': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'f8wjs069': {
+      'th': 'All',
+      'en': 'All',
+      'km': 'ទាំងអស់',
+    },
+    'ky78loae': {
+      'th': 'Used',
+      'en': 'Used',
+      'km': 'ប្រើរួច',
+    },
+    '03pz2k86': {
+      'th': 'Remaining',
+      'en': 'Remaining',
+      'km': 'នៅសល់',
+    },
+    '1ac23a0d': {
+      'th': 'ลาก่อน',
+      'en': 'goodbye',
+      'km': 'លាហើយ',
+    },
+    'k31ctwg1': {
+      'th': 'Home',
+      'en': 'Home',
+      'km': 'ផ្ទះ',
+    },
+  },
+  // ApprovedLeavePage
+  {
+    '1jq2dwje': {
+      'th': 'Approve many people',
+      'en': '',
+      'km': '',
+    },
+    '4thwrqfe': {
+      'th': 'Select all',
+      'en': '',
+      'km': '',
+    },
+    'oq59xnd1': {
+      'th': 'Approve selected',
+      'en': '',
+      'km': '',
+    },
+    'fuw0b5bl': {
+      'th': 'Cancel',
+      'en': '',
+      'km': '',
+    },
+    '94ua3b58': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'z1jah8ml': {
+      'th': 'Status:',
+      'en': '',
+      'km': '',
+    },
+    'k4fbntgl': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'v6cjlnzr': {
+      'th': 'Nickname:',
+      'en': '',
+      'km': '',
+    },
+    'wenaag34': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'ksy0ziy9': {
+      'th': 'Department affiliation:',
+      'en': '',
+      'km': '',
+    },
+    'mmmoxx90': {
+      'th': '[รอดำเนินการ]',
+      'en': '',
+      'km': '',
+    },
+    'bifue8gq': {
+      'th': 'Type of leave:',
+      'en': '',
+      'km': '',
+    },
+    '63faskh0': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '5ykip8ce': {
+      'th': 'Transaction date:',
+      'en': '',
+      'km': '',
+    },
+    'ys3ofnss': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '0y5187ny': {
+      'th': 'Leave date:',
+      'en': '',
+      'km': '',
+    },
+    'in48vb92': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'irwbu5gl': {
+      'th': 'Number of leave days:',
+      'en': '',
+      'km': '',
+    },
+    '5tch4un8': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'ba52ra74': {
+      'th': 'Time period:',
+      'en': '',
+      'km': '',
+    },
+    'aozk7yhi': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'ko1t63gc': {
+      'th': 'Reason for leave:',
+      'en': '',
+      'km': '',
+    },
+    '60io1xwm': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'r7v1sy2p': {
+      'th': 'Contact telephone number:',
+      'en': '',
+      'km': '',
+    },
+    'swdoil63': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'xcsyjw8s': {
+      'th': 'Attachment:',
+      'en': '',
+      'km': '',
+    },
+    '1hactgyx': {
+      'th': 'Approve',
+      'en': '',
+      'km': '',
+    },
+    'hd1zpea4': {
+      'th': 'Do not approve',
+      'en': '',
+      'km': '',
+    },
+    '8ns92ey4': {
+      'th': 'Leave approval list',
+      'en': '',
+      'km': '',
+    },
+    'vrf4h7fo': {
+      'th': 'Home',
+      'en': '',
+      'km': '',
+    },
+  },
+  // ApproveShowPage
+  {
+    '9ovfglr2': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '1lpsqcjf': {
+      'th': 'Please select the month you want to search for',
+      'en': '',
+      'km': '',
+    },
+    'ymzm1fih': {
+      'th': 'previous year',
+      'en': '',
+      'km': '',
+    },
+    '68vjxl98': {
+      'th': 'current year',
+      'en': '',
+      'km': '',
+    },
+    'jdk5a2v5': {
+      'th': 'next year',
+      'en': '',
+      'km': '',
+    },
+    'miovlw84': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '6z72qpuf': {
+      'th': 'Please select the month you want to search for',
+      'en': '',
+      'km': '',
+    },
+    'udbrvpsc': {
+      'th': 'January',
+      'en': '',
+      'km': '',
+    },
+    'hnhmxon8': {
+      'th': 'February',
+      'en': '',
+      'km': '',
+    },
+    'l90qge73': {
+      'th': 'March',
+      'en': '',
+      'km': '',
+    },
+    '3hikdqos': {
+      'th': 'April',
+      'en': '',
+      'km': '',
+    },
+    'uf833dtt': {
+      'th': 'May',
+      'en': '',
+      'km': '',
+    },
+    'opof0yq0': {
+      'th': 'June',
+      'en': '',
+      'km': '',
+    },
+    '23tgvkik': {
+      'th': 'July',
+      'en': '',
+      'km': '',
+    },
+    '7s54z3d9': {
+      'th': 'August',
+      'en': '',
+      'km': '',
+    },
+    'l7rvgo1r': {
+      'th': 'September',
+      'en': '',
+      'km': '',
+    },
+    'dk27bygi': {
+      'th': 'October',
+      'en': '',
+      'km': '',
+    },
+    'j2tk113w': {
+      'th': 'November',
+      'en': '',
+      'km': '',
+    },
+    'votcj883': {
+      'th': 'December',
+      'en': '',
+      'km': '',
+    },
+    'af90frzm': {
+      'th': 'Approve',
+      'en': '',
+      'km': '',
+    },
+    '36ry9wg9': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '4ms6wxsc': {
+      'th': 'Type of leave:',
+      'en': '',
+      'km': '',
+    },
+    'aikrh377': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '0iaafxfg': {
+      'th': 'Transaction date:',
+      'en': '',
+      'km': '',
+    },
+    'lkyyyops': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '48r2qftr': {
+      'th': 'Leave date:',
+      'en': '',
+      'km': '',
+    },
+    't6d7k2n8': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'w50iklzc': {
+      'th': 'Number of leave days:',
+      'en': '',
+      'km': '',
+    },
+    'iq8vhixq': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'qug2c71k': {
+      'th': 'Time period:',
+      'en': '',
+      'km': '',
+    },
+    'i63jfq1t': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'mye976ih': {
+      'th': 'Reason for leave:',
+      'en': '',
+      'km': '',
+    },
+    'y5onqqha': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'ycs4f6x7': {
+      'th': 'Cancel',
+      'en': '',
+      'km': '',
+    },
+    'j4tx92qm': {
+      'th': 'Not approved',
+      'en': '',
+      'km': '',
+    },
+    'csdjbrx9': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'avhozj98': {
+      'th': 'Type of leave:',
+      'en': '',
+      'km': '',
+    },
+    'mn6o06md': {
+      'th': '[ลากิจ]',
+      'en': '',
+      'km': '',
+    },
+    'qx5tjh1w': {
+      'th': 'Transaction date:',
+      'en': '',
+      'km': '',
+    },
+    'g4mj40jn': {
+      'th': '[01/11/2565]',
+      'en': '',
+      'km': '',
+    },
+    'hu6t7whs': {
+      'th': 'Leave date:',
+      'en': '',
+      'km': '',
+    },
+    '784bd1td': {
+      'th': '[11/11/2565-12/11/2565]',
+      'en': '',
+      'km': '',
+    },
+    'a3iqej9c': {
+      'th': 'Number of leave days:',
+      'en': '',
+      'km': '',
+    },
+    '8yuqgilf': {
+      'th': '[2]',
+      'en': '',
+      'km': '',
+    },
+    'iy9vpqor': {
+      'th': 'Time period:',
+      'en': '',
+      'km': '',
+    },
+    '2s8sjnpa': {
+      'th': '[ลาเต็มวัน]',
+      'en': '',
+      'km': '',
+    },
+    '8xyie5u9': {
+      'th': 'Reason for leave:',
+      'en': '',
+      'km': '',
+    },
+    '6ssrbsv1': {
+      'th': '[]',
+      'en': '',
+      'km': '',
+    },
+    'sa8npvrq': {
+      'th': 'Cancel',
+      'en': '',
+      'km': '',
+    },
+    'ccxd7go5': {
+      'th': 'นางสาวมนฑิรา ยอดแสง',
+      'en': '',
+      'km': '',
+    },
+    'rrb2em3t': {
+      'th': 'Type of leave:',
+      'en': '',
+      'km': '',
+    },
+    '5zhocack': {
+      'th': '[ลากิจ]',
+      'en': '',
+      'km': '',
+    },
+    'jzd5oh6h': {
+      'th': 'Transaction date:',
+      'en': '',
+      'km': '',
+    },
+    '4qcl33d4': {
+      'th': '[01/11/2565]',
+      'en': '',
+      'km': '',
+    },
+    'tpai7l0p': {
+      'th': 'Leave date:',
+      'en': '',
+      'km': '',
+    },
+    '3f3r2ksr': {
+      'th': '[11/11/2565-12/11/2565]',
+      'en': '',
+      'km': '',
+    },
+    '2xmg28mr': {
+      'th': 'Number of leave days:',
+      'en': '',
+      'km': '',
+    },
+    'h9k6cqxb': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    '5r5m7wk6': {
+      'th': 'Time period:',
+      'en': '',
+      'km': '',
+    },
+    'zsdw21f9': {
+      'th': '[ลาเต็มวัน]',
+      'en': '',
+      'km': '',
+    },
+    '4fnwyem3': {
+      'th': 'Reason for leave:',
+      'en': '',
+      'km': '',
+    },
+    'mrs3y10t': {
+      'th': '[]',
+      'en': '',
+      'km': '',
+    },
+    '52jrj08j': {
+      'th': 'Canceled by:',
+      'en': '',
+      'km': '',
+    },
+    'lp6e3990': {
+      'th': '[]',
+      'en': '',
+      'km': '',
+    },
+    'ysmso6zd': {
+      'th': 'List',
+      'en': '',
+      'km': '',
+    },
+    '4wsoj8cg': {
+      'th': 'Home',
+      'en': '',
+      'km': '',
+    },
+  },
+  // EditLeavePage
+  {
+    'ificuq2n': {
+      'th': 'ยื่นเรื่องขออนุมัติ',
+      'en': '',
+      'km': '',
+    },
+    'fodqx9uc': {
+      'th': 'ประเภทการลา :',
+      'en': '',
+      'km': '',
+    },
+    'b29dbyuo': {
+      'th': 'ช่วงเวลา :',
+      'en': '',
+      'km': '',
+    },
+    '2ib16uo0': {
+      'th': 'กรุณาเลือก...',
+      'en': '',
+      'km': '',
+    },
+    '8kkmr7pm': {
+      'th': 'Search...',
+      'en': '',
+      'km': '',
+    },
+    '60h3106u': {
+      'th': 'ลาเต็มวัน',
+      'en': '',
+      'km': '',
+    },
+    'ogpaz9vg': {
+      'th': 'ลาครึ่งวัน',
+      'en': '',
+      'km': '',
+    },
+    'b76kcikg': {
+      'th': 'วันที่ลา :',
+      'en': '',
+      'km': '',
+    },
+    'wrw5c1zg': {
+      'th': 'จำนวนวันที่ลา :',
+      'en': '',
+      'km': '',
+    },
+    'uepvh7sm': {
+      'th': 'TextField',
+      'en': '',
+      'km': '',
+    },
+    'gsrsh3zb': {
+      'th': 'เบอร์โทรติดต่อ :',
+      'en': '',
+      'km': '',
+    },
+    'j7nptk08': {
+      'th': 'กรุณากรอกเบอร์โทรศัพท์',
+      'en': '',
+      'km': '',
+    },
+    'o4t7tiro': {
+      'th': 'เหตุผลการลา :',
+      'en': '',
+      'km': '',
+    },
+    'kqyqcq3i': {
+      'th': '',
+      'en': '',
+      'km': '',
+    },
+    'bndjea7h': {
+      'th': 'กรุณากรอก...',
+      'en': '',
+      'km': '',
+    },
+    'aheaf15h': {
+      'th': 'แนบไฟล์การลา :',
+      'en': '',
+      'km': '',
+    },
+    '3vqk49tl': {
+      'th': '[Attach image file]',
+      'en': '',
+      'km': '',
+    },
+    'tc8wty7s': {
+      'th': 'Save',
+      'en': '',
+      'km': '',
+    },
+    '1y7nxlsg': {
+      'th': 'Home',
+      'en': '',
+      'km': '',
+    },
+  },
+  // CalendarPage
+  {
+    'klwmnx5g': {
+      'th': 'print date',
+      'en': '',
+      'km': '',
+    },
+    '2ks9nhe0': {
+      'th': 'ตกลง',
+      'en': '',
+      'km': '',
+    },
+    't0y2y3mb': {
+      'th': 'เลือกวันที่ต้องการลา',
+      'en': '',
+      'km': '',
+    },
+    'z3yk1ts0': {
+      'th': 'Home',
+      'en': '',
+      'km': '',
+    },
+  },
+  // DashboardLeavePage
+  {
+    'k3n9jgmb': {
+      'th': 'Leave list',
+      'en': '',
+      'km': '',
+    },
+    '2vgir6r5': {
+      'th': 'Menu',
+      'en': '',
+      'km': '',
+    },
+    'zyesa252': {
+      'th': 'Leave list',
+      'en': '',
+      'km': '',
+    },
+    'e1s6zfp5': {
+      'th': 'Leave approval request list',
+      'en': '',
+      'km': '',
+    },
+    '7r86wbjz': {
+      'th': 'Leave approval',
+      'en': '',
+      'km': '',
+    },
+    '8eusxn5b': {
+      'th': 'Approved leave list',
+      'en': '',
+      'km': '',
+    },
+    'gjv9vyea': {
+      'th': 'Home',
+      'en': '',
+      'km': '',
+    },
+  },
+  // CancelPage
+  {
+    'n96rjx6a': {
+      'th': 'ยืนยันยกเลิกการลา',
+      'en': '',
+      'km': '',
+    },
+    'nmh2w1gg': {
+      'th': 'ระบุเหตุผล...',
+      'en': '',
+      'km': '',
+    },
+    'agdhntog': {
+      'th': 'ตกลง',
+      'en': '',
+      'km': '',
+    },
+    'ci2ialvg': {
+      'th': 'ยกเลิก',
+      'en': '',
+      'km': '',
+    },
+    'a5sxkvsl': {
+      'th': 'ยกเลิกการลา',
+      'en': '',
+      'km': '',
+    },
+    'mzzsebg2': {
+      'th': 'Home',
+      'en': '',
+      'km': '',
+    },
+  },
+  // ConfirmEmailPage
+  {
+    'yvp12ypk': {
+      'th': 'กรุณากรอก Email ที่ต้องการรับข้อมูล',
+      'en': '',
+      'km': '',
+    },
+    '2tus85gr': {
+      'th': 'ระบุ Email',
+      'en': '',
+      'km': '',
+    },
+    'y50xyu31': {
+      'th': 'ตกลง',
+      'en': '',
+      'km': '',
+    },
+    'tyidngqx': {
+      'th': 'ยกเลิก',
+      'en': '',
+      'km': '',
+    },
+    '7crkve3l': {
+      'th': 'ยืนยัน Email',
+      'en': '',
+      'km': '',
+    },
+    'msu28vom': {
+      'th': 'Home',
+      'en': '',
+      'km': '',
+    },
+  },
   // dropdownComponent
   {
     'ikjz62v6': {
@@ -652,6 +1920,52 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'th': 'Apply',
       'en': 'Apply',
       'km': 'ដាក់ពាក្យ',
+    },
+  },
+  // DatailLeaveRequet
+  {
+    'b24fv3p6': {
+      'th': 'Leave details',
+      'en': '',
+      'km': '',
+    },
+    '4d7u9rw0': {
+      'th': 'ประเภทการลา',
+      'en': '',
+      'km': '',
+    },
+    'atxgu6s6': {
+      'th': 'วันที่ลา: ',
+      'en': '',
+      'km': '',
+    },
+    '66hwwepx': {
+      'th': 'ช่วงเวลา:  ',
+      'en': '',
+      'km': '',
+    },
+  },
+  // ConfirmCancelLeaveComponent
+  {
+    '676bwhfl': {
+      'th': 'Confirm leave cancellation.',
+      'en': '',
+      'km': '',
+    },
+    'fxx8fx4l': {
+      'th': 'Specify the reason...',
+      'en': '',
+      'km': '',
+    },
+    '1yrtdn80': {
+      'th': 'Cancel',
+      'en': '',
+      'km': '',
+    },
+    '6gdsajun': {
+      'th': 'OK',
+      'en': '',
+      'km': '',
     },
   },
   // Miscellaneous

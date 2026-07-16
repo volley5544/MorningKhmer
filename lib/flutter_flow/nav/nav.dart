@@ -144,6 +144,142 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: BlankPageWidget.routeName,
           path: BlankPageWidget.routePath,
           builder: (context, params) => BlankPageWidget(),
+        ),
+        FFRoute(
+          name: AddLeavePageWidget.routeName,
+          path: AddLeavePageWidget.routePath,
+          builder: (context, params) => AddLeavePageWidget(
+            leaveName: params.getParam(
+              'leaveName',
+              ParamType.String,
+            ),
+            leaveType: params.getParam(
+              'leaveType',
+              ParamType.String,
+            ),
+            startDateLeave: params.getParam(
+              'startDateLeave',
+              ParamType.String,
+            ),
+            endDateLeave: params.getParam(
+              'endDateLeave',
+              ParamType.String,
+            ),
+            currentYear: params.getParam(
+              'currentYear',
+              ParamType.String,
+            ),
+            nextYear: params.getParam(
+              'nextYear',
+              ParamType.String,
+            ),
+            currentYearSelectableDates: params.getParam(
+              'currentYearSelectableDates',
+              ParamType.String,
+            ),
+            nextYearSelectableDates: params.getParam(
+              'nextYearSelectableDates',
+              ParamType.String,
+            ),
+            leavePeriods: params.getParam<dynamic>(
+              'leavePeriods',
+              ParamType.JSON,
+              isList: true,
+            ),
+            previousYear: params.getParam(
+              'previousYear',
+              ParamType.String,
+            ),
+            previousYearSelectableDates: params.getParam(
+              'previousYearSelectableDates',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: LeaveShowPageWidget.routeName,
+          path: LeaveShowPageWidget.routePath,
+          builder: (context, params) => LeaveShowPageWidget(),
+        ),
+        FFRoute(
+          name: AddResignPageWidget.routeName,
+          path: AddResignPageWidget.routePath,
+          builder: (context, params) => AddResignPageWidget(),
+        ),
+        FFRoute(
+          name: LeavePageWidget.routeName,
+          path: LeavePageWidget.routePath,
+          builder: (context, params) => LeavePageWidget(),
+        ),
+        FFRoute(
+          name: ApprovedLeavePageWidget.routeName,
+          path: ApprovedLeavePageWidget.routePath,
+          builder: (context, params) => ApprovedLeavePageWidget(),
+        ),
+        FFRoute(
+          name: ApproveShowPageWidget.routeName,
+          path: ApproveShowPageWidget.routePath,
+          builder: (context, params) => ApproveShowPageWidget(),
+        ),
+        FFRoute(
+          name: EditLeavePageWidget.routeName,
+          path: EditLeavePageWidget.routePath,
+          builder: (context, params) => EditLeavePageWidget(
+            leaveID: params.getParam(
+              'leaveID',
+              ParamType.String,
+            ),
+            leaveName: params.getParam(
+              'leaveName',
+              ParamType.String,
+            ),
+            leavePerios: params.getParam(
+              'leavePerios',
+              ParamType.String,
+            ),
+            leaveCountDay: params.getParam(
+              'leaveCountDay',
+              ParamType.String,
+            ),
+            leaveReason: params.getParam(
+              'leaveReason',
+              ParamType.String,
+            ),
+            userPhoneNumber: params.getParam(
+              'userPhoneNumber',
+              ParamType.String,
+            ),
+            leaveDocument: params.getParam<String>(
+              'leaveDocument',
+              ParamType.String,
+              isList: true,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: CalendarPageWidget.routeName,
+          path: CalendarPageWidget.routePath,
+          builder: (context, params) => CalendarPageWidget(
+            leaveType: params.getParam(
+              'leaveType',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: DashboardLeavePageWidget.routeName,
+          path: DashboardLeavePageWidget.routePath,
+          builder: (context, params) => DashboardLeavePageWidget(),
+        ),
+        FFRoute(
+          name: CancelPageWidget.routeName,
+          path: CancelPageWidget.routePath,
+          builder: (context, params) => CancelPageWidget(),
+        ),
+        FFRoute(
+          name: ConfirmEmailPageWidget.routeName,
+          path: ConfirmEmailPageWidget.routePath,
+          builder: (context, params) => ConfirmEmailPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
