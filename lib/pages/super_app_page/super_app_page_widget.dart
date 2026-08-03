@@ -84,13 +84,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       );
 
       await actions.getBackgroundLocation(
-        currentUserData?.registerId,
+        currentUserData?.employeeId,
         currentUserData?.mobilePhone,
         isAndroid ? 'Android' : 'iOS',
         FFAppState().deviceId,
       );
       await actions.periodicGetLocation(
-        currentUserData?.registerId,
+        currentUserData?.employeeId,
         currentUserData?.mobilePhone,
         isAndroid ? 'Android' : 'iOS',
         FFAppState().deviceId,
