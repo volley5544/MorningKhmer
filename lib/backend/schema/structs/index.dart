@@ -9,6 +9,7 @@ export 'url_storage_data_model_struct.dart';
 export 'user_firestore_data_model_struct.dart';
 export 'age_struct.dart';
 export 'list_location_struct.dart';
+export 'menu_config_struct.dart';
 export 'position_age_struct.dart';
 export 'service_duration_struct.dart';
 export 'user_struct.dart';

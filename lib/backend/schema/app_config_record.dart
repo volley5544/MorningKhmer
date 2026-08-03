@@ -27,6 +27,11 @@ class AppConfigRecord extends FirestoreRecord {
       _appVersion ?? AppVersionDataModelStruct();
   bool hasAppVersion() => _appVersion != null;
 
+  // "menu_config" field.
+  MenuConfigStruct? _menuConfig;
+  MenuConfigStruct get menuConfig => _menuConfig ?? MenuConfigStruct();
+  bool hasMenuConfig() => _menuConfig != null;
+
   void _initializeFields() {
     _urlStorage = snapshotData['url_storage'] is UrlStorageDataModelStruct
         ? snapshotData['url_storage']
@@ -34,6 +39,9 @@ class AppConfigRecord extends FirestoreRecord {
     _appVersion = snapshotData['app_version'] is AppVersionDataModelStruct
         ? snapshotData['app_version']
         : AppVersionDataModelStruct.maybeFromMap(snapshotData['app_version']);
+    _menuConfig = snapshotData['menu_config'] is MenuConfigStruct
+        ? snapshotData['menu_config']
+        : MenuConfigStruct.maybeFromMap(snapshotData['menu_config']);
   }
 
   static CollectionReference get collection =>
@@ -73,11 +81,13 @@ class AppConfigRecord extends FirestoreRecord {
 Map<String, dynamic> createAppConfigRecordData({
   UrlStorageDataModelStruct? urlStorage,
   AppVersionDataModelStruct? appVersion,
+  MenuConfigStruct? menuConfig,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'url_storage': UrlStorageDataModelStruct().toMap(),
       'app_version': AppVersionDataModelStruct().toMap(),
+      'menu_config': MenuConfigStruct().toMap(),
     }.withoutNulls,
   );
 
@@ -87,6 +97,9 @@ Map<String, dynamic> createAppConfigRecordData({
   // Handle nested data for "app_version" field.
   addAppVersionDataModelStructData(firestoreData, appVersion, 'app_version');
 
+  // Handle nested data for "menu_config" field.
+  addMenuConfigStructData(firestoreData, menuConfig, 'menu_config');
+
   return firestoreData;
 }
 
@@ -95,12 +108,14 @@ class AppConfigRecordDocumentEquality implements Equality<AppConfigRecord> {
 
   @override
   bool equals(AppConfigRecord? e1, AppConfigRecord? e2) {
-    return e1?.urlStorage == e2?.urlStorage && e1?.appVersion == e2?.appVersion;
+    return e1?.urlStorage == e2?.urlStorage &&
+        e1?.appVersion == e2?.appVersion &&
+        e1?.menuConfig == e2?.menuConfig;
   }
 
   @override
   int hash(AppConfigRecord? e) =>
-      const ListEquality().hash([e?.urlStorage, e?.appVersion]);
+      const ListEquality().hash([e?.urlStorage, e?.appVersion, e?.menuConfig]);
 
   @override
   bool isValidKey(Object? o) => o is AppConfigRecord;
