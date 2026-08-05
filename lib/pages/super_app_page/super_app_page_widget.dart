@@ -98,6 +98,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       _model.appConfigOutput = await queryAppConfigRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      safeSetState(() {});
       Navigator.pop(context);
     });
 
