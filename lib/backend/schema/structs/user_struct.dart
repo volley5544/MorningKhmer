@@ -38,7 +38,7 @@ class UserStruct extends FFFirebaseStruct {
     String? insurancePlan,
     String? groupCheckin,
     String? roleName,
-    String? authentikPk,
+    int? authentikPk,
     String? checkInBranchCode,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
@@ -294,9 +294,11 @@ class UserStruct extends FFFirebaseStruct {
   bool hasRoleName() => _roleName != null;
 
   // "authentik_pk" field.
-  String? _authentikPk;
-  String get authentikPk => _authentikPk ?? '';
-  set authentikPk(String? val) => _authentikPk = val;
+  int? _authentikPk;
+  int get authentikPk => _authentikPk ?? 0;
+  set authentikPk(int? val) => _authentikPk = val;
+
+  void incrementAuthentikPk(int amount) => authentikPk = authentikPk + amount;
 
   bool hasAuthentikPk() => _authentikPk != null;
 
@@ -338,7 +340,7 @@ class UserStruct extends FFFirebaseStruct {
         insurancePlan: data['insurance_plan'] as String?,
         groupCheckin: data['group_checkin'] as String?,
         roleName: data['role_name'] as String?,
-        authentikPk: data['authentik_pk'] as String?,
+        authentikPk: castToType<int>(data['authentik_pk']),
         checkInBranchCode: data['check_in_branch_code'] as String?,
       );
 
@@ -504,7 +506,7 @@ class UserStruct extends FFFirebaseStruct {
         ),
         'authentik_pk': serializeParam(
           _authentikPk,
-          ParamType.String,
+          ParamType.int,
         ),
         'check_in_branch_code': serializeParam(
           _checkInBranchCode,
@@ -666,7 +668,7 @@ class UserStruct extends FFFirebaseStruct {
         ),
         authentikPk: deserializeParam(
           data['authentik_pk'],
-          ParamType.String,
+          ParamType.int,
           false,
         ),
         checkInBranchCode: deserializeParam(
@@ -784,7 +786,7 @@ UserStruct createUserStruct({
   String? insurancePlan,
   String? groupCheckin,
   String? roleName,
-  String? authentikPk,
+  int? authentikPk,
   String? checkInBranchCode,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
