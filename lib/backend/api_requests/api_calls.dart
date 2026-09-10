@@ -1,6 +1,9 @@
 import 'dart:convert';
 import '../schema/structs/index.dart';
 
+import '/backend/mock/adapters/mock_api_adapter.dart';
+import '/backend/mock/ff_data_source.dart';
+
 import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
@@ -286,6 +289,236 @@ class HistoryCall {
 }
 
 /// End check in Group Code
+
+class LeaveGetListCall {
+  static Future<ApiCallResponse> call({
+    String? url = '',
+    String? token = '',
+    String? language = '',
+  }) async {
+    if (FFDataSource.isMockFor('2df7gms2')) {
+      return MockApiAdapter.leaveGetListCall(
+        url: url,
+        token: token,
+        language: language,
+      );
+    }
+    return ApiManager.instance.makeApiCall(
+      callName: 'leaveGetList',
+      apiUrl: '${url}/api/leave/get-list',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+        'Accept-Language': '${language}',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class LeaveHistoryCall {
+  static Future<ApiCallResponse> call({
+    String? url = '',
+    String? token = '',
+    String? language = '',
+  }) async {
+    if (FFDataSource.isMockFor('sijgpu74')) {
+      return MockApiAdapter.leaveHistoryCall(
+        url: url,
+        token: token,
+        language: language,
+      );
+    }
+    return ApiManager.instance.makeApiCall(
+      callName: 'leaveHistory',
+      apiUrl: '${url}/api/leave/history',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+        'Accept-Language': '${language}',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class LeaveSaveCall {
+  static Future<ApiCallResponse> call({
+    String? url = '',
+    String? token = '',
+    String? language = '',
+    String? leaveType = '',
+    String? leaveStartDate = '',
+    String? leaveEndDate = '',
+    String? leavePeriod = '',
+    String? leaveReason = '',
+    String? leaveDocument = '',
+    String? leaveDateList = '',
+  }) async {
+    final ffApiRequestBody = '''
+{"leave_type":"${leaveType}","leave_start_date":"${leaveStartDate}","leave_end_date":"${leaveEndDate}","leave_period":"${leavePeriod}","leave_reason":"${leaveReason}","leave_document":"${leaveDocument}","leave_date":"${leaveDateList}"}''';
+    if (FFDataSource.isMockFor('kdgm6wd8')) {
+      return MockApiAdapter.leaveSaveCall(
+        url: url,
+        token: token,
+        language: language,
+        leaveType: leaveType,
+        leaveStartDate: leaveStartDate,
+        leaveEndDate: leaveEndDate,
+        leavePeriod: leavePeriod,
+        leaveReason: leaveReason,
+        leaveDocument: leaveDocument,
+        leaveDateList: leaveDateList,
+      );
+    }
+    return ApiManager.instance.makeApiCall(
+      callName: 'leaveSave',
+      apiUrl: '${url}/api/leave/save',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+        'Accept-Language': '${language}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class LeaveGetListApproveCall {
+  static Future<ApiCallResponse> call({
+    String? url = '',
+    String? token = '',
+    String? language = '',
+  }) async {
+    if (FFDataSource.isMockFor('s07lgffj')) {
+      return MockApiAdapter.leaveGetListApproveCall(
+        url: url,
+        token: token,
+        language: language,
+      );
+    }
+    return ApiManager.instance.makeApiCall(
+      callName: 'leaveGetListApprove',
+      apiUrl: '${url}/api/leave/get-list-approve',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+        'Accept-Language': '${language}',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class LeaveGetAllLeaveCall {
+  static Future<ApiCallResponse> call({
+    String? url = '',
+    String? token = '',
+    String? language = '',
+  }) async {
+    if (FFDataSource.isMockFor('0c59z6vw')) {
+      return MockApiAdapter.leaveGetAllLeaveCall(
+        url: url,
+        token: token,
+        language: language,
+      );
+    }
+    return ApiManager.instance.makeApiCall(
+      callName: 'leaveGetAllLeave',
+      apiUrl: '${url}/api/leave/get-all-leave',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+        'Accept-Language': '${language}',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class LeaveSaveStatusCall {
+  static Future<ApiCallResponse> call({
+    String? url = '',
+    String? token = '',
+    String? language = '',
+    String? idList = '',
+    String? status = '',
+    String? reason = '',
+  }) async {
+    final ffApiRequestBody = '''
+{"id":"${idList}","status":"${status}","reason":"${reason}"}''';
+    if (FFDataSource.isMockFor('tixckfah')) {
+      return MockApiAdapter.leaveSaveStatusCall(
+        url: url,
+        token: token,
+        language: language,
+        idList: idList,
+        status: status,
+        reason: reason,
+      );
+    }
+    return ApiManager.instance.makeApiCall(
+      callName: 'leaveSaveStatus',
+      apiUrl: '${url}/api/leave/save-status',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+        'Accept-Language': '${language}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
 
 class ApiPagingParams {
   int nextPageNumber = 0;

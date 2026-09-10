@@ -59,10 +59,213 @@ class MarkerImage {
 }
 
 class FlutterFlowMarker {
-  const FlutterFlowMarker(this.markerId, this.location, [this.onTap]);
+  const FlutterFlowMarker(
+    this.markerId,
+    this.location, [
+    this.onTap,
+    this.image,
+  ]);
   final String markerId;
   final latlng.LatLng location;
   final Future Function()? onTap;
+
+  /// Overrides the map-wide marker image for this marker alone.
+  final MarkerImage? image;
+}
+
+/// The image [marker] renders with: its own, else the map-wide one, else none.
+MarkerImage? markerImageFor(
+  FlutterFlowGoogleMap map,
+  FlutterFlowMarker marker,
+) =>
+    marker.image ?? map.markerImage;
+
+/// Every distinct image the map needs: the map-wide one plus any a single
+/// marker overrides it with. Decoding is keyed on this set, so markers sharing
+/// an image share one bitmap.
+Set<MarkerImage> markerImagesFor(FlutterFlowGoogleMap map) => {
+      if (map.markerImage != null) map.markerImage!,
+      for (final marker in map.markers)
+        if (marker.image != null) marker.image!,
+    };
+
+/// Runs [callback] while owning [imageInfo], then releases its native image.
+///
+/// Every [ImageStreamListener] success receives an owned [ImageInfo] clone.
+/// Removing the listener does not dispose that clone, so all exit paths must
+/// release it explicitly.
+@visibleForTesting
+Future<T> withOwnedImageInfo<T>(
+  ImageInfo img,
+  Future<T> Function() callback,
+) async {
+  try {
+    return await callback();
+  } finally {
+    img.dispose();
+  }
+}
+
+/// Decoded marker bitmaps, plus the plain colored pin.
+///
+/// Split out from the map state so its behaviour can be exercised directly:
+/// the state itself cannot be built in a test without a platform view.
+class MarkerBitmapCache {
+  final Map<MarkerImage, BitmapDescriptor> _images = {};
+  final Map<MarkerImage, int> _pending = {};
+  final Map<MarkerImage, _MarkerBitmapListener> _listeners = {};
+  int _nextGeneration = 0;
+  GoogleMarkerColor? _color;
+  BitmapDescriptor? _colored;
+
+  /// The plain pin for [color], rebuilt only when the color changes.
+  ///
+  /// BitmapDescriptor has no value equality and Marker compares its icon, so
+  /// returning a new instance per call would make every marker look changed on
+  /// every rebuild and push a full update over the platform channel.
+  BitmapDescriptor colorDescriptor(GoogleMarkerColor color) {
+    if (_colored == null || _color != color) {
+      _color = color;
+      _colored = BitmapDescriptor.defaultMarkerWithHue(
+        googleMarkerColorMap[color]!,
+      );
+    }
+    return _colored!;
+  }
+
+  BitmapDescriptor? operator [](MarkerImage image) => _images[image];
+
+  bool contains(MarkerImage image) => _images.containsKey(image);
+
+  int get length => _images.length;
+
+  /// Drops bitmaps no longer needed and returns newly required images to
+  /// decode. Images already decoding are not returned a second time.
+  List<MarkerBitmapRequest> retain(Set<MarkerImage> required) {
+    _listeners.keys
+        .where((image) => !required.contains(image))
+        .toList()
+        .forEach(_releaseCurrentListener);
+    _images.removeWhere((image, _) => !required.contains(image));
+    _pending.removeWhere((image, _) => !required.contains(image));
+    final requests = <MarkerBitmapRequest>[];
+    for (final image in required) {
+      if (!_images.containsKey(image) && !_pending.containsKey(image)) {
+        final request = MarkerBitmapRequest(image, ++_nextGeneration);
+        _pending[image] = request.generation;
+        requests.add(request);
+      }
+    }
+    return requests;
+  }
+
+  /// Owns the listener for an in-flight decode. Returns false when the image
+  /// was pruned before its post-frame decode began.
+  bool trackListener(MarkerBitmapRequest request, VoidCallback cancel) {
+    if (!_isCurrent(request)) {
+      return false;
+    }
+    _releaseCurrentListener(request.image);
+    _listeners[request.image] = _MarkerBitmapListener(
+      request.generation,
+      cancel,
+    );
+    return true;
+  }
+
+  /// Releases this request's image stream after its first callback.
+  ///
+  /// A stale request must not release a newer listener for the same image.
+  bool releaseListener(MarkerBitmapRequest request) {
+    final listener = _listeners[request.image];
+    if (listener?.generation != request.generation) {
+      return false;
+    }
+    _listeners.remove(request.image);
+    listener!.cancel();
+    return true;
+  }
+
+  /// Stores a decoded bitmap, unless the image stopped being needed while it
+  /// was decoding or a newer request replaced this one.
+  bool store(
+    MarkerBitmapRequest request,
+    BitmapDescriptor descriptor,
+    Set<MarkerImage> required,
+  ) {
+    if (!_isCurrent(request)) {
+      return false;
+    }
+    releaseListener(request);
+    _pending.remove(request.image);
+    if (!required.contains(request.image)) {
+      return false;
+    }
+    _images[request.image] = descriptor;
+    return true;
+  }
+
+  /// Marks a failed decode as retryable on the next marker-image update.
+  bool fail(MarkerBitmapRequest request) {
+    if (!_isCurrent(request)) {
+      return false;
+    }
+    releaseListener(request);
+    _pending.remove(request.image);
+    return true;
+  }
+
+  /// Decodes and stores one request while keeping every failure retryable.
+  Future<bool> resolveBitmap(
+    MarkerBitmapRequest request, {
+    required Future<BitmapDescriptor?> Function() decode,
+    required Set<MarkerImage> Function() requiredImages,
+  }) async {
+    releaseListener(request);
+    try {
+      final descriptor = await decode();
+      if (descriptor == null) {
+        fail(request);
+        return false;
+      }
+      return store(request, descriptor, requiredImages());
+    } catch (_) {
+      fail(request);
+      rethrow;
+    }
+  }
+
+  bool _isCurrent(MarkerBitmapRequest request) =>
+      _pending[request.image] == request.generation;
+
+  void _releaseCurrentListener(MarkerImage image) {
+    final listener = _listeners.remove(image);
+    listener?.cancel();
+  }
+
+  void dispose() {
+    for (final listener in _listeners.values.toList()) {
+      listener.cancel();
+    }
+    _listeners.clear();
+    _pending.clear();
+    _images.clear();
+  }
+}
+
+@immutable
+class MarkerBitmapRequest {
+  const MarkerBitmapRequest(this.image, this.generation);
+
+  final MarkerImage image;
+  final int generation;
+}
+
+class _MarkerBitmapListener {
+  const _MarkerBitmapListener(this.generation, this.cancel);
+
+  final int generation;
+  final VoidCallback cancel;
 }
 
 class FlutterFlowGoogleMap extends StatefulWidget {
@@ -120,52 +323,99 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
       widget.initialLocation?.toGoogleMaps() ?? const LatLng(0.0, 0.0);
 
   late Completer<GoogleMapController> _controller;
-  BitmapDescriptor? _markerDescriptor;
+  final MarkerBitmapCache _bitmaps = MarkerBitmapCache();
   late LatLng currentMapCenter;
 
-  void initializeMarkerBitmap() {
-    final markerImage = widget.markerImage;
+  /// The bitmap for [marker] — its own image, else the map-wide one, falling
+  /// back to the plain colored pin while an image is still decoding.
+  BitmapDescriptor descriptorFor(FlutterFlowMarker marker) {
+    final image = markerImageFor(widget, marker);
+    final colored = _bitmaps.colorDescriptor(widget.markerColor);
+    return image == null ? colored : (_bitmaps[image] ?? colored);
+  }
 
-    if (markerImage == null) {
-      _markerDescriptor = BitmapDescriptor.defaultMarkerWithHue(
-        googleMarkerColorMap[widget.markerColor]!,
-      );
+  void initializeMarkerBitmaps() {
+    final pending = _bitmaps.retain(markerImagesFor(widget));
+    if (pending.isEmpty) {
       return;
     }
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      final markerImageSize = Size.square(markerImage.size);
-      var imageProvider = markerImage.isAssetImage
-          ? Image.asset(markerImage.imagePath).image
-          : CachedNetworkImageProvider(markerImage.imagePath);
-      if (!kIsWeb) {
-        // workaround for https://github.com/flutter/flutter/issues/34657 to
-        // enable marker resizing on Android and iOS.
-        final targetHeight =
-            (markerImage.size * MediaQuery.of(context).devicePixelRatio)
-                .toInt();
-        imageProvider = ResizeImage(
-          imageProvider,
-          height: targetHeight,
-          policy: ResizeImagePolicy.fit,
-          allowUpscaling: true,
-        );
+      if (!mounted) {
+        return;
       }
-      final imageConfiguration =
-          createLocalImageConfiguration(context, size: markerImageSize);
-      imageProvider
-          .resolve(imageConfiguration)
-          .addListener(ImageStreamListener((img, _) async {
-        final bytes = await img.image.toByteData(format: ImageByteFormat.png);
-        if (bytes != null && mounted) {
-          _markerDescriptor = BitmapDescriptor.fromBytes(
-            bytes.buffer.asUint8List(),
-            size: markerImageSize,
-          );
-          setState(() {});
-        }
-      }));
+      pending.forEach(resolveMarkerBitmap);
     });
+  }
+
+  void resolveMarkerBitmap(MarkerBitmapRequest request) {
+    final markerImage = request.image;
+    final markerImageSize = Size.square(markerImage.size);
+    var imageProvider = markerImage.isAssetImage
+        ? Image.asset(markerImage.imagePath).image
+        : CachedNetworkImageProvider(markerImage.imagePath);
+    if (!kIsWeb) {
+      // workaround for https://github.com/flutter/flutter/issues/34657 to
+      // enable marker resizing on Android and iOS.
+      final targetHeight =
+          (markerImage.size * MediaQuery.of(context).devicePixelRatio).toInt();
+      imageProvider = ResizeImage(
+        imageProvider,
+        height: targetHeight,
+        policy: ResizeImagePolicy.fit,
+        allowUpscaling: true,
+      );
+    }
+    final imageConfiguration =
+        createLocalImageConfiguration(context, size: markerImageSize);
+    final imageStream = imageProvider.resolve(imageConfiguration);
+    late final ImageStreamListener listener;
+    listener = ImageStreamListener(
+      (img, _) async {
+        try {
+          final stored = await withOwnedImageInfo(
+            img,
+            () => _bitmaps.resolveBitmap(
+              request,
+              decode: () async {
+                final bytes =
+                    await img.image.toByteData(format: ImageByteFormat.png);
+                if (bytes == null || !mounted) {
+                  return null;
+                }
+                return BitmapDescriptor.fromBytes(
+                  bytes.buffer.asUint8List(),
+                  size: markerImageSize,
+                );
+              },
+              requiredImages: () =>
+                  mounted ? markerImagesFor(widget) : const {},
+            ),
+          );
+          if (stored && mounted) {
+            setState(() {});
+          }
+        } catch (error, stackTrace) {
+          FlutterError.reportError(
+            FlutterErrorDetails(
+              exception: error,
+              stack: stackTrace,
+              library: 'FlutterFlow Google Map',
+              context: ErrorDescription(
+                'while decoding a Google Map marker image',
+              ),
+            ),
+          );
+        }
+      },
+      onError: (_, __) => _bitmaps.fail(request),
+    );
+    if (_bitmaps.trackListener(
+      request,
+      () => imageStream.removeListener(listener),
+    )) {
+      imageStream.addListener(listener);
+    }
   }
 
   void onCameraIdle() => widget.onCameraIdle?.call(currentMapCenter.toLatLng());
@@ -175,17 +425,29 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
     super.initState();
     currentMapCenter = initialPosition;
     _controller = widget.controller;
-    initializeMarkerBitmap();
+    initializeMarkerBitmaps();
   }
 
   @override
   void didUpdateWidget(FlutterFlowGoogleMap oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // Rebuild the marker bitmap if the marker image changes.
-    if (widget.markerImage != oldWidget.markerImage) {
-      initializeMarkerBitmap();
+    // Cheap identity check first: an unchanged marker list is the common case
+    // and building both sets to compare them is not free.
+    if (identical(widget.markers, oldWidget.markers) &&
+        widget.markerImage == oldWidget.markerImage) {
+      return;
+    }
+    // Rebuild the bitmaps if the set of images the markers need changed.
+    if (!setEquals(markerImagesFor(widget), markerImagesFor(oldWidget))) {
+      initializeMarkerBitmaps();
       setState(() {});
     }
+  }
+
+  @override
+  void dispose() {
+    _bitmaps.dispose();
+    super.dispose();
   }
 
   @override
@@ -219,7 +481,7 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
               (m) => Marker(
                 markerId: MarkerId(m.markerId),
                 position: m.location.toGoogleMaps(),
-                icon: _markerDescriptor ?? BitmapDescriptor.defaultMarker,
+                icon: descriptorFor(m),
                 onTap: () async {
                   if (widget.centerMapOnMarkerTap) {
                     final controller = await _controller.future;

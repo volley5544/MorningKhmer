@@ -649,6 +649,25 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         }
 
                                         if (!isWeb) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title: Text(
+                                                    'ការប្រើប្រាស់ទីតាំង (Location)'),
+                                                content: Text(
+                                                    'កម្មវិធី Morning Khmer ត្រូវការចូលប្រើទីតាំង (GPS) របស់អ្នក ដើម្បីកត់ត្រាម៉ោងចូល-ចេញធ្វើការ និងផ្ទៀងផ្ទាត់ថាអ្នកកំពុងស្ថិតនៅកន្លែងធ្វើការ។ ទីតាំងរបស់អ្នកនឹងត្រូវបានប្រើតែសម្រាប់គោលបំណងនេះប៉ុណ្ណោះ ហើយនឹងមិនត្រូវបានចែករំលែកទៅភាគីទីបីឡើយ។ សូមចុច \"OK\" ដើម្បីបន្ត ហើយអនុញ្ញាតការចូលប្រើទីតាំងនៅជំហានបន្ទាប់។'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('OK'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
                                           await requestPermission(
                                               locationPermission);
                                           if (await getPermissionStatus(

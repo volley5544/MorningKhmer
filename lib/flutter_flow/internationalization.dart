@@ -1883,6 +1883,489 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': 'ផ្ទះ',
     },
   },
+  // MyLeaveRequestsPage
+  {
+    '8bez2jtw': {
+      'th': 'My requests',
+      'en': '',
+      'km': '',
+    },
+    'kaf12q9p': {
+      'th': 'Year',
+      'en': '',
+      'km': '',
+    },
+    'c0o7tnvj': {
+      'th': 'Previous year',
+      'en': '',
+      'km': '',
+    },
+    'regbexag': {
+      'th': 'This year',
+      'en': '',
+      'km': '',
+    },
+    'x5iigkuq': {
+      'th': 'Next year',
+      'en': '',
+      'km': '',
+    },
+    '3hivoh9q': {
+      'th': 'Withdraw this request?',
+      'en': '',
+      'km': '',
+    },
+    'rk5z12oa': {
+      'th': 'Reason for withdrawing',
+      'en': '',
+      'km': '',
+    },
+    'gci0g4ye': {
+      'th': 'Optional — your approver will see this',
+      'en': '',
+      'km': '',
+    },
+    '1kib7r88': {
+      'th': 'Keep it',
+      'en': '',
+      'km': '',
+    },
+    '51qkf6vf': {
+      'th': 'Withdraw',
+      'en': '',
+      'km': '',
+    },
+    'p88b77u8': {
+      'th': 'Dates',
+      'en': '',
+      'km': '',
+    },
+    'w9y5qxmy': {
+      'th': 'Period',
+      'en': '',
+      'km': '',
+    },
+    'mj3zr5dm': {
+      'th': 'Days',
+      'en': '',
+      'km': '',
+    },
+    'g97t8r5h': {
+      'th': 'Reason',
+      'en': '',
+      'km': '',
+    },
+    'c2uq81km': {
+      'th': 'Approver',
+      'en': '',
+      'km': '',
+    },
+    '5fr9m1zg': {
+      'th': 'Submitted',
+      'en': '',
+      'km': '',
+    },
+    'pkjhgbb1': {
+      'th': 'Days',
+      'en': '',
+      'km': '',
+    },
+    '3ujh563d': {
+      'th': 'Edit',
+      'en': '',
+      'km': '',
+    },
+    'wlfqieka': {
+      'th': 'Cancel',
+      'en': '',
+      'km': '',
+    },
+  },
+  // LeaveRequestFormPage
+  {
+    '4llzdscp': {
+      'th': 'Request leave',
+      'en': '',
+      'km': '',
+    },
+    'esa9c1q0': {
+      'th': 'Balance year ',
+      'en': '',
+      'km': '',
+    },
+    'za19ivhe': {
+      'th': 'days left',
+      'en': '',
+      'km': '',
+    },
+    'wvatuko0': {
+      'th': 'Period',
+      'en': '',
+      'km': '',
+    },
+    'y9rwtptq': {
+      'th': 'Full or half day',
+      'en': '',
+      'km': '',
+    },
+    'ht29s2ef': {
+      'th': 'Period',
+      'en': '',
+      'km': '',
+    },
+    '02r8lwr3': {
+      'th': 'full',
+      'en': '',
+      'km': '',
+    },
+    '5lnq4zm5': {
+      'th': 'half',
+      'en': '',
+      'km': '',
+    },
+    'xf9w9qf3': {
+      'th': 'Dates',
+      'en': '',
+      'km': '',
+    },
+    'j2x33a74': {
+      'th': 'Start date',
+      'en': '',
+      'km': '',
+    },
+    'gvjhllmp': {
+      'th': 'End date',
+      'en': '',
+      'km': '',
+    },
+    's8xdho89': {
+      'th': 'Days requested',
+      'en': '',
+      'km': '',
+    },
+    'wzpwqlf1': {
+      'th': 'Contact phone',
+      'en': '',
+      'km': '',
+    },
+    '00al5pgk': {
+      'th': 'Contact phone',
+      'en': '',
+      'km': '',
+    },
+    'a7crtsul': {
+      'th': 'Where your approver can reach you',
+      'en': '',
+      'km': '',
+    },
+    '4yq1ld8z': {
+      'th': 'Reason',
+      'en': '',
+      'km': '',
+    },
+    'ezhb69rl': {
+      'th': 'Reason for leave',
+      'en': '',
+      'km': '',
+    },
+    'sbchzowl': {
+      'th': 'Tell your approver why you need this leave',
+      'en': '',
+      'km': '',
+    },
+    'nrtrvmcp': {
+      'th': 'Attachment',
+      'en': '',
+      'km': '',
+    },
+    'hjwbmlq8': {
+      'th': 'Attach a supporting document (coming soon)',
+      'en': '',
+      'km': '',
+    },
+    '6ojw4m6k': {
+      'th': 'Submit request',
+      'en': '',
+      'km': '',
+    },
+  },
+  // LeaveBalancePage
+  {
+    'a6zlyct9': {
+      'th': 'Leave balances',
+      'en': '',
+      'km': '',
+    },
+    'vpwoccez': {
+      'th': 'Pick a leave type to start a request.',
+      'en': '',
+      'km': '',
+    },
+  },
+  // LeaveApprovalQueuePage
+  {
+    'opduurtc': {
+      'th': 'Pending approvals',
+      'en': '',
+      'km': '',
+    },
+    'qb7suviv': {
+      'th': 'Waiting on you',
+      'en': '',
+      'km': '',
+    },
+    '05v92wie': {
+      'th': 'Approve all',
+      'en': '',
+      'km': '',
+    },
+    'ygjo649a': {
+      'th': 'Note to the employee',
+      'en': '',
+      'km': '',
+    },
+    '4j12v1s7': {
+      'th': 'Optional — explain your decision',
+      'en': '',
+      'km': '',
+    },
+    'nm435tbk': {
+      'th': 'Cancel',
+      'en': '',
+      'km': '',
+    },
+    'k1fsf8t5': {
+      'th': 'Confirm',
+      'en': '',
+      'km': '',
+    },
+    'e9trlsob': {
+      'th': 'Type',
+      'en': '',
+      'km': '',
+    },
+    'pzimozrz': {
+      'th': 'Dates',
+      'en': '',
+      'km': '',
+    },
+    'vjdssmbt': {
+      'th': 'Period',
+      'en': '',
+      'km': '',
+    },
+    '4f4jvlog': {
+      'th': 'Days',
+      'en': '',
+      'km': '',
+    },
+    '2xlhk7sp': {
+      'th': 'Reason',
+      'en': '',
+      'km': '',
+    },
+    'krl5x0uc': {
+      'th': 'Phone',
+      'en': '',
+      'km': '',
+    },
+    'm03liwte': {
+      'th': 'Submitted',
+      'en': '',
+      'km': '',
+    },
+    '6rhfado0': {
+      'th': 'Days',
+      'en': '',
+      'km': '',
+    },
+    'pe25zdn4': {
+      'th': 'Reject',
+      'en': '',
+      'km': '',
+    },
+    'zrde3x09': {
+      'th': 'Approve',
+      'en': '',
+      'km': '',
+    },
+  },
+  // LeaveApprovalHistoryPage
+  {
+    'k2fkpqk6': {
+      'th': 'Decision history',
+      'en': '',
+      'km': '',
+    },
+    '44ekuqgg': {
+      'th': 'Year',
+      'en': '',
+      'km': '',
+    },
+    '4p978ixr': {
+      'th': 'Previous year',
+      'en': '',
+      'km': '',
+    },
+    'ff33jd4y': {
+      'th': 'This year',
+      'en': '',
+      'km': '',
+    },
+    '3wdv6abn': {
+      'th': 'Next year',
+      'en': '',
+      'km': '',
+    },
+    '35pooybb': {
+      'th': 'Approved',
+      'en': '',
+      'km': '',
+    },
+    'lj6s3au9': {
+      'th': 'Type',
+      'en': '',
+      'km': '',
+    },
+    '7q268p6o': {
+      'th': 'Dates',
+      'en': '',
+      'km': '',
+    },
+    'xu5s8ymw': {
+      'th': 'Days',
+      'en': '',
+      'km': '',
+    },
+    'ovkg8ift': {
+      'th': 'Reason',
+      'en': '',
+      'km': '',
+    },
+    'qpy71uax': {
+      'th': 'Decided by',
+      'en': '',
+      'km': '',
+    },
+    'j51k1ueu': {
+      'th': 'Rejected',
+      'en': '',
+      'km': '',
+    },
+    'l5z4ocuj': {
+      'th': 'Type',
+      'en': '',
+      'km': '',
+    },
+    'coitwsch': {
+      'th': 'Dates',
+      'en': '',
+      'km': '',
+    },
+    'w2cyi4xe': {
+      'th': 'Days',
+      'en': '',
+      'km': '',
+    },
+    'gtixt6xo': {
+      'th': 'Reason',
+      'en': '',
+      'km': '',
+    },
+    '04tivfuh': {
+      'th': 'Decided by',
+      'en': '',
+      'km': '',
+    },
+    '25xowowd': {
+      'th': 'Cancelled',
+      'en': '',
+      'km': '',
+    },
+    'oayym69a': {
+      'th': 'Type',
+      'en': '',
+      'km': '',
+    },
+    'wpm5d9h5': {
+      'th': 'Dates',
+      'en': '',
+      'km': '',
+    },
+    'jfex10bo': {
+      'th': 'Days',
+      'en': '',
+      'km': '',
+    },
+    'xrt9t2gk': {
+      'th': 'Reason',
+      'en': '',
+      'km': '',
+    },
+    '2k5wbfyo': {
+      'th': 'Decided by',
+      'en': '',
+      'km': '',
+    },
+  },
+  // LeaveHubPage
+  {
+    'yiy4ybvn': {
+      'th': 'Employee Leave',
+      'en': '',
+      'km': '',
+    },
+    's23ozp1o': {
+      'th': 'My leave',
+      'en': '',
+      'km': '',
+    },
+    'vp67j649': {
+      'th': 'Leave balances',
+      'en': '',
+      'km': '',
+    },
+    '3lhu7gvp': {
+      'th': 'Entitlement, days used and days remaining',
+      'en': '',
+      'km': '',
+    },
+    'qn13kwxc': {
+      'th': 'My requests',
+      'en': '',
+      'km': '',
+    },
+    '5hcm1kps': {
+      'th': 'Track requests you have submitted',
+      'en': '',
+      'km': '',
+    },
+    'wz00wys0': {
+      'th': 'Approvals',
+      'en': '',
+      'km': '',
+    },
+    'bnw3ks2c': {
+      'th': 'Pending approvals',
+      'en': '',
+      'km': '',
+    },
+    '7wkxk30s': {
+      'th': 'Approve or reject your team\'s requests',
+      'en': '',
+      'km': '',
+    },
+    '086fru62': {
+      'th': 'Decision history',
+      'en': '',
+      'km': '',
+    },
+    '9mljsyye': {
+      'th': 'Requests you have already decided',
+      'en': '',
+      'km': '',
+    },
+  },
   // dropdownComponent
   {
     'ikjz62v6': {
@@ -1981,6 +2464,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'th': 'ตกลง',
       'en': 'agree',
       'km': 'យល់ព្រម',
+    },
+  },
+  // LeaveBalanceCard
+  {
+    'sl1cjxz2': {
+      'th': 'Total',
+      'en': '',
+      'km': '',
+    },
+    'k8r3jgoc': {
+      'th': 'Used',
+      'en': '',
+      'km': '',
+    },
+    'kemzew5w': {
+      'th': 'Remaining',
+      'en': '',
+      'km': '',
+    },
+  },
+  // LeaveDetailSheet
+  {
+    '5nkilbea': {
+      'th': 'Leave days',
+      'en': '',
+      'km': '',
     },
   },
   // Miscellaneous

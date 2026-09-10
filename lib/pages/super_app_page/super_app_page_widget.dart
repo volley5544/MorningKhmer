@@ -771,14 +771,20 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                             'browser') {}
                                       },
                                       child: OctoImage(
-                                        placeholderBuilder: (_) =>
-                                            SizedBox.expand(
-                                          child: Image(
-                                            image: BlurHashImage(
-                                                '${pageViewBannerBannersRecord.blurHash}'),
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
+                                        placeholderBuilder: (_) {
+                                          final blurHash =
+                                              '${pageViewBannerBannersRecord.blurHash}';
+
+                                          if (!validateBlurhash(blurHash)) {
+                                            return const SizedBox.shrink();
+                                          }
+                                          return SizedBox.expand(
+                                            child: Image(
+                                              image: BlurHashImage(blurHash),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          );
+                                        },
                                         image: CachedNetworkImageProvider(
                                           functions.stringToImagePath(
                                               '${pageViewBannerBannersRecord.imageUrl}')!,
@@ -1388,7 +1394,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           context.pushNamed(
-                                                              DashboardLeavePageWidget
+                                                              LeaveHubPageWidget
                                                                   .routeName);
                                                         },
                                                         child: Container(

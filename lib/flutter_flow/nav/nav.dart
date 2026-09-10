@@ -280,6 +280,53 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ConfirmEmailPageWidget.routeName,
           path: ConfirmEmailPageWidget.routePath,
           builder: (context, params) => ConfirmEmailPageWidget(),
+        ),
+        FFRoute(
+          name: MyLeaveRequestsPageWidget.routeName,
+          path: MyLeaveRequestsPageWidget.routePath,
+          builder: (context, params) => MyLeaveRequestsPageWidget(),
+        ),
+        FFRoute(
+          name: LeaveRequestFormPageWidget.routeName,
+          path: LeaveRequestFormPageWidget.routePath,
+          builder: (context, params) => LeaveRequestFormPageWidget(
+            leaveType: params.getParam(
+              'leaveType',
+              ParamType.String,
+            ),
+            leaveName: params.getParam(
+              'leaveName',
+              ParamType.String,
+            ),
+            remainingDays: params.getParam(
+              'remainingDays',
+              ParamType.String,
+            ),
+            year: params.getParam(
+              'year',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: LeaveBalancePageWidget.routeName,
+          path: LeaveBalancePageWidget.routePath,
+          builder: (context, params) => LeaveBalancePageWidget(),
+        ),
+        FFRoute(
+          name: LeaveApprovalQueuePageWidget.routeName,
+          path: LeaveApprovalQueuePageWidget.routePath,
+          builder: (context, params) => LeaveApprovalQueuePageWidget(),
+        ),
+        FFRoute(
+          name: LeaveApprovalHistoryPageWidget.routeName,
+          path: LeaveApprovalHistoryPageWidget.routePath,
+          builder: (context, params) => LeaveApprovalHistoryPageWidget(),
+        ),
+        FFRoute(
+          name: LeaveHubPageWidget.routeName,
+          path: LeaveHubPageWidget.routePath,
+          builder: (context, params) => LeaveHubPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

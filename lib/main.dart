@@ -13,6 +13,7 @@ import 'backend/firebase/firebase_config.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import '/backend/mock/mock_debug_overlay.dart';
 import 'index.dart';
 
 void main() async {
@@ -138,6 +139,9 @@ class _MyAppState extends State<MyApp> {
       ),
       themeMode: _themeMode,
       routerConfig: _router,
+      builder: (_, child) => MockDebugOverlay(
+        child: child!,
+      ),
     );
   }
 }
