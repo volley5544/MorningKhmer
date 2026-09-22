@@ -4,47 +4,41 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
-import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 /// results payload of /api/leave/get-list.
 class LeaveListResultsStruct extends FFFirebaseStruct {
   LeaveListResultsStruct({
     /// LeaveListResults.total
-    String? total,
+    int? total,
 
     /// LeaveListResults.leave_list
-    List<LeaveTypeBalanceStruct>? leaveList,
+    dynamic leaveList,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _total = total,
         _leaveList = leaveList,
         super(firestoreUtilData);
 
   // "total" field.
-  String? _total;
-  String get total => _total ?? '';
-  set total(String? val) => _total = val;
+  int? _total;
+  int get total => _total ?? 0;
+  set total(int? val) => _total = val;
+
+  void incrementTotal(int amount) => total = total + amount;
 
   bool hasTotal() => _total != null;
 
   // "leave_list" field.
-  List<LeaveTypeBalanceStruct>? _leaveList;
-  List<LeaveTypeBalanceStruct> get leaveList => _leaveList ?? const [];
-  set leaveList(List<LeaveTypeBalanceStruct>? val) => _leaveList = val;
-
-  void updateLeaveList(Function(List<LeaveTypeBalanceStruct>) updateFn) {
-    updateFn(_leaveList ??= []);
-  }
+  dynamic _leaveList;
+  dynamic get leaveList => _leaveList;
+  set leaveList(dynamic val) => _leaveList = val;
 
   bool hasLeaveList() => _leaveList != null;
 
   static LeaveListResultsStruct fromMap(Map<String, dynamic> data) =>
       LeaveListResultsStruct(
-        total: data['total'] as String?,
-        leaveList: getStructList(
-          data['leave_list'],
-          LeaveTypeBalanceStruct.fromMap,
-        ),
+        total: castToType<int>(data['total']),
+        leaveList: data['leave_list'] as dynamic,
       );
 
   static LeaveListResultsStruct? maybeFromMap(dynamic data) => data is Map
@@ -53,19 +47,18 @@ class LeaveListResultsStruct extends FFFirebaseStruct {
 
   Map<String, dynamic> toMap() => {
         'total': _total,
-        'leave_list': _leaveList?.map((e) => e.toMap()).toList(),
+        'leave_list': _leaveList,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
         'total': serializeParam(
           _total,
-          ParamType.String,
+          ParamType.int,
         ),
         'leave_list': serializeParam(
           _leaveList,
-          ParamType.DataStruct,
-          isList: true,
+          ParamType.JSON,
         ),
       }.withoutNulls;
 
@@ -74,14 +67,13 @@ class LeaveListResultsStruct extends FFFirebaseStruct {
       LeaveListResultsStruct(
         total: deserializeParam(
           data['total'],
-          ParamType.String,
+          ParamType.int,
           false,
         ),
-        leaveList: deserializeStructParam<LeaveTypeBalanceStruct>(
+        leaveList: deserializeParam(
           data['leave_list'],
-          ParamType.DataStruct,
-          true,
-          structBuilder: LeaveTypeBalanceStruct.fromSerializableMap,
+          ParamType.JSON,
+          false,
         ),
       );
 
@@ -90,10 +82,9 @@ class LeaveListResultsStruct extends FFFirebaseStruct {
 
   @override
   bool operator ==(Object other) {
-    const listEquality = ListEquality();
     return other is LeaveListResultsStruct &&
         total == other.total &&
-        listEquality.equals(leaveList, other.leaveList);
+        leaveList == other.leaveList;
   }
 
   @override
@@ -101,7 +92,8 @@ class LeaveListResultsStruct extends FFFirebaseStruct {
 }
 
 LeaveListResultsStruct createLeaveListResultsStruct({
-  String? total,
+  int? total,
+  dynamic leaveList,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -109,6 +101,7 @@ LeaveListResultsStruct createLeaveListResultsStruct({
 }) =>
     LeaveListResultsStruct(
       total: total,
+      leaveList: leaveList,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

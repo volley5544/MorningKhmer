@@ -78,3 +78,19 @@ LatLng? combineLatLng(
 String? stringToImagePath(String? input) {
   return input!;
 }
+
+/// Turns the /api/leave/get-list leave_list object (keyed by leave-type id)
+/// into a List<LeaveTypeBalance>, for direct use in the leaveTypes Update App
+/// State action.
+List<LeaveTypeBalanceStruct>? leaveListValuesToBalanceList(
+    dynamic leaveListJson) {
+  List<LeaveTypeBalanceStruct> leaveListValuesToBalanceList(
+    dynamic leaveListJson,
+  ) {
+    if (leaveListJson is! Map) return const [];
+    return leaveListJson.values
+        .whereType<Map>()
+        .map((v) => LeaveTypeBalanceStruct.fromMap(v.cast<String, dynamic>()))
+        .toList();
+  }
+}
