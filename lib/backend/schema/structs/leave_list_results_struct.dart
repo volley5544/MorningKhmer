@@ -10,7 +10,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 class LeaveListResultsStruct extends FFFirebaseStruct {
   LeaveListResultsStruct({
     /// LeaveListResults.total
-    int? total,
+    dynamic total,
 
     /// LeaveListResults.leave_list
     dynamic leaveList,
@@ -20,11 +20,9 @@ class LeaveListResultsStruct extends FFFirebaseStruct {
         super(firestoreUtilData);
 
   // "total" field.
-  int? _total;
-  int get total => _total ?? 0;
-  set total(int? val) => _total = val;
-
-  void incrementTotal(int amount) => total = total + amount;
+  dynamic _total;
+  dynamic get total => _total;
+  set total(dynamic val) => _total = val;
 
   bool hasTotal() => _total != null;
 
@@ -37,7 +35,7 @@ class LeaveListResultsStruct extends FFFirebaseStruct {
 
   static LeaveListResultsStruct fromMap(Map<String, dynamic> data) =>
       LeaveListResultsStruct(
-        total: castToType<int>(data['total']),
+        total: data['total'] as dynamic,
         leaveList: data['leave_list'] as dynamic,
       );
 
@@ -54,7 +52,7 @@ class LeaveListResultsStruct extends FFFirebaseStruct {
   Map<String, dynamic> toSerializableMap() => {
         'total': serializeParam(
           _total,
-          ParamType.int,
+          ParamType.JSON,
         ),
         'leave_list': serializeParam(
           _leaveList,
@@ -67,7 +65,7 @@ class LeaveListResultsStruct extends FFFirebaseStruct {
       LeaveListResultsStruct(
         total: deserializeParam(
           data['total'],
-          ParamType.int,
+          ParamType.JSON,
           false,
         ),
         leaveList: deserializeParam(
@@ -92,7 +90,7 @@ class LeaveListResultsStruct extends FFFirebaseStruct {
 }
 
 LeaveListResultsStruct createLeaveListResultsStruct({
-  int? total,
+  dynamic total,
   dynamic leaveList,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,

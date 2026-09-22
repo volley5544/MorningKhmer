@@ -3,7 +3,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/leave_balance_card_widget.dart';
-import '/components/loading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -39,93 +38,34 @@ class _LeaveBalancePageWidgetState extends State<LeaveBalancePageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      showDialog(
-        context: context,
-        builder: (dialogContext) {
-          return Dialog(
-            elevation: 0,
-            insetPadding: EdgeInsets.zero,
-            backgroundColor: Colors.transparent,
-            alignment: AlignmentDirectional(0.0, 0.0)
-                .resolve(Directionality.of(context)),
-            child: GestureDetector(
-              onTap: () {
-                FocusScope.of(dialogContext).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Container(
-                height: double.infinity,
-                width: double.infinity,
-                child: LoadingWidget(),
-              ),
-            ),
-          );
-        },
+      _model.balanceRes = await LeaveGetListCall.call(
+        language: 'en',
+        url: FFAppState().urlStorageData.baseUrl,
+        token: currentAuthenticationToken,
       );
 
-      try {
-        _model.balanceRes = await LeaveGetListCall.call(
-          language: 'en',
-          url: FFAppState().urlStorageData.baseUrl,
-          token: currentAuthenticationToken,
-        );
-
-        if ((_model.balanceRes?.succeeded ?? true)) {
-          _model.leaveTypes = functions
-              .leaveListValuesToBalanceList(
-                  LeaveListResponseStruct.maybeFromMap(
-                          (_model.balanceRes?.jsonBody ?? ''))
-                      ?.results
-                      .leaveList)!
-              .toList()
-              .cast<LeaveTypeBalanceStruct>();
-          safeSetState(() {});
-          _model.loading = false;
-          safeSetState(() {});
-        } else {
-          _model.loading = false;
-          safeSetState(() {});
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                'Could not load your leave balances.',
-                style: TextStyle(),
-              ),
-              duration: Duration(milliseconds: 4000),
+      if ((_model.balanceRes?.succeeded ?? true)) {
+        _model.leaveTypes = functions
+            .leaveListValuesToBalanceList(LeaveListResponseStruct.maybeFromMap(
+                    (_model.balanceRes?.jsonBody ?? ''))
+                ?.results
+                .leaveList)!
+            .toList()
+            .cast<LeaveTypeBalanceStruct>();
+        safeSetState(() {});
+        _model.loading = false;
+        safeSetState(() {});
+      } else {
+        _model.loading = false;
+        safeSetState(() {});
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Could not load your leave balances.',
+              style: TextStyle(),
             ),
-          );
-        }
-
-        Navigator.pop(context);
-      } catch (error_4t5xznkc, stackTrace_4t5xznkc) {
-        Navigator.pop(context);
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return AlertDialog(
-              content: Text(error_4t5xznkc.toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            );
-          },
-        );
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return AlertDialog(
-              content: Text(stackTrace_4t5xznkc.toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            );
-          },
+            duration: Duration(milliseconds: 4000),
+          ),
         );
       }
     });
@@ -144,146 +84,141 @@ class _LeaveBalancePageWidgetState extends State<LeaveBalancePageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Builder(
-      builder: (context) => GestureDetector(
-        onTap: () {
-          FocusScope.of(context).unfocus();
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        child: Scaffold(
-          key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          appBar: AppBar(
-            backgroundColor: Color(0xFFFF6500),
-            iconTheme: IconThemeData(color: Colors.white),
-            automaticallyImplyLeading: true,
-            title: Text(
-              FFLocalizations.of(context).getText(
-                'a6zlyct9' /* Leave balances */,
-              ),
-              style: FlutterFlowTheme.of(context).titleLarge.override(
-                    font: GoogleFonts.interTight(
-                      fontWeight: FontWeight.w600,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                    ),
-                    fontSize: 22.0,
-                    letterSpacing: 0.0,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFF6500),
+          iconTheme: IconThemeData(color: Colors.white),
+          automaticallyImplyLeading: true,
+          title: Text(
+            FFLocalizations.of(context).getText(
+              'a6zlyct9' /* Leave balances */,
+            ),
+            style: FlutterFlowTheme.of(context).titleLarge.override(
+                  font: GoogleFonts.interTight(
                     fontWeight: FontWeight.w600,
                     fontStyle:
                         FlutterFlowTheme.of(context).titleLarge.fontStyle,
                   ),
-            ),
-            actions: [],
-            centerTitle: true,
-            elevation: 0.0,
+                  fontSize: 22.0,
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.w600,
+                  fontStyle: FlutterFlowTheme.of(context).titleLarge.fontStyle,
+                ),
           ),
-          body: SafeArea(
-            top: true,
-            child: Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    FFLocalizations.of(context).getText(
-                      'vpwoccez' /* Pick a leave type to start a r... */,
-                    ),
-                    style: FlutterFlowTheme.of(context).bodySmall.override(
-                          font: GoogleFonts.inter(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodySmall
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodySmall
-                                .fontStyle,
-                          ),
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          letterSpacing: 0.0,
+          actions: [],
+          centerTitle: true,
+          elevation: 0.0,
+        ),
+        body: SafeArea(
+          top: true,
+          child: Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  FFLocalizations.of(context).getText(
+                    'vpwoccez' /* Pick a leave type to start a r... */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                        font: GoogleFonts.inter(
                           fontWeight:
                               FlutterFlowTheme.of(context).bodySmall.fontWeight,
                           fontStyle:
                               FlutterFlowTheme.of(context).bodySmall.fontStyle,
                         ),
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                      ),
+                ),
+                if (_model.loading ?? true)
+                  CircularPercentIndicator(
+                    percent: 0.0,
+                    radius: 16.0,
+                    animation: false,
+                    animateFromLastPercent: true,
                   ),
-                  if (_model.loading ?? true)
-                    CircularPercentIndicator(
-                      percent: 0.0,
-                      radius: 16.0,
-                      animation: false,
-                      animateFromLastPercent: true,
-                    ),
-                  Expanded(
-                    flex: 1,
-                    child: Builder(
-                      builder: (context) {
-                        final leaveType = _model.leaveTypes.toList();
+                Expanded(
+                  flex: 1,
+                  child: Builder(
+                    builder: (context) {
+                      final leaveType = _model.leaveTypes.toList();
 
-                        return ListView.separated(
-                          padding: EdgeInsets.zero,
-                          primary: false,
-                          scrollDirection: Axis.vertical,
-                          itemCount: leaveType.length,
-                          separatorBuilder: (_, __) => SizedBox(height: 12.0),
-                          itemBuilder: (context, leaveTypeIndex) {
-                            final leaveTypeItem = leaveType[leaveTypeIndex];
-                            return InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  LeaveRequestFormPageWidget.routeName,
-                                  queryParameters: {
-                                    'leaveType': serializeParam(
-                                      leaveTypeItem.leaveType,
-                                      ParamType.String,
-                                    ),
-                                    'leaveName': serializeParam(
-                                      leaveTypeItem.name,
-                                      ParamType.String,
-                                    ),
-                                    'remainingDays': serializeParam(
+                      return ListView.separated(
+                        padding: EdgeInsets.zero,
+                        primary: false,
+                        scrollDirection: Axis.vertical,
+                        itemCount: leaveType.length,
+                        separatorBuilder: (_, __) => SizedBox(height: 12.0),
+                        itemBuilder: (context, leaveTypeIndex) {
+                          final leaveTypeItem = leaveType[leaveTypeIndex];
+                          return InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed(
+                                LeaveRequestFormPageWidget.routeName,
+                                queryParameters: {
+                                  'leaveType': serializeParam(
+                                    leaveTypeItem.leaveType,
+                                    ParamType.String,
+                                  ),
+                                  'leaveName': serializeParam(
+                                    leaveTypeItem.name,
+                                    ParamType.String,
+                                  ),
+                                  'remainingDays': serializeParam(
+                                    leaveTypeItem.currentYear.leaveRemain,
+                                    ParamType.String,
+                                  ),
+                                  'year': serializeParam(
+                                    leaveTypeItem.currentYear.year,
+                                    ParamType.String,
+                                  ),
+                                }.withoutNulls,
+                              );
+                            },
+                            child: Container(
+                              child: wrapWithModel(
+                                model: _model.leaveBalanceCardModels.getModel(
+                                  leaveTypeIndex.toString(),
+                                  leaveTypeIndex,
+                                ),
+                                updateCallback: () => safeSetState(() {}),
+                                child: LeaveBalanceCardWidget(
+                                  key: Key(
+                                    'Keyg1e_${leaveTypeIndex.toString()}',
+                                  ),
+                                  leaveName: leaveTypeItem.name,
+                                  remaining:
                                       leaveTypeItem.currentYear.leaveRemain,
-                                      ParamType.String,
-                                    ),
-                                    'year': serializeParam(
-                                      leaveTypeItem.currentYear.year,
-                                      ParamType.String,
-                                    ),
-                                  }.withoutNulls,
-                                );
-                              },
-                              child: Container(
-                                child: wrapWithModel(
-                                  model: _model.leaveBalanceCardModels.getModel(
-                                    leaveTypeIndex.toString(),
-                                    leaveTypeIndex,
-                                  ),
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: LeaveBalanceCardWidget(
-                                    key: Key(
-                                      'Keyg1e_${leaveTypeIndex.toString()}',
-                                    ),
-                                    leaveName: leaveTypeItem.name,
-                                    remaining:
-                                        leaveTypeItem.currentYear.leaveRemain,
-                                    total: leaveTypeItem.currentYear.leaveLimit,
-                                    used: leaveTypeItem.currentYear.leaveUse,
-                                  ),
+                                  total: leaveTypeItem.currentYear.leaveLimit,
+                                  used: leaveTypeItem.currentYear.leaveUse,
                                 ),
                               ),
-                            );
-                          },
-                        );
-                      },
-                    ),
+                            ),
+                          );
+                        },
+                      );
+                    },
                   ),
-                ].divide(SizedBox(height: 12.0)),
-              ),
+                ),
+              ].divide(SizedBox(height: 12.0)),
             ),
           ),
         ),
