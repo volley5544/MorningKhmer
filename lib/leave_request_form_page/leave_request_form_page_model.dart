@@ -23,6 +23,10 @@ class LeaveRequestFormPageModel
 
   bool? saving = false;
 
+  String? startDateFormatted = '';
+
+  String? endDateFormatted = '';
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for periodField widget.

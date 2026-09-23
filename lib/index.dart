@@ -46,3 +46,5 @@ export '/leave_approval_queue_page/leave_approval_queue_page_widget.dart'
 export '/leave_approval_history_page/leave_approval_history_page_widget.dart'
     show LeaveApprovalHistoryPageWidget;
 export '/leave_hub_page/leave_hub_page_widget.dart' show LeaveHubPageWidget;
+export '/leave_webview_page/leave_webview_page_widget.dart'
+    show LeaveWebviewPageWidget;

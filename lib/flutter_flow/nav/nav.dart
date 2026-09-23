@@ -327,6 +327,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: LeaveHubPageWidget.routeName,
           path: LeaveHubPageWidget.routePath,
           builder: (context, params) => LeaveHubPageWidget(),
+        ),
+        FFRoute(
+          name: LeaveWebviewPageWidget.routeName,
+          path: LeaveWebviewPageWidget.routePath,
+          builder: (context, params) => LeaveWebviewPageWidget(
+            webUrl: params.getParam(
+              'webUrl',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

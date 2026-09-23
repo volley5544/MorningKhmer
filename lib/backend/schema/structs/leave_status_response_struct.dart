@@ -10,7 +10,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 class LeaveStatusResponseStruct extends FFFirebaseStruct {
   LeaveStatusResponseStruct({
     /// LeaveStatusResponse.code
-    String? code,
+    dynamic code,
 
     /// LeaveStatusResponse.message
     String? message,
@@ -20,9 +20,9 @@ class LeaveStatusResponseStruct extends FFFirebaseStruct {
         super(firestoreUtilData);
 
   // "code" field.
-  String? _code;
-  String get code => _code ?? '';
-  set code(String? val) => _code = val;
+  dynamic _code;
+  dynamic get code => _code;
+  set code(dynamic val) => _code = val;
 
   bool hasCode() => _code != null;
 
@@ -35,7 +35,7 @@ class LeaveStatusResponseStruct extends FFFirebaseStruct {
 
   static LeaveStatusResponseStruct fromMap(Map<String, dynamic> data) =>
       LeaveStatusResponseStruct(
-        code: data['code'] as String?,
+        code: data['code'] as dynamic,
         message: data['message'] as String?,
       );
 
@@ -52,7 +52,7 @@ class LeaveStatusResponseStruct extends FFFirebaseStruct {
   Map<String, dynamic> toSerializableMap() => {
         'code': serializeParam(
           _code,
-          ParamType.String,
+          ParamType.JSON,
         ),
         'message': serializeParam(
           _message,
@@ -65,7 +65,7 @@ class LeaveStatusResponseStruct extends FFFirebaseStruct {
       LeaveStatusResponseStruct(
         code: deserializeParam(
           data['code'],
-          ParamType.String,
+          ParamType.JSON,
           false,
         ),
         message: deserializeParam(
@@ -90,7 +90,7 @@ class LeaveStatusResponseStruct extends FFFirebaseStruct {
 }
 
 LeaveStatusResponseStruct createLeaveStatusResponseStruct({
-  String? code,
+  dynamic code,
   String? message,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,

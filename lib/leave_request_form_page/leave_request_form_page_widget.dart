@@ -364,24 +364,6 @@ class _LeaveRequestFormPageWidgetState
                               initialDate: getCurrentTimestamp,
                               firstDate: getCurrentTimestamp,
                               lastDate: DateTime(2050),
-                              builder: (context, child) {
-                                return wrapInMaterialDatePickerTheme(
-                                  context,
-                                  child!,
-                                  headerBackgroundColor: Color(0x00000000),
-                                  headerForegroundColor: Color(0x00000000),
-                                  headerTextStyle: TextStyle(),
-                                  pickerBackgroundColor: Color(0x00000000),
-                                  pickerForegroundColor: Color(0x00000000),
-                                  selectedDateTimeBackgroundColor:
-                                      Color(0x00000000),
-                                  selectedDateTimeForegroundColor:
-                                      Color(0x00000000),
-                                  actionButtonForegroundColor:
-                                      Color(0x00000000),
-                                  iconSize: 24,
-                                );
-                              },
                             );
 
                             if (_datePicked1Date != null) {
@@ -436,24 +418,6 @@ class _LeaveRequestFormPageWidgetState
                               initialDate: getCurrentTimestamp,
                               firstDate: getCurrentTimestamp,
                               lastDate: DateTime(2050),
-                              builder: (context, child) {
-                                return wrapInMaterialDatePickerTheme(
-                                  context,
-                                  child!,
-                                  headerBackgroundColor: Color(0x00000000),
-                                  headerForegroundColor: Color(0x00000000),
-                                  headerTextStyle: TextStyle(),
-                                  pickerBackgroundColor: Color(0x00000000),
-                                  pickerForegroundColor: Color(0x00000000),
-                                  selectedDateTimeBackgroundColor:
-                                      Color(0x00000000),
-                                  selectedDateTimeForegroundColor:
-                                      Color(0x00000000),
-                                  actionButtonForegroundColor:
-                                      Color(0x00000000),
-                                  iconSize: 24,
-                                );
-                              },
                             );
 
                             if (_datePicked2Date != null) {
@@ -501,52 +465,26 @@ class _LeaveRequestFormPageWidgetState
                       ),
                     ].divide(SizedBox(width: 12.0)),
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        _model.startDate!.toString(),
-                        style: FlutterFlowTheme.of(context).bodySmall.override(
-                              font: GoogleFonts.inter(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .fontStyle,
-                              ),
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .fontStyle,
-                            ),
-                      ),
-                      Text(
-                        _model.endDate!.toString(),
-                        style: FlutterFlowTheme.of(context).bodySmall.override(
-                              font: GoogleFonts.inter(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .fontStyle,
-                              ),
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .fontStyle,
-                            ),
-                      ),
-                    ],
+                  Text(
+                    FFLocalizations.of(context).getText(
+                      '2bomm2sh' /* Pick your start and end date a... */,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .fontStyle,
+                          ),
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                        ),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,

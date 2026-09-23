@@ -19,29 +19,38 @@ class AddLeavePageWidget extends StatefulWidget {
   const AddLeavePageWidget({
     super.key,
     required this.leaveName,
-    this.leaveType,
-    this.startDateLeave,
-    this.endDateLeave,
-    this.currentYear,
-    this.nextYear,
-    this.currentYearSelectableDates,
-    this.nextYearSelectableDates,
-    this.leavePeriods,
-    this.previousYear,
-    this.previousYearSelectableDates,
-  });
+    String? leaveType,
+    String? startDateLeave,
+    String? endDateLeave,
+    String? currentYear,
+    String? nextYear,
+    String? currentYearSelectableDates,
+    String? nextYearSelectableDates,
+    List<dynamic>? leavePeriods,
+    String? previousYear,
+    String? previousYearSelectableDates,
+  })  : this.leaveType = leaveType ?? '',
+        this.startDateLeave = startDateLeave ?? '',
+        this.endDateLeave = endDateLeave ?? '',
+        this.currentYear = currentYear ?? '',
+        this.nextYear = nextYear ?? '',
+        this.currentYearSelectableDates = currentYearSelectableDates ?? '',
+        this.nextYearSelectableDates = nextYearSelectableDates ?? '',
+        this.leavePeriods = leavePeriods ?? [],
+        this.previousYear = previousYear ?? '',
+        this.previousYearSelectableDates = previousYearSelectableDates ?? '';
 
   final String? leaveName;
-  final String? leaveType;
-  final String? startDateLeave;
-  final String? endDateLeave;
-  final String? currentYear;
-  final String? nextYear;
-  final String? currentYearSelectableDates;
-  final String? nextYearSelectableDates;
+  final String leaveType;
+  final String startDateLeave;
+  final String endDateLeave;
+  final String currentYear;
+  final String nextYear;
+  final String currentYearSelectableDates;
+  final String nextYearSelectableDates;
   final List<dynamic>? leavePeriods;
-  final String? previousYear;
-  final String? previousYearSelectableDates;
+  final String previousYear;
+  final String previousYearSelectableDates;
 
   static String routeName = 'AddLeavePage';
   static String routePath = '/addLeavePage';
@@ -263,7 +272,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                               builder: (alertDialogContext) {
                                                 return AlertDialog(
                                                   content: Text(
-                                                      'currentYearSelectableDates${_model.leaveTimeValue != 'full' ? '1' : ((double.parse((widget.currentYearSelectableDates!)).toInt()).toString())}'),
+                                                      'currentYearSelectableDates${_model.leaveTimeValue != 'full' ? '1' : ((double.parse(widget.currentYearSelectableDates).toInt()).toString())}'),
                                                   actions: [
                                                     TextButton(
                                                       onPressed: () =>
@@ -280,7 +289,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                               builder: (alertDialogContext) {
                                                 return AlertDialog(
                                                   content: Text(
-                                                      'nextYearSelectableDates${_model.leaveTimeValue != 'full' ? '1' : ((double.parse((widget.nextYearSelectableDates!)).toInt()).toString())}'),
+                                                      'nextYearSelectableDates${_model.leaveTimeValue != 'full' ? '1' : ((double.parse(widget.nextYearSelectableDates).toInt()).toString())}'),
                                                   actions: [
                                                     TextButton(
                                                       onPressed: () =>

@@ -2038,6 +2038,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'End date',
       'km': 'កាលបរិច្ឆេទបញ្ចប់',
     },
+    '2bomm2sh': {
+      'th': 'Pick your start and end date above.',
+      'en': '',
+      'km': '',
+    },
     's8xdho89': {
       'th': 'Days requested',
       'en': 'Days requested',
@@ -2491,6 +2496,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'th': 'Leave days',
       'en': 'Leave days',
       'km': 'ថ្ងៃឈប់សម្រាក',
+    },
+  },
+  // DebugResponseDialog
+  {
+    'fhpkol55': {
+      'th': 'Response body',
+      'en': '',
+      'km': '',
+    },
+    'agi6vknr': {
+      'th': 'Copy',
+      'en': '',
+      'km': '',
+    },
+    'ob08396y': {
+      'th': 'Close',
+      'en': '',
+      'km': '',
     },
   },
   // Miscellaneous

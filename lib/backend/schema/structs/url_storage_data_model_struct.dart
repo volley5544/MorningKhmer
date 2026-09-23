@@ -9,8 +9,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 class UrlStorageDataModelStruct extends FFFirebaseStruct {
   UrlStorageDataModelStruct({
     String? baseUrl,
+    String? leaveWebUrl,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _baseUrl = baseUrl,
+        _leaveWebUrl = leaveWebUrl,
         super(firestoreUtilData);
 
   // "base_url" field.
@@ -20,9 +22,17 @@ class UrlStorageDataModelStruct extends FFFirebaseStruct {
 
   bool hasBaseUrl() => _baseUrl != null;
 
+  // "leave_web_url" field.
+  String? _leaveWebUrl;
+  String get leaveWebUrl => _leaveWebUrl ?? '';
+  set leaveWebUrl(String? val) => _leaveWebUrl = val;
+
+  bool hasLeaveWebUrl() => _leaveWebUrl != null;
+
   static UrlStorageDataModelStruct fromMap(Map<String, dynamic> data) =>
       UrlStorageDataModelStruct(
         baseUrl: data['base_url'] as String?,
+        leaveWebUrl: data['leave_web_url'] as String?,
       );
 
   static UrlStorageDataModelStruct? maybeFromMap(dynamic data) => data is Map
@@ -31,12 +41,17 @@ class UrlStorageDataModelStruct extends FFFirebaseStruct {
 
   Map<String, dynamic> toMap() => {
         'base_url': _baseUrl,
+        'leave_web_url': _leaveWebUrl,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
         'base_url': serializeParam(
           _baseUrl,
+          ParamType.String,
+        ),
+        'leave_web_url': serializeParam(
+          _leaveWebUrl,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -49,6 +64,11 @@ class UrlStorageDataModelStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        leaveWebUrl: deserializeParam(
+          data['leave_web_url'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -56,15 +76,18 @@ class UrlStorageDataModelStruct extends FFFirebaseStruct {
 
   @override
   bool operator ==(Object other) {
-    return other is UrlStorageDataModelStruct && baseUrl == other.baseUrl;
+    return other is UrlStorageDataModelStruct &&
+        baseUrl == other.baseUrl &&
+        leaveWebUrl == other.leaveWebUrl;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([baseUrl]);
+  int get hashCode => const ListEquality().hash([baseUrl, leaveWebUrl]);
 }
 
 UrlStorageDataModelStruct createUrlStorageDataModelStruct({
   String? baseUrl,
+  String? leaveWebUrl,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -72,6 +95,7 @@ UrlStorageDataModelStruct createUrlStorageDataModelStruct({
 }) =>
     UrlStorageDataModelStruct(
       baseUrl: baseUrl,
+      leaveWebUrl: leaveWebUrl,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

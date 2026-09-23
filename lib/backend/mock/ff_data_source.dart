@@ -36,12 +36,12 @@ class FFDataSource {
   /// Per-endpoint Live/Mock overrides, keyed by endpoint identifier key.
   /// Endpoints not listed here follow [isMock].
   static const Map<String, FFDataSourceMode> _endpointOverrides = {
-    'sijgpu74': FFDataSourceMode.mock,
-    's07lgffj': FFDataSourceMode.mock,
-    '0c59z6vw': FFDataSourceMode.mock,
-    'kdgm6wd8': FFDataSourceMode.mock,
-    'tixckfah': FFDataSourceMode.mock,
-    '2df7gms2': FFDataSourceMode.mock,
+    'sijgpu74': FFDataSourceMode.live,
+    's07lgffj': FFDataSourceMode.live,
+    '0c59z6vw': FFDataSourceMode.live,
+    'kdgm6wd8': FFDataSourceMode.live,
+    'tixckfah': FFDataSourceMode.live,
+    '2df7gms2': FFDataSourceMode.live,
   };
 
   /// Whether [endpointKey] should use mock data. Honors a per-endpoint

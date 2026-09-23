@@ -1394,8 +1394,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           context.pushNamed(
-                                                              LeaveHubPageWidget
-                                                                  .routeName);
+                                                            LeaveWebviewPageWidget
+                                                                .routeName,
+                                                            queryParameters: {
+                                                              'webUrl':
+                                                                  serializeParam(
+                                                                FFAppState()
+                                                                    .urlStorageData
+                                                                    .leaveWebUrl,
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
                                                         },
                                                         child: Container(
                                                           width: 100.0,
