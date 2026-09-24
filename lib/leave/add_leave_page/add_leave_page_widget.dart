@@ -26,7 +26,7 @@ class AddLeavePageWidget extends StatefulWidget {
     String? nextYear,
     String? currentYearSelectableDates,
     String? nextYearSelectableDates,
-    List<dynamic>? leavePeriods,
+    this.leavePeriods,
     String? previousYear,
     String? previousYearSelectableDates,
   })  : this.leaveType = leaveType ?? '',
@@ -36,7 +36,6 @@ class AddLeavePageWidget extends StatefulWidget {
         this.nextYear = nextYear ?? '',
         this.currentYearSelectableDates = currentYearSelectableDates ?? '',
         this.nextYearSelectableDates = nextYearSelectableDates ?? '',
-        this.leavePeriods = leavePeriods ?? [],
         this.previousYear = previousYear ?? '',
         this.previousYearSelectableDates = previousYearSelectableDates ?? '';
 
