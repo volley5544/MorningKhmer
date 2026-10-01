@@ -649,25 +649,28 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         }
 
                                         if (!isWeb) {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return AlertDialog(
-                                                title: Text(
-                                                    'ការប្រើប្រាស់ទីតាំង (Location)'),
-                                                content: Text(
-                                                    'កម្មវិធី Morning Khmer ត្រូវការចូលប្រើទីតាំង (GPS) របស់អ្នក ដើម្បីកត់ត្រាម៉ោងចូល-ចេញធ្វើការ និងផ្ទៀងផ្ទាត់ថាអ្នកកំពុងស្ថិតនៅកន្លែងធ្វើការ។ ទីតាំងរបស់អ្នកនឹងត្រូវបានប្រើតែសម្រាប់គោលបំណងនេះប៉ុណ្ណោះ ហើយនឹងមិនត្រូវបានចែករំលែកទៅភាគីទីបីឡើយ។ សូមចុច \"OK\" ដើម្បីបន្ត ហើយអនុញ្ញាតការចូលប្រើទីតាំងនៅជំហានបន្ទាប់។'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('OK'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          );
+                                          if (!(await getPermissionStatus(
+                                              locationPermission))) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return AlertDialog(
+                                                  title: Text(
+                                                      'ការប្រើប្រាស់ទីតាំង (Location)'),
+                                                  content: Text(
+                                                      'កម្មវិធី Morning Khmer ត្រូវការចូលប្រើទីតាំង (GPS) របស់អ្នក ដើម្បីកត់ត្រាម៉ោងចូល-ចេញធ្វើការ និងផ្ទៀងផ្ទាត់ថាអ្នកកំពុងស្ថិតនៅកន្លែងធ្វើការ។ ទីតាំងរបស់អ្នកនឹងត្រូវបានប្រើតែសម្រាប់គោលបំណងនេះប៉ុណ្ណោះ ហើយនឹងមិនត្រូវបានចែករំលែកទៅភាគីទីបីឡើយ។ សូមចុច \"OK\" ដើម្បីបន្ត ហើយអនុញ្ញាតការចូលប្រើទីតាំងនៅជំហានបន្ទាប់។'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('OK'),
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            );
+                                          }
                                           await requestPermission(
                                               locationPermission);
                                           if (await getPermissionStatus(
@@ -722,30 +725,65 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
 
                                           _model.permissionRequestOutput =
                                               await actions
-                                                  .backgroundLocationPermission();
+                                                  .backgroundLocationPermission(
+                                            isiOS,
+                                          );
                                           _shouldSetState = true;
                                           if (!_model
                                               .permissionRequestOutput!) {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return AlertDialog(
-                                                  content: Text(
-                                                      'សូមជ្រើសរើស \"អនុញ្ញាតគ្រប់ពេល\" ចូលទៅកាន់ទីតាំងរបស់អ្នក ដើម្បីតាមដានការងាររបស់អ្នក។'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
+                                            if (isiOS) {
+                                              _model.permissionRequestOutput2 =
+                                                  await actions
+                                                      .backgroundLocationPermission(
+                                                isiOS,
+                                              );
+                                              _shouldSetState = true;
+                                              if (!_model
+                                                  .permissionRequestOutput2!) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return AlertDialog(
+                                                      content: Text(
+                                                          'សូមជ្រើសរើស \"អនុញ្ញាតគ្រប់ពេល\" ចូលទៅកាន់ទីតាំងរបស់អ្នក ដើម្បីតាមដានការងាររបស់អ្នក។'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
                                                 );
-                                              },
-                                            );
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                                return;
+                                              }
+                                            } else {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return AlertDialog(
+                                                    content: Text(
+                                                        'សូមជ្រើសរើស \"អនុញ្ញាតគ្រប់ពេល\" ចូលទៅកាន់ទីតាំងរបស់អ្នក ដើម្បីតាមដានការងាររបស់អ្នក។'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              );
+                                              if (_shouldSetState)
+                                                safeSetState(() {});
+                                              return;
+                                            }
                                           }
                                           _model.checkGpsEnable = await actions
                                               .checkGpsServiceEnable();

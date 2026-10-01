@@ -44,9 +44,9 @@ class LoginCall {
 
     final ffApiRequestBody = '''
 {
-  "username": "${escapeStringForJson(username)}",
-  "password": "${escapeStringForJson(password)}",
-  "project_name": "${escapeStringForJson(projectName)}"
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'},
+  "password": ${password == null ? 'null' : '"${escapeStringForJson(password)}"'},
+  "project_name": ${projectName == null ? 'null' : '"${escapeStringForJson(projectName)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'login',
@@ -88,7 +88,7 @@ class ProfileCall {
 
     final ffApiRequestBody = '''
 {
-  "token": "${escapeStringForJson(token)}"
+  "token": ${token == null ? 'null' : '"${escapeStringForJson(token)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'profile',
@@ -197,11 +197,11 @@ class WorkCheckCall {
 
     final ffApiRequestBody = '''
 {
-  "latitude": "${escapeStringForJson(latitude)}",
-  "longitude": "${escapeStringForJson(longitude)}",
-  "url_img": "${escapeStringForJson(urlImg)}",
-  "branch": "${escapeStringForJson(branch)}",
-  "remark": "${escapeStringForJson(remark)}"
+  "latitude": ${latitude == null ? 'null' : '"${escapeStringForJson(latitude)}"'},
+  "longitude": ${longitude == null ? 'null' : '"${escapeStringForJson(longitude)}"'},
+  "url_img": ${urlImg == null ? 'null' : '"${escapeStringForJson(urlImg)}"'},
+  "branch": ${branch == null ? 'null' : '"${escapeStringForJson(branch)}"'},
+  "remark": ${remark == null ? 'null' : '"${escapeStringForJson(remark)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'work check',
@@ -372,7 +372,7 @@ class LeaveSaveCall {
     String? leaveDateList = '',
   }) async {
     final ffApiRequestBody = '''
-{"leave_type":"${leaveType}","leave_start_date":"${leaveStartDate}","leave_end_date":"${leaveEndDate}","leave_period":"${leavePeriod}","leave_reason":"${leaveReason}","leave_document":"${leaveDocument}","leave_date":"${leaveDateList}"}''';
+{"leave_type":${leaveType == null ? 'null' : '"${leaveType}"'},"leave_start_date":${leaveStartDate == null ? 'null' : '"${leaveStartDate}"'},"leave_end_date":${leaveEndDate == null ? 'null' : '"${leaveEndDate}"'},"leave_period":${leavePeriod == null ? 'null' : '"${leavePeriod}"'},"leave_reason":${leaveReason == null ? 'null' : '"${leaveReason}"'},"leave_document":${leaveDocument == null ? 'null' : '"${leaveDocument}"'},"leave_date":${leaveDateList == null ? 'null' : '"${leaveDateList}"'}}''';
     if (FFDataSource.isMockFor('kdgm6wd8')) {
       return MockApiAdapter.leaveSaveCall(
         url: url,
@@ -487,7 +487,7 @@ class LeaveSaveStatusCall {
     String? reason = '',
   }) async {
     final ffApiRequestBody = '''
-{"id":"${idList}","status":"${status}","reason":"${reason}"}''';
+{"id":${idList == null ? 'null' : '"${idList}"'},"status":${status == null ? 'null' : '"${status}"'},"reason":${reason == null ? 'null' : '"${reason}"'}}''';
     if (FFDataSource.isMockFor('tixckfah')) {
       return MockApiAdapter.leaveSaveStatusCall(
         url: url,

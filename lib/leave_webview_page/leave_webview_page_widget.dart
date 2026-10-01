@@ -64,7 +64,7 @@ class _LeaveWebviewPageWidgetState extends State<LeaveWebviewPageWidget> {
               employeeId: FFAppState().profileAppState.empCode,
               fullName: FFAppState().profileAppState.fullName,
               headOfWork: FFAppState().profileAppState.headOfWork,
-              language: 'en',
+              language: FFLocalizations.of(context).languageCode,
               nickName: FFAppState().profileAppState.nickName,
               phone: FFAppState().profileAppState.mobileNumber,
               position: FFAppState().profileAppState.positionName,

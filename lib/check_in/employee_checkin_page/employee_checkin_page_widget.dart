@@ -100,20 +100,6 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
         Navigator.pop(context);
         return;
       }
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return AlertDialog(
-            content: Text('finish on load'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(alertDialogContext),
-                child: Text('Ok'),
-              ),
-            ],
-          );
-        },
-      );
       _model.locationListData = CheckInGroup.locationListCall.results(
         (_model.apiResultjii?.jsonBody ?? ''),
       );

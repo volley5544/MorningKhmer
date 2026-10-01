@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 
-Future<bool> backgroundLocationPermission() async {
+Future<bool> backgroundLocationPermission(bool? isIOS) async {
   // Add your function code here!
   bool output = false;
   var status = await Permission.locationWhenInUse.status;
@@ -20,6 +20,9 @@ Future<bool> backgroundLocationPermission() async {
     var status = await Permission.locationWhenInUse.request();
     if (status.isGranted) {
       var status = await Permission.locationAlways.request();
+      if (isIOS!) {
+        await Future.delayed(Duration(seconds: 10)); // Allow iOS to catch up
+      }
       if (status.isGranted) {
         //Do some stuff
         output = status.isGranted;
@@ -41,6 +44,9 @@ Future<bool> backgroundLocationPermission() async {
     var status = await Permission.locationAlways.status;
     if (!status.isGranted) {
       var status = await Permission.locationAlways.request();
+      if (isIOS!) {
+        await Future.delayed(Duration(seconds: 10)); // Allow iOS to catch up
+      }
       if (status.isGranted) {
         //Do some stuff
         output = status.isGranted;

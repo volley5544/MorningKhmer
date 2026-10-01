@@ -25,6 +25,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   bool? backgroundLocationCheck;
   // Stores action output result for [Custom Action - backgroundLocationPermission] action in Button widget.
   bool? permissionRequestOutput;
+  // Stores action output result for [Custom Action - backgroundLocationPermission] action in Button widget.
+  bool? permissionRequestOutput2;
   // Stores action output result for [Custom Action - checkGpsServiceEnable] action in Button widget.
   bool? checkGpsEnable;
   // Stores action output result for [Custom Action - checkGpsServiceEnable] action in Button widget.

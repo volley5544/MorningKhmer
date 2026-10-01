@@ -14,14 +14,12 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-/// Hosts the Morning Khmer leave web app.
-///
-/// The web app has no login of its own: it waits for a `session` message on
-/// `window.MorningKhmerWeb.receive`. An `index.html` shim queues anything sent
-/// before Flutter boots, so pushing the session on load is safe.
+import '/environment_values.dart';
+
+/// Hosts the Morning Khmer leave web app and hands it the session over the
+/// MorningKhmerWeb JS bridge.
 class LeaveWebView extends StatefulWidget {
   const LeaveWebView({
     super.key,
@@ -76,6 +74,14 @@ class _LeaveWebViewState extends State<LeaveWebView> {
   String? _error;
   int _reloads = 0;
 
+  /// Whether the WebView may load yet.
+  ///
+  /// Production goes straight in. Non-production shows the resolved URL first
+  /// so a tester can see which build they are about to open — UAT and prod are
+  /// visually identical once loaded, and the URL comes from Firestore, so
+  /// there is otherwise no way to tell them apart.
+  bool _confirmed = true;
+
   /// FlutterFlow passes page params and the auth token as nullable, so every
   /// parameter here is `String?` and read through this.
   static String _s(String? value) => value?.trim() ?? '';
@@ -86,7 +92,60 @@ class _LeaveWebViewState extends State<LeaveWebView> {
   @override
   void initState() {
     super.initState();
-    _startTimeout();
+    if (FFDevEnvironmentValues().isProduction) {
+      _startTimeout();
+      return;
+    }
+    // // Nothing loads until the tester confirms.
+    // _confirmed = false;
+    // WidgetsBinding.instance.addPostFrameCallback((_) => _confirmUrl());
+  }
+
+  /// Non-production only: show the URL about to be opened, and let the tester
+  /// back out. The URL carries no token — the session goes over the JS bridge
+  /// — so it is safe to display.
+  Future<void> _confirmUrl() async {
+    final proceed = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Open leave web app'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('This build is not production. URL:'),
+            const SizedBox(height: 10),
+            SelectableText(
+              _url,
+              style: const TextStyle(
+                fontFamily: 'monospace',
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(dialogContext, true),
+            child: const Text('Open'),
+          ),
+        ],
+      ),
+    );
+
+    if (!mounted) return;
+    if (proceed == true) {
+      setState(() => _confirmed = true);
+      _startTimeout();
+    } else {
+      _close();
+    }
   }
 
   @override
@@ -191,60 +250,64 @@ class _LeaveWebViewState extends State<LeaveWebView> {
         height: widget.height,
         child: Stack(
           children: [
-            InAppWebView(
-              initialUrlRequest: URLRequest(url: WebUri(_url)),
-              initialSettings: InAppWebViewSettings(
-                javaScriptEnabled: true,
-                transparentBackground: true,
-                useHybridComposition: true,
-                allowsInlineMediaPlayback: true,
-                // iOS edge-swipe walks the embedded SPA's history, which
-                // nothing here can intercept, and strands the user.
-                allowsBackForwardNavigationGestures: false,
-                supportZoom: false,
-                // Never leave a live employee session scriptable over a cable.
-                isInspectable: false,
+            // Held back until _confirmUrl resolves on non-production builds,
+            // so nothing is fetched before the tester has seen the URL.
+            if (_confirmed)
+              InAppWebView(
+                initialUrlRequest: URLRequest(url: WebUri(_url)),
+                initialSettings: InAppWebViewSettings(
+                  javaScriptEnabled: true,
+                  transparentBackground: true,
+                  useHybridComposition: true,
+                  allowsInlineMediaPlayback: true,
+                  // iOS edge-swipe walks the embedded SPA's history, which
+                  // nothing here can intercept, and strands the user.
+                  allowsBackForwardNavigationGestures: false,
+                  supportZoom: false,
+                  // Never leave a live employee session scriptable over a cable.
+                  isInspectable: false,
+                ),
+                onWebViewCreated: (controller) {
+                  _controller = controller;
+                  controller.addJavaScriptHandler(
+                    handlerName: 'MorningKhmerBridge',
+                    callback: (args) {
+                      if (args.isNotEmpty)
+                        _handleBridgeMessage('${args.first}');
+                      return null;
+                    },
+                  );
+                },
+                onLoadStop: (controller, url) async {
+                  _timeout?.cancel();
+                  if (mounted) setState(() => _loading = false);
+                  await _sendSession();
+                },
+                onReceivedError: (controller, request, error) {
+                  if (request.isForMainFrame != true) return;
+                  _timeout?.cancel();
+                  if (mounted) {
+                    setState(() => _error =
+                        'Could not reach the leave page. (${error.description})');
+                  }
+                },
+                onReceivedHttpError: (controller, request, response) {
+                  if (request.isForMainFrame != true) return;
+                  _timeout?.cancel();
+                  if (mounted) {
+                    setState(() => _error =
+                        'The leave page returned ${response.statusCode}.');
+                  }
+                },
+                onWebContentProcessDidTerminate: (controller) {
+                  if (_reloads++ < _maxAutoReloads) {
+                    controller.reload();
+                  } else if (mounted) {
+                    setState(() => _error =
+                        'The leave page closed repeatedly. Please try again.');
+                  }
+                },
               ),
-              onWebViewCreated: (controller) {
-                _controller = controller;
-                controller.addJavaScriptHandler(
-                  handlerName: 'MorningKhmerBridge',
-                  callback: (args) {
-                    if (args.isNotEmpty) _handleBridgeMessage('${args.first}');
-                    return null;
-                  },
-                );
-              },
-              onLoadStop: (controller, url) async {
-                _timeout?.cancel();
-                if (mounted) setState(() => _loading = false);
-                await _sendSession();
-              },
-              onReceivedError: (controller, request, error) {
-                if (request.isForMainFrame != true) return;
-                _timeout?.cancel();
-                if (mounted) {
-                  setState(() => _error =
-                      'Could not reach the leave page. (${error.description})');
-                }
-              },
-              onReceivedHttpError: (controller, request, response) {
-                if (request.isForMainFrame != true) return;
-                _timeout?.cancel();
-                if (mounted) {
-                  setState(() => _error =
-                      'The leave page returned ${response.statusCode}.');
-                }
-              },
-              onWebContentProcessDidTerminate: (controller) {
-                if (_reloads++ < _maxAutoReloads) {
-                  controller.reload();
-                } else if (mounted) {
-                  setState(() => _error =
-                      'The leave page closed repeatedly. Please try again.');
-                }
-              },
-            ),
             if (_loading && _error == null)
               const ColoredBox(
                 color: Colors.white,

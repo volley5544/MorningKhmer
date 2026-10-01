@@ -2553,6 +2553,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'km': '',
     },
+    'eunrzcp8': {
+      'th':
+          'We need to track your location even when the app is in the background.',
+      'en': '',
+      'km': '',
+    },
+    's08jw77n': {
+      'th': 'We need continuous access to your location for accurate tracking.',
+      'en': '',
+      'km': '',
+    },
     'ncb7s6is': {
       'th': '',
       'en': '',
