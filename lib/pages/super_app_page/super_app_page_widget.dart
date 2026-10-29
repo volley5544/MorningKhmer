@@ -83,18 +83,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         },
       );
 
-      await actions.getBackgroundLocation(
-        currentUserData?.employeeId,
-        currentUserData?.mobilePhone,
-        isAndroid ? 'Android' : 'iOS',
-        FFAppState().deviceId,
-      );
-      await actions.periodicGetLocation(
-        currentUserData?.employeeId,
-        currentUserData?.mobilePhone,
-        isAndroid ? 'Android' : 'iOS',
-        FFAppState().deviceId,
-      );
+      if (!FFAppState().isInApp) {
+        FFAppState().isLoginNew = true;
+        safeSetState(() {});
+        await actions.getBackgroundLocation(
+          currentUserData?.employeeId,
+          currentUserData?.mobilePhone,
+          isAndroid ? 'Android' : 'iOS',
+          FFAppState().deviceId,
+        );
+        await actions.periodicGetLocation(
+          currentUserData?.employeeId,
+          currentUserData?.mobilePhone,
+          isAndroid ? 'Android' : 'iOS',
+          FFAppState().deviceId,
+        );
+        FFAppState().isInApp = true;
+        safeSetState(() {});
+      }
       _model.appConfigOutput = await queryAppConfigRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
@@ -414,6 +420,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               HapticFeedback.mediumImpact();
+                              FFAppState().isLoginNew = false;
+                              FFAppState().isInApp = false;
+                              safeSetState(() {});
                               GoRouter.of(context).prepareAuthEvent();
                               await authManager.signOut();
                               GoRouter.of(context).clearRedirectLocation();
@@ -449,7 +458,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                       ),
                                 ),
                                 trailing: FaIcon(
-                                  FontAwesomeIcons.signOutAlt,
+                                  FaIconData(const IconData(
+                                      /* signOutAlt */ 0xf2f5,
+                                      fontFamily: 'FontAwesomeSolid',
+                                      fontPackage: 'font_awesome_flutter')),
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   size: 20.0,

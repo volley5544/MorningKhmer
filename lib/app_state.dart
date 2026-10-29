@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show ChangeNotifier, Color, Colors, VoidCallback;
 import '/backend/backend.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -189,6 +190,14 @@ class FFAppState extends ChangeNotifier {
 
   void insertAtIndexInSelectedDatesList(int index, DateTime value) {
     selectedDatesList.insert(index, value);
+  }
+
+  /// True once background location tracking has been started in this app
+  /// session; prevents duplicate timers.
+  bool _isInApp = false;
+  bool get isInApp => _isInApp;
+  set isInApp(bool value) {
+    _isInApp = value;
   }
 }
 

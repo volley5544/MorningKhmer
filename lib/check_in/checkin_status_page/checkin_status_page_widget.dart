@@ -161,7 +161,9 @@ class _CheckinStatusPageWidgetState extends State<CheckinStatusPageWidget>
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 15.0, 0.0),
               child: FaIcon(
-                FontAwesomeIcons.exclamationTriangle,
+                FaIconData(const IconData(/* exclamationTriangle */ 0xf071,
+                    fontFamily: 'FontAwesomeSolid',
+                    fontPackage: 'font_awesome_flutter')),
                 color: Colors.white,
                 size: 35.0,
               ),

@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart' hide Type;
 
 import '/backend/schema/util/firestore_util.dart';
 
@@ -210,8 +210,15 @@ class LocationDataModelStruct extends FFFirebaseStruct {
   }
 
   @override
-  int get hashCode => const ListEquality().hash(
-      [group, multiRegion, empCode, fullname, position, total, listLocation]);
+  int get hashCode => const ListEquality().hash([
+        const ListEquality().hash(group),
+        const ListEquality().hash(multiRegion),
+        empCode,
+        fullname,
+        position,
+        total,
+        const ListEquality().hash(listLocation)
+      ]);
 }
 
 LocationDataModelStruct createLocationDataModelStruct({

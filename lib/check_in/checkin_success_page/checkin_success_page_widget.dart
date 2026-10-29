@@ -48,7 +48,7 @@ class _CheckinSuccessPageWidgetState extends State<CheckinSuccessPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondary,
+        backgroundColor: Color(0xFF39D2C0),
         body: SafeArea(
           top: true,
           child: Column(

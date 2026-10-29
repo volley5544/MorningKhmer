@@ -174,7 +174,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                               '1lpsqcjf' /* Please select the month you wa... */,
                             ),
                             icon: FaIcon(
-                              FontAwesomeIcons.solidCalendarAlt,
+                              FaIconData(const IconData(
+                                  /* solidCalendarAlt */ 0xf073,
+                                  fontFamily: 'FontAwesomeSolid',
+                                  fontPackage: 'font_awesome_flutter')),
                               size: 15.0,
                             ),
                             fillColor: Colors.white,
@@ -259,7 +262,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                             '6z72qpuf' /* Please select the month you wa... */,
                           ),
                           icon: FaIcon(
-                            FontAwesomeIcons.solidCalendarAlt,
+                            FaIconData(const IconData(
+                                /* solidCalendarAlt */ 0xf073,
+                                fontFamily: 'FontAwesomeSolid',
+                                fontPackage: 'font_awesome_flutter')),
                             size: 15.0,
                           ),
                           fillColor: Colors.white,

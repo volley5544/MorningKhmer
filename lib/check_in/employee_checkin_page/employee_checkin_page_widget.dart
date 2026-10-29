@@ -272,7 +272,9 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                     safeSetState(() {});
                   },
                   child: FaIcon(
-                    FontAwesomeIcons.camera,
+                    FaIconData(const IconData(/* camera */ 0xf030,
+                        fontFamily: 'FontAwesomeRegular',
+                        fontPackage: 'font_awesome_flutter')),
                     color: Colors.white,
                     size: 40.0,
                   ),
@@ -428,7 +430,11 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 20.0, 0.0),
                                         child: FaIcon(
-                                          FontAwesomeIcons.times,
+                                          FaIconData(const IconData(
+                                              /* times */ 0xf00d,
+                                              fontFamily: 'FontAwesomeSolid',
+                                              fontPackage:
+                                                  'font_awesome_flutter')),
                                           color: Color(0xFFDE1013),
                                           size: 30.0,
                                         ),
@@ -1198,9 +1204,18 @@ class _EmployeeCheckinPageWidgetState extends State<EmployeeCheckinPageWidget> {
                       child: custom_widgets.DrawCircleMap(
                         width: double.infinity,
                         height: double.infinity,
-                        latitude: 13.8055358,
-                        longitude: 100.3462335,
-                        radiusLo: 50.0,
+                        latitude: _model.dropDownBranchValue != null &&
+                                _model.dropDownBranchValue != ''
+                            ? (double.parse(_model.locationSelected!.latitude))
+                            : 0.0,
+                        longitude: _model.dropDownBranchValue != null &&
+                                _model.dropDownBranchValue != ''
+                            ? (double.parse(_model.locationSelected!.longitude))
+                            : 0.0,
+                        radiusLo: _model.dropDownBranchValue != null &&
+                                _model.dropDownBranchValue != ''
+                            ? (double.parse(_model.locationSelected!.radius))
+                            : 0.0,
                         currentLoLat:
                             functions.getLatitude(currentUserLocationValue),
                         currentLoLng:

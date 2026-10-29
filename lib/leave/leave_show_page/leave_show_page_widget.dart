@@ -172,7 +172,9 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                         'kcxlfllh' /* Please select the month you wa... */,
                       ),
                       icon: FaIcon(
-                        FontAwesomeIcons.solidCalendarAlt,
+                        FaIconData(const IconData(/* solidCalendarAlt */ 0xf073,
+                            fontFamily: 'FontAwesomeSolid',
+                            fontPackage: 'font_awesome_flutter')),
                         size: 15.0,
                       ),
                       fillColor: Colors.white,
@@ -223,7 +225,9 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                     'wxm753ko' /* Please select the month you wa... */,
                   ),
                   icon: FaIcon(
-                    FontAwesomeIcons.solidCalendarAlt,
+                    FaIconData(const IconData(/* solidCalendarAlt */ 0xf073,
+                        fontFamily: 'FontAwesomeSolid',
+                        fontPackage: 'font_awesome_flutter')),
                     size: 15.0,
                   ),
                   fillColor: Colors.white,
@@ -1539,8 +1543,12 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                             'dfrcgliu' /* Edit */,
                                                           ),
                                                           icon: FaIcon(
-                                                            FontAwesomeIcons
-                                                                .edit,
+                                                            FaIconData(const IconData(
+                                                                /* edit */ 0xf044,
+                                                                fontFamily:
+                                                                    'FontAwesomeRegular',
+                                                                fontPackage:
+                                                                    'font_awesome_flutter')),
                                                             size: 22.0,
                                                           ),
                                                           options:

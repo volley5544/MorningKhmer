@@ -1719,8 +1719,12 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                 '1hactgyx' /* Approve */,
                                                               ),
                                                               icon: FaIcon(
-                                                                FontAwesomeIcons
-                                                                    .checkCircle,
+                                                                FaIconData(const IconData(
+                                                                    /* checkCircle */ 0xf058,
+                                                                    fontFamily:
+                                                                        'FontAwesomeRegular',
+                                                                    fontPackage:
+                                                                        'font_awesome_flutter')),
                                                                 size: 20.0,
                                                               ),
                                                               options:
@@ -1810,8 +1814,12 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                 'hd1zpea4' /* Do not approve */,
                                                               ),
                                                               icon: FaIcon(
-                                                                FontAwesomeIcons
-                                                                    .ban,
+                                                                FaIconData(const IconData(
+                                                                    /* ban */ 0xf05e,
+                                                                    fontFamily:
+                                                                        'FontAwesomeSolid',
+                                                                    fontPackage:
+                                                                        'font_awesome_flutter')),
                                                                 size: 18.0,
                                                               ),
                                                               options:
